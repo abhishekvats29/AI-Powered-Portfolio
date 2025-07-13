@@ -1,0 +1,14 @@
+.react-chatbot-kit-chat-input {
+  background-color: #f3f4f6 !important; /* Tailwind gray-100 */
+  color: #111827 !important;            /* Tailwind gray-900 */
+  padding: 12px !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  caret-color: #3B82F6 !important;      /* blue typing cursor */
+}
+
+.react-chatbot-kit-chat-input::placeholder {
+  color: #9ca3af !important; /* Tailwind gray-400 */
+  opacity: 0.9 !important;
+}
