@@ -42,9 +42,7 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 ## 📸 Screenshots
 
-| Hero Section | Chatbot |
-|--------------|---------|
-| ![) | ![Chatbot](<img width="1847" height="874" alt="Image" src="https://github.com/user-attachments/assets/f6e09694-72f2-448c-bdce-d46b25cd68ee" />) |
+(<img width="1847" height="874" alt="Image" src="https://github.com/user-attachments/assets/f6e09694-72f2-448c-bdce-d46b25cd68ee" />) |
 
 
 
