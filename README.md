@@ -44,9 +44,9 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 | Hero Section | Chatbot |
 |--------------|---------|
-| ![Hero](./public/screenshots/hero.png) | ![Chatbot](./public/screenshots/chatbot.png) |
+| ![) | ![Chatbot](<img width="1847" height="874" alt="Image" src="https://github.com/user-attachments/assets/f6e09694-72f2-448c-bdce-d46b25cd68ee" />) |
 
-*(Optional — you can add screenshots in `/public/screenshots` and adjust paths)*
+
 
 ---
 
