@@ -24,9 +24,8 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 ## 🌐 Live Demo
 
-👉 [Click here to visit the live portfolio](https://your-vercel-url.vercel.app)
+👉 [Click here to visit] (https://abhishekai.vercel.app/)
 
-*(Replace this with your actual deployed link)*
 
 ---
 
