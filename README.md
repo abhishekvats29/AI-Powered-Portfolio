@@ -6,15 +6,15 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 ---
 
-## 🚀 Features
+## Features
 
-### 🤖 AI-Personal Assistant
+### AI-Personal Assistant
 > Engage with an AI chatbot that answers questions about me — my background, skills, experience, and education.
 
-### 🧠 AI Project Guide
+### AI Project Guide
 > A separate AI assistant that provides direct links to my live projects, GitHub repos, and social profiles — with descriptions.
 
-### 💼 Full-Stack Integration
+### Full-Stack Integration
 - Responsive design built with **React + TailwindCSS**
 - **EmailJS** for instant contact
 - **Firebase Storage** integration for secure file uploads
@@ -29,7 +29,7 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React, TailwindCSS, Framer Motion
 - **Chatbot Engine**: react-chatbot-kit
@@ -40,7 +40,7 @@ This is not just a static website — it’s an intelligent, fully responsive po
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 (<img width="1847" height="874" alt="Image" src="https://github.com/user-attachments/assets/f6e09694-72f2-448c-bdce-d46b25cd68ee" />) |
 
@@ -49,7 +49,7 @@ This is not just a static website — it’s an intelligent, fully responsive po
 ---
 
 
-## 📣 Why This Portfolio?
+## Why This Portfolio?
 
 > Designed not just to **showcase**, but to **interact**.
 
@@ -60,13 +60,13 @@ Recruiters and collaborators can:
 
 ---
 
-## 🧠 Bonus: AI with Personality
+## Bonus: AI with Personality
 
 Each chatbot is crafted with its own tone and purpose — one is a professional guide to my work, the other is a personal assistant that reflects who I am.
 
 ---
 
-## ⭐ Like what you see?
+## Like what you see?
 
 Feel free to ⭐ star this repo or reach out for collaboration!
 
