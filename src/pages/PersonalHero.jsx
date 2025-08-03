@@ -58,8 +58,8 @@ const PersonalHero = () => {
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
 
-      {/* Back Button (Fixed Right Side) */}
-      <div className="fixed top-20 right-6 z-50 group">
+      {/* Back Button - Desktop Only */}
+      <div className="fixed top-20 right-6 z-50 group hidden md:block">
         <button
           onClick={() => navigate('/')}
           className="w-11 h-11 flex items-center justify-center rounded-full

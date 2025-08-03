@@ -6,6 +6,7 @@ import {
   FaCss3Alt,
   FaGitAlt,
   FaGithub,
+  FaPython,
 } from 'react-icons/fa';
 import {
   SiJavascript,
@@ -34,6 +35,7 @@ const skillData = [
   {
     title: 'Backend',
     skills: [
+      { icon: <FaPython className="text-yellow-400" />, name: 'Python' },
       { icon: <FaNodeJs className="text-green-500" />, name: 'Node.js' },
       { icon: <SiFlask className="text-gray-300" />, name: 'Flask' },
       { icon: <SiFastapi className="text-teal-300" />, name: 'FastAPI' },

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 
@@ -16,29 +16,14 @@ const images = [
 ];
 
 const PersonalGallery = () => {
-  const scrollRef = useRef();
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const scroll = (direction) => {
-    const container = scrollRef.current;
-    const scrollAmount = container.offsetWidth;
-    container.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-  };
-
-  const openImage = (index) => setSelectedIndex(index);
-  const closeImage = () => setSelectedIndex(null);
-  const showNext = () => setSelectedIndex((prev) => (prev + 1) % images.length);
-  const showPrev = () => setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
-
-  useEffect(() => {
-    let interval;
-    if (selectedIndex !== null) {
-      interval = setInterval(() => {
-        showNext();
-      }, 3000);
-    }
-    return () => clearInterval(interval);
-  }, [selectedIndex]);
+  const showNext = () => setCurrent((prev) => (prev + 1) % images.length);
+  const showPrev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const handlers = useSwipeable({
     onSwipedLeft: showNext,
@@ -46,66 +31,87 @@ const PersonalGallery = () => {
     trackMouse: true,
   });
 
+  useEffect(() => {
+    if (paused || isModalOpen) return;
+    const interval = setInterval(showNext, 4000);
+    return () => clearInterval(interval);
+  }, [paused, isModalOpen]);
+
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
-      <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 shadow-2xl">
+      <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 shadow-2xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-widest">
           My Personal Gallery
         </h2>
 
-        <div className="relative">
-          {/* Scroll Buttons */}
+        <div
+          className="relative w-full h-[60vh] sm:h-[70vh] flex items-center justify-center"
+          {...handlers}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Prev Button */}
           <button
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-white text-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
+            onClick={showPrev}
+            className="absolute left-2 sm:left-4 z-10 bg-black/60 text-white hover:bg-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
           >
             ‹
           </button>
+
+          {/* Next Button */}
           <button
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-white text-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
+            onClick={showNext}
+            className="absolute right-2 sm:right-4 z-10 bg-black/60 text-white hover:bg-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
           >
             ›
           </button>
 
-          {/* Image Slider */}
-          <motion.div
-            ref={scrollRef}
-            className="flex overflow-x-auto space-x-6 scrollbar-hide px-6 pb-2"
-            whileTap={{ cursor: 'grabbing' }}
-          >
-            {images.map((img, index) => (
-              <motion.div
-                key={index}
-                className="min-w-[80%] sm:min-w-[45%] lg:min-w-[28%] aspect-[3/4] relative rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition"
-                onClick={() => openImage(index)}
-              >
-                <div className="h-full w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg overflow-hidden">
-                  <img
-                    src={`/images/${img.src}`}
-                    alt={img.caption}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-center py-2 text-sm font-medium">
-                    {img.caption}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {/* Image + Caption */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.6 }}
+              onClick={openModal}
+            >
+              <div className="w-full h-full rounded-xl overflow-hidden border border-white/20 shadow-xl">
+                <img
+                  src={`/images/${images[current].src}`}
+                  alt={images[current].caption}
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+              <p className="mt-4 text-center text-white font-medium">{images[current].caption}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`w-3 h-3 rounded-full transition ${
+                index === current ? 'bg-white' : 'bg-white/30'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
       {/* Fullscreen Modal */}
       <AnimatePresence>
-        {selectedIndex !== null && (
+        {isModalOpen && (
           <motion.div
             className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            {...handlers}
-            onClick={closeImage}
+            onClick={closeModal}
           >
             <div
               className="relative w-full max-w-4xl mx-auto flex items-center justify-center"
@@ -119,12 +125,12 @@ const PersonalGallery = () => {
                 transition={{ duration: 0.4 }}
               >
                 <img
-                  src={`/images/${images[selectedIndex].src}`}
+                  src={`/images/${images[current].src}`}
                   alt="Fullscreen"
                   className="rounded-xl max-h-[85vh] object-contain w-full"
                 />
                 <div className="text-center text-white text-sm mt-3 font-medium">
-                  {images[selectedIndex].caption}
+                  {images[current].caption}
                 </div>
               </motion.div>
 
@@ -141,7 +147,7 @@ const PersonalGallery = () => {
                 ›
               </button>
               <button
-                onClick={closeImage}
+                onClick={closeModal}
                 className="absolute top-4 right-4 text-white text-3xl bg-black/60 rounded-full px-4 py-1 hover:bg-red-500 hover:text-white transition"
               >
                 ✕

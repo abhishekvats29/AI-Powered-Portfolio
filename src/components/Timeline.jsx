@@ -18,7 +18,7 @@ const timelineItems = [
       'Developed discipline, analytical thinking, and persistence during intensive entrance exam preparation.',
   },
   {
-    title: '🎓 B.Tech in Engineering',
+    title: '🎓 B.Tech in Computer Science & Engineering',
     subtitle: 'Bachelor’s Degree',
     icon: <FaGraduationCap className="text-white" />,
     description:

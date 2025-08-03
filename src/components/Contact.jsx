@@ -56,7 +56,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 px-6 bg-gradient-to-b from-[#102e4a] to-[#0d1a2d] text-white"
+      className="py-20 px-6 bg-gradient-to-b from-[#102040] to-[#1a2c4a] text-white"
+
+
     >
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Get In Touch</h2>
@@ -150,7 +152,7 @@ const Contact = () => {
                 </div>
               ) : success ? (
                 <div className="text-green-400 font-semibold animate-bounce">
-                  ✅ Message Sent!
+                   ✅ Message Sent!
                 </div>
               ) : (
                 <>

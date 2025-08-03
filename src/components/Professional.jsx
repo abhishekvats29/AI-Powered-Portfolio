@@ -1,9 +1,11 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import Timeline from '../components/Timeline';
+import Certifications from "../components/Certifications";
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
-import Timeline from '../components/Timeline'; // adjust path as needed
+
 import Contact from '../components/Contact';
 import ChatbotLauncher from "../components/professionalchatbot/ChatbotLauncher";
 
@@ -21,6 +23,16 @@ export default function Professional() {
         <About />
       </section>
 
+      {/* Timeline Section */}
+      <section id="Timeline">
+        <Timeline />
+      </section>
+
+      {/* Certificate Section */}
+      <section id="Certifications">
+        <Certifications />
+      </section>
+
       {/* Projects Section */}
       <section id="projects">
         <Projects />
@@ -31,10 +43,6 @@ export default function Professional() {
         <Skills />
       </section>
 
-      {/* Timeline Section */}
-      <section id="Timeline">
-        <Timeline />
-      </section>
 
       {/* Contact Section */}
       <section id="Contact">

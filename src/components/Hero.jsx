@@ -1,54 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowLeft, FaWhatsapp } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Hero = () => {
   const navigate = useNavigate();
-  const phoneNumber = "919508721988";
-  const prefilledMessage = "Hi Abhishek, I visited your portfolio!";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(prefilledMessage)}`;
 
   return (
     <section className="relative min-h-screen bg-[url('/images/bg7.avif')] bg-cover bg-center flex items-center justify-center px-4 pt-32 sm:pt-36">
 
-      {/* Fixed Glassmorphic Back Button */}
-      {/* Go Back Button with Enhanced Glassmorphic Feel and Tooltip */}
-<div className="fixed top-20 right-6 z-50 group">
-  <button
-    onClick={() => navigate('/')}
-    className="w-12 h-12 rounded-full flex items-center justify-center
-               bg-white/10 backdrop-blur-lg border border-white/40
-               hover:scale-105 active:scale-95 transition-all duration-300
-               shadow-[inset_0_0_10px_rgba(255,255,255,0.3),0_4px_20px_rgba(255,255,255,0.1)]"
-  >
-    <FaArrowLeft className="text-white text-lg drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)]" />
-  </button>
-
-  {/* Tooltip with Horizontal Layout and Max 2 Lines */}
-  <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300 w-max max-w-[150px]">
-    <div className="bg-white/10 text-white text-sm font-medium px-3 py-1 rounded-lg border border-white/20 backdrop-blur-md">
-      Go Back to Home
-    </div>
-  </div>
-</div>
-
-
-      {/* Fixed WhatsApp Button Below Back Button */}
-      <div className="fixed top-36 right-6 z-50 group">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/40 backdrop-blur-lg hover:scale-105 transition-all duration-300"
+      {/* Fixed Glassmorphic Back Button (Visible only on sm and up) */}
+      <div className="hidden sm:flex fixed top-20 right-6 z-50 group">
+        <button
+          onClick={() => navigate('/')}
+          className="w-12 h-12 rounded-full flex items-center justify-center
+                     bg-white/10 backdrop-blur-lg border border-white/40
+                     hover:scale-105 active:scale-95 transition-all duration-300
+                     shadow-[inset_0_0_10px_rgba(255,255,255,0.3),0_4px_20px_rgba(255,255,255,0.1)]"
         >
-          <FaWhatsapp className="text-green-300 text-xl" />
-        </a>
+          <FaArrowLeft className="text-white text-lg drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)]" />
+        </button>
 
         {/* Tooltip */}
-        <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-          <div className="bg-white/10 text-white px-3 py-1 rounded-lg border border-white/20 text-sm font-medium backdrop-blur-md">
-            Chat on WhatsApp
+        <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300 w-max max-w-[150px]">
+          <div className="bg-white/10 text-white text-sm font-medium px-3 py-1 rounded-lg border border-white/20 backdrop-blur-md">
+            Go Back to Home
           </div>
         </div>
       </div>
@@ -95,7 +71,7 @@ const Hero = () => {
           </motion.p>
 
           <a
-            href="https://drive.google.com/file/d/1vMG3rRvA8b94oKGy7fTP9SpVO6ysCQJz/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1AkxzQVSFUR-r3JHOa0rl6CCRYXzVuUMi/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-md transition duration-300"

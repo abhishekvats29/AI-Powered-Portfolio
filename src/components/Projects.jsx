@@ -9,8 +9,17 @@ const projects = [
     image: '/images/project1-lfs.png',
     liveLink: 'https://lightweight-feedback-system-1.netlify.app/',
   },
+
   {
     id: 2,
+    title: 'OneBox Email Aggregator',
+    description:
+      '📧 Onebox Email Aggregator is a full-stack web app that connects multiple email accounts into a single inbox. It features real-time email syncing and an AI chatbot that suggests smart replies based on email content.',
+    image: '/images/Email Box.png',
+    liveLink: 'https://onebox-email-aggregator-z6h0.onrender.com/',
+  },
+  {
+    id: 3,
     title: 'Candy Crush Game',
     description:
       '🎮 Built a Candy Crush–style matching game using React and Tailwind CSS, featuring interactive drag-and-drop mechanics, real-time state updates, and responsive design for a smooth gaming experience.',
@@ -18,7 +27,7 @@ const projects = [
     liveLink: 'https://vats-game.netlify.app/',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Fitness Booking API',
     description:
       '🔄 Developed a RESTful Fitness Class Booking API using FastAPI and SQLite, enabling users to browse, book, and manage fitness classes with proper validation, error handling, and time zone support.',
@@ -26,7 +35,7 @@ const projects = [
     liveLink: 'https://fitness-booking-api.onrender.com/docs',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Online Quiz Platform',
     description:
       '🧠 Developed an interactive quiz platform with timed questions, instant scoring, multiple question types, and a dynamic leaderboard for real-time competition.',
@@ -34,7 +43,7 @@ const projects = [
     liveLink: 'https://vats-quiz-app.netlify.app/',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Tic-Tac-Toe Game',
     description:
       '❌⭕ Built a classic Tic Tac Toe game with responsive UI, real-time win detection, and reset functionality for smooth two-player interaction.',
@@ -42,7 +51,7 @@ const projects = [
     liveLink: 'https://vats-game1.netlify.app/',
   },
   {
-    id: 6,
+    id: 7,
     title: 'MCP File Manager',
     description:
       '📝 A full stack file management system built using ReactJS (Frontend) and Flask (Backend), Users can upload, edit, delete, and view files — with file system operations performed on the server.',

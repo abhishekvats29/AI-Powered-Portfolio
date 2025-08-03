@@ -9,14 +9,9 @@ import MessageParser from "./MessageParser.jsx";
 import { Minimize2 } from "lucide-react";
 
 const PersonalAssistant = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false); // Set to false by default
   const [clearTrigger, setClearTrigger] = useState(false);
   const [botReady, setBotReady] = useState(false);
-
-  useEffect(() => {
-    const audio = new Audio("/sounds/welcome1.mp3");
-    audio.play().catch((e) => console.warn("Welcome sound blocked:", e));
-  }, []);
 
   const clearChat = () => {
     localStorage.removeItem("chat_history");

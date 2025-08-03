@@ -4,14 +4,25 @@ import { motion } from "framer-motion";
 
 export default function FooterPersonal() {
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowTopBtn(window.scrollY > 300);
+      const currentScrollY = window.scrollY;
+
+      // Show button only if user scrolled up AND they’re not at the top
+      if (currentScrollY < lastScrollY && currentScrollY > 300) {
+        setShowTopBtn(true);
+      } else {
+        setShowTopBtn(false);
+      }
+
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -51,7 +62,6 @@ export default function FooterPersonal() {
           Made with all my ❤️ — Abhishek Vats
         </h3>
 
-        {/* ❤️ 🌹 Static Center Icons */}
         <div className="flex justify-center items-center space-x-6 text-2xl mt-6 mb-4">
           <motion.div whileHover={{ scale: 1.3 }} transition={{ duration: 0.3 }}>
             🌹
@@ -69,11 +79,12 @@ export default function FooterPersonal() {
         </p>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top Button (only shows when scrolling up) */}
       {showTopBtn && (
         <button
           onClick={scrollToTop}
           className="fixed bottom-6 right-6 z-50 bg-pink-500 text-white text-xl p-3 rounded-full hover:bg-white hover:text-pink-600 transition shadow-lg"
+          title="Scroll to Top"
         >
           <FaHeart />
         </button>

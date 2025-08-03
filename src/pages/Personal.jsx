@@ -2,11 +2,12 @@ import React from 'react';
 import NavbarPersonal from './NavbarPersonal';
 import PersonalHero from './PersonalHero';
 import PersonalAbout from './PersonalAbout';
+import PersonalTimeline from './PersonalTimeline';
 import CreativitySection from './CreativitySection';
 import PersonalGallery from './PersonalGallery';
-import PersonalTimeline from './PersonalTimeline';
+
 import ConnectSection from './ConnectSection';
-import PersonalAssistant from './PersonalBot/PersonalAssistant'; // ✅ Path to full assistant
+import PersonalAssistant from './PersonalBot/PersonalAssistant'; //  Path to full assistant
 
 const Personal = () => {
   return (
@@ -24,6 +25,10 @@ const Personal = () => {
           <PersonalAbout />
         </section>
 
+        <section id="timeline">
+          <PersonalTimeline />
+        </section>
+
         <section id="creativity">
           <CreativitySection />
         </section>
@@ -32,16 +37,13 @@ const Personal = () => {
           <PersonalGallery />
         </section>
 
-        <section id="timeline">
-          <PersonalTimeline />
-        </section>
 
         <section id="connect">
           <ConnectSection />
         </section>
       </main>
 
-      {/* ✅ All chatbot UI inside this */}
+      {/*  All chatbot UI inside this */}
       <PersonalAssistant />
     </div>
   );

@@ -18,18 +18,29 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowTopBtn(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // Show button only when scrolling up and scrolled down past 300px
+    if (currentScrollY < lastScrollY && currentScrollY > 300) {
+      setShowTopBtn(true);
+    } else {
+      setShowTopBtn(false);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const techIcons = [
     SiReact,
@@ -128,7 +139,7 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top Button (only when scrolling up) */}
       {showTopBtn && (
         <button
           onClick={scrollToTop}
