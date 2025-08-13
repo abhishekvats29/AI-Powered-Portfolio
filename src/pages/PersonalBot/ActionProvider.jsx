@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   // 🔔 Play notification sound on message
@@ -7,8 +7,38 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     audio.play();
   };
 
+  // 🧠 Random thinking phrases for realism
+  const thinkingPhrases = [
+    "Hmm, let me think...",
+    "Just a moment, processing your request...",
+    "Analyzing...",
+    "Interesting question, give me a second...",
+    "Alright, here’s what I found..."
+  ];
+
   // 💬 Typing indicator → then show message with avatar
   const showTypingThenMessage = (messageText, delay = 800, options = {}) => {
+    // ⏳ Variable typing delay for realism
+    const variableDelay = delay + Math.floor(Math.random() * 700);
+
+    // 🎭 Random chance to show a thinking phrase before actual reply
+    const shouldThink = Math.random() < 0.3;
+    let preMessage = null;
+    if (shouldThink) {
+      preMessage = createChatBotMessage(
+        thinkingPhrases[Math.floor(Math.random() * thinkingPhrases.length)],
+        {
+          widget: "typing",
+          loading: true,
+          avatar: "/images/AI.avif",
+        }
+      );
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, preMessage],
+      }));
+    }
+
     const typingMessage = createChatBotMessage("...", {
       widget: "typing",
       loading: true,
@@ -30,91 +60,129 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         messages: [...prev.messages.slice(0, -1), newMsg],
       }));
       playNotificationSound();
-    }, delay);
+    }, variableDelay);
   };
 
-  // 🎭 Personal Page FAQs
+  // 🆕 Prefilled greeting message on chatbot load
+  useEffect(() => {
+    const greetingMsg = createChatBotMessage(
+      "👋 Hi, I’m Abhishek’s AI Assistant. How can I help you today? You can also type 'clear chat' anytime to start fresh.",
+      { avatar: "/images/AI.avif" }
+    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, greetingMsg],
+    }));
+    playNotificationSound();
+  }, []);
+
+  /* ===== PERSONAL PAGE ===== */
   const handleAbout = () => {
     showTypingThenMessage(
-      "✨ I'm **Abhishek** – a passionate soul blending art, dreams, and cinematic vibes into life 💫. Want to know about my creativity, timeline or memories? 😊"
+      "✨ I'm **Abhishek Vats** creatively driven individual inspired by art, storytelling, and human connections. \n\n I love capturing moments, expressing emotions, and exploring creativity through music, travel, and visual expression."
     );
   };
 
   const handleCreativity = () => {
     showTypingThenMessage(
-      "🎨 *Creativity fuels my spirit!* I love sketching, painting, and expressing emotions through visual art. It's where logic meets imagination 🌈."
+      "🎨 Creativity fuels my spirit! I love exploring design trends, experimenting with UI animations, and blending technology with aesthetics. When not coding, I enjoy sketching and creative storytelling."
     );
   };
 
   const handleGallery = () => {
     showTypingThenMessage(
-      "📸 My gallery is a collection of heartfelt memories — from adventures, college snapshots, to artistic captures. **Every picture tells a story. ❤️**"
+      "📸 My gallery is a blend of **travel memories, project snapshots, and digital art**. Each image reflects a part of my journey — both personal and professional."
     );
   };
 
   const handleTimeline = () => {
     showTypingThenMessage(
-      "🧭 My life journey? A beautiful mix of *culture*, *Bollywood dreams*, *art*, *music*, and *tech exploration* 🌍. Want a sneak peek? Just ask!"
+      "🧭My journey began in a culturally rich environment that shaped my values, traditions, and creativity."
     );
   };
 
   const handleMotivation = () => {
     showTypingThenMessage(
-      "💡 I'm driven by curiosity, creativity, and a constant desire to grow. Whether it’s through learning or creating, I believe in pushing boundaries. 🚀"
+      "💡 I’m motivated by curiosity and the thrill of solving complex problems. Every challenge is a chance to learn and every project is an opportunity to create something meaningful."
     );
   };
 
-  // 🧑‍💼 Professional Page FAQs
+  /* ===== PROFESSIONAL PAGE ===== */
   const handleSkills = () => {
     showTypingThenMessage(
-      "🛠️ I specialize in **Python, React, Tailwind CSS, Flask, FastAPI, SQLite**, and love crafting seamless web experiences with a creative edge 💻✨."
+      "Whether it's sketching,\n painting, or designing \n — I love turning imagination into something visual and meaningful."
     );
   };
 
   const handleProjects = () => {
     showTypingThenMessage(
-      "📂 I've worked on diverse projects including a **Feedback System**, **Fitness Booking API**, and a **Portfolio with AI Chatbot**. Each reflects a blend of creativity and functionality."
+      "📂 Some of my notable projects:\n1. Whether it's sketching, painting, or designing. \n2. I love turning imagination into something visual and meaningful."
     );
   };
 
   const handleExperience = () => {
     showTypingThenMessage(
-      "💼 I’ve worked on real-world assignments as a **Python Developer Trainee**, building end-to-end solutions using modern full-stack tools."
+      "💼 A coder by profession, but also a creative soul who blends technology with expression and storytelling."
     );
   };
 
   const handleEducation = () => {
     showTypingThenMessage(
-      "🎓 I hold a degree in Computer Science and have completed multiple online certifications to sharpen my skills and stay industry-ready."
+      "🎓 I hold a **Bachelor's degree in Computer Science** and have completed certifications in Full Stack Development, Python, and Data Science to stay ahead in the tech curve."
     );
   };
 
   const handleAssistantIntro = () => {
     showTypingThenMessage(
-      "🤖 Hi! I’m Abhishek’s AI Assistant. I can guide you through his portfolio — ask me about his **skills, projects, personal life**, or anything else you'd like to know! 😊"
+      "🤖 Hi! I’m Abhishek’s AI Assistant. You can ask me about his **Creativity, projects, education, hobbies**, or even career advice! I also understand commands like clear chat."
     );
   };
 
-  // 📬 Contact info
+  /* ===== EXTRA REAL-AI QUESTIONS ===== */
+  const handleHobbies = () => {
+    showTypingThenMessage(
+      "🎯 Outside coding, Abhishek enjoys **photography, sketching, reading about emerging tech trends, and fitness activities**. Balance is key to creativity!"
+    );
+  };
+
+  const handleFutureGoals = () => {
+    showTypingThenMessage(
+      "🚀 My future goals? To work on AI-driven applications that positively impact millions, and to keep refining my skills in cloud computing, data engineering, and deep learning."
+    );
+  };
+
+  const handleFunFact = () => {
+    showTypingThenMessage(
+      "🎉 Fun fact: Abhishek once built a complete **web app in less than 48 hours** during a hackathon — and yes, it worked perfectly on the first run!"
+    );
+  };
+
+  const handleTechStack = () => {
+    showTypingThenMessage(
+      "💻 Tech Stack:\nFrontend → JavaScript, React, Tailwind CSS\nBackend → Python, FastAPI, Flask\nDB → SQLite, MySQL\nTools → Git, VS Code, Docker"
+    );
+  };
+
+  /* ===== CONTACT ===== */
   const handleContact = () => {
     showTypingThenMessage(
-      "📬 You can reach me via:\n\n- [LinkedIn](https://linkedin.com/in/yourprofile)\n- [Email](mailto:you@example.com)\n- [GitHub](https://github.com/yourusername)"
+      "📬 You can reach Abhishek via:\n- [LinkedIn](https://linkedin.com/in/abhishekvats29)\n- [Email](abhishekvats4567@gmail.com)\n- [GitHub](https://github.com/abhishekvats29)"
     );
   };
 
-  // 📄 Resume
+  /* ===== RESUME ===== */
   const handleResume = () => {
     showTypingThenMessage(
-      "📄 Here's my resume: [Click to Download](https://yourdomain.com/resume.pdf)"
+      "📄 Here’s Abhishek’s resume: [Click to Download](https://drive.google.com/file/d/1AkxzQVSFUR-r3JHOa0rl6CCRYXzVuUMi/view?usp=drive_link/resume.pdf)"
     );
   };
 
-  // ✅ CLEAR CHAT COMMAND
+  /* ===== CLEAR CHAT ===== */
   const handleClearChat = () => {
     localStorage.removeItem("chat_history");
     setState({ messages: [] });
 
-    const clearedMsg = createChatBotMessage("✅ Chat history has been cleared.", {
+    const clearedMsg = createChatBotMessage("✅ Chat history cleared.", {
       avatar: "/images/AI.avif",
     });
 
@@ -126,14 +194,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     playNotificationSound();
   };
 
-  // 😐 Fallback
+  /* ===== DEFAULT / UNKNOWN ===== */
   const handleDefault = () => {
     showTypingThenMessage(
-      "🤔 I'm not sure how to respond to that yet. You can ask me about **Abhishek’s creativity**, **projects**, **skills**, or even life timeline! 💡"
+      "🤔 I’m not sure about that yet. You can ask me about Abhishek’s **projects, skills, hobbies, education, or goals**!"
     );
   };
 
-  // 🧠 Custom message
+  /* ===== CUSTOM REPLY ===== */
   const handleCustomReply = (replyText) => {
     showTypingThenMessage(replyText);
   };
@@ -150,9 +218,13 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       handleExperience,
       handleEducation,
       handleAssistantIntro,
+      handleHobbies,
+      handleFutureGoals,
+      handleFunFact,
+      handleTechStack,
       handleContact,
       handleResume,
-      handleClearChat,  // 🆕 Included here
+      handleClearChat,
       handleDefault,
       handleCustomReply,
     },

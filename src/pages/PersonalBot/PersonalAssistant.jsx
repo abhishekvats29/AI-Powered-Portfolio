@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
 import "./ChatbotOverrides.css";
@@ -9,7 +9,8 @@ import MessageParser from "./MessageParser.jsx";
 import { Minimize2 } from "lucide-react";
 
 const PersonalAssistant = () => {
-  const [open, setOpen] = useState(false); // Set to false by default
+  console.log("PersonalAssistant mounted");
+  const [open, setOpen] = useState(false);
   const [clearTrigger, setClearTrigger] = useState(false);
   const [botReady, setBotReady] = useState(false);
 
@@ -30,20 +31,25 @@ const PersonalAssistant = () => {
 
   const handleBotInit = ({ setState, createChatBotMessage }) => {
     if (!botReady) {
-      const welcome = createChatBotMessage(
-        "Hey! I’m Abhishek’s AI Assistant. How can I help you today?",
-        { avatar: "/images/AI.avif" }
-      );
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, welcome],
-      }));
+      // Check if welcome message was already shown
+      const shownBefore = localStorage.getItem("welcome_message_shown");
+      if (!shownBefore) {
+        const welcome = createChatBotMessage(
+          "Hey! I’m Abhishek’s AI Assistant. How can I help you today?",
+          { avatar: "/images/AI.avif" }
+        );
+        setState((prev) => ({
+          ...prev,
+          messages: [...prev.messages, welcome],
+        }));
+        localStorage.setItem("welcome_message_shown", "true");
+      }
       setBotReady(true);
     }
   };
 
   return (
-    <div className="fixed bottom-44 right-6 sm:right-6 z-50 flex flex-col items-end space-y-3">
+    <div className="fixed bottom-20 right-6 sm:right-6 z-50 flex flex-col items-end space-y-3">
       {open ? (
         <div className="relative w-[90vw] max-w-[420px] h-[75vh] max-h-[540px] rounded-2xl shadow-xl backdrop-blur-md border border-white/20 bg-black/40 overflow-hidden">
           <button
@@ -124,12 +130,10 @@ const PersonalAssistant = () => {
         </div>
       ) : (
         <div className="relative group flex items-center gap-3">
-          {/* Tooltip beside icon */}
           <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-white/10 text-white text-xs px-3 py-2 rounded-md backdrop-blur border border-white/20 shadow-md max-w-[130px] whitespace-normal opacity-0 group-hover:opacity-100 transition-all duration-300 text-center">
             Chat with Abhishek AI Assistant
           </div>
 
-          {/* Chat Icon Button */}
           <button
             onClick={toggleChat}
             className="p-1 rounded-full shadow-xl border border-white/30 bg-black/30 backdrop-blur hover:scale-105 transition"

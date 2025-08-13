@@ -17,10 +17,10 @@ import FooterProfessional from "./components/FooterProfessional";
 function App() {
   return (
     <Routes>
-      {/* Home - No navbars or footers */}
+      {/* Home - No navbar or footer */}
       <Route path="/" element={<Home />} />
 
-      {/* Personal Page - Shows only Personal navbar/footer */}
+      {/* Personal Page - Only Personal navbar and footer */}
       <Route
         path="/personal"
         element={
@@ -32,7 +32,7 @@ function App() {
         }
       />
 
-      {/* Professional Page - Shows only Professional navbar/footer */}
+      {/* Professional Page - Only Professional navbar and footer */}
       <Route
         path="/professional"
         element={

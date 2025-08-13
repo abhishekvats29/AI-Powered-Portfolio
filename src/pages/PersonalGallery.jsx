@@ -1,109 +1,144 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useSwipeable } from 'react-swipeable';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = [
-  { src: 'vats11.jpeg', caption: 'Worship Days' },
-  { src: 'vats2.jpeg', caption: 'With Family' },
-  { src: 'vats3.jpeg', caption: 'Travel Diaries' },
-  { src: 'vats4.jpeg', caption: 'Friends Forever' },
-  { src: 'vats5.jpeg', caption: 'Stage Performance' },
-  { src: 'vats6.jpeg', caption: 'Childhood Memories' },
-  { src: 'vats7.jpeg', caption: 'Graduation Day' },
-  { src: 'vats8.jpeg', caption: 'Random Click' },
-  { src: 'vats9.jpeg', caption: 'Fun Moments' },
-  { src: 'vats10.jpeg', caption: 'College Trip' },
+  { src: "vats11.jpeg", caption: "Worship Days" },
+  { src: "vats2.jpeg", caption: "With Family" },
+  { src: "vats3.jpeg", caption: "Travel Diaries" },
+  { src: "vats4.jpeg", caption: "Friends Forever" },
+  { src: "vats5.jpeg", caption: "Stage Performance" },
+  { src: "vats6.jpeg", caption: "Childhood Memories" },
+  { src: "vats7.jpeg", caption: "Graduation Day" },
+  { src: "vats8.jpeg", caption: "Random Click" },
+  { src: "vats9.jpeg", caption: "Fun Moments" },
+  { src: "vats10.jpeg", caption: "College Trip" },
 ];
 
-const PersonalGallery = () => {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
+export default function PersonalGallery() {
+  const scrollRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
-  const showNext = () => setCurrent((prev) => (prev + 1) % images.length);
-  const showPrev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  const openModal = () => setIsModalOpen(true);
+  // Continuous auto-scroll like conveyor belt
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationFrame;
+    let speed = 0.4; // lower is slower
+
+    const scrollStep = () => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        scrollContainer.scrollLeft = 0; // loop to start
+      } else {
+        scrollContainer.scrollLeft += speed;
+      }
+      animationFrame = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrame = requestAnimationFrame(scrollStep);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  const openModal = (index) => {
+    setCurrent(index);
+    setIsModalOpen(true);
+  };
   const closeModal = () => setIsModalOpen(false);
 
-  const handlers = useSwipeable({
-    onSwipedLeft: showNext,
-    onSwipedRight: showPrev,
-    trackMouse: true,
-  });
+  const showPrev = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const showNext = () => setCurrent((prev) => (prev + 1) % images.length);
 
-  useEffect(() => {
-    if (paused || isModalOpen) return;
-    const interval = setInterval(showNext, 4000);
-    return () => clearInterval(interval);
-  }, [paused, isModalOpen]);
+  // Swipe detection for mobile modal
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      showNext();
+    }
+    if (touchEndX.current - touchStartX.current > 50) {
+      showPrev();
+    }
+  };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
-      <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 shadow-2xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-widest">
-          My Personal Gallery
-        </h2>
+    <section className="relative py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
+      {/* Thin white line above section */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40"></div>
 
-        <div
-          className="relative w-full h-[60vh] sm:h-[70vh] flex items-center justify-center"
-          {...handlers}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-widest">
+        My Personal Gallery
+      </h2>
+
+      <div className="relative">
+        {/* Left arrow */}
+        <button
+          onClick={() =>
+            scrollRef.current.scrollBy({
+              left: -(window.innerWidth < 768 ? 220 : 300),
+              behavior: "smooth",
+            })
+          }
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full z-10"
         >
-          {/* Prev Button */}
-          <button
-            onClick={showPrev}
-            className="absolute left-2 sm:left-4 z-10 bg-black/60 text-white hover:bg-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
-          >
-            ‹
-          </button>
+          <ChevronLeft size={28} />
+        </button>
 
-          {/* Next Button */}
-          <button
-            onClick={showNext}
-            className="absolute right-2 sm:right-4 z-10 bg-black/60 text-white hover:bg-white hover:text-black text-2xl px-3 py-1 rounded-full transition"
-          >
-            ›
-          </button>
-
-          {/* Image + Caption */}
-          <AnimatePresence mode="wait">
+        {/* Scroll container */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto space-x-4 scrollbar-hide"
+        >
+          {images.concat(images).map((img, index) => ( // duplicate for infinite loop feel
             <motion.div
-              key={current}
-              className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.6 }}
-              onClick={openModal}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex-shrink-0 w-56 md:w-72"
             >
-              <div className="w-full h-full rounded-xl overflow-hidden border border-white/20 shadow-xl">
+              <div
+                className="bg-black border border-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
+                onClick={() => openModal(index % images.length)}
+              >
                 <img
-                  src={`/images/${images[current].src}`}
-                  alt={images[current].caption}
-                  className="w-full h-full object-cover rounded-xl"
+                  src={`/images/${img.src}`}
+                  alt={img.caption}
+                  className="w-full h-40 md:h-56 object-contain bg-black"
                 />
               </div>
-              <p className="mt-4 text-center text-white font-medium">{images[current].caption}</p>
+              <p className="mt-3 text-center text-sm md:text-base font-medium">
+                {img.caption}
+              </p>
             </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Dot Indicators */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full transition ${
-                index === current ? 'bg-white' : 'bg-white/30'
-              }`}
-            />
           ))}
         </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={() =>
+            scrollRef.current.scrollBy({
+              left: window.innerWidth < 768 ? 220 : 300,
+              behavior: "smooth",
+            })
+          }
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full z-10"
+        >
+          <ChevronRight size={28} />
+        </button>
       </div>
 
-      {/* Fullscreen Modal */}
+      {/* Fullscreen modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -114,8 +149,11 @@ const PersonalGallery = () => {
             onClick={closeModal}
           >
             <div
-              className="relative w-full max-w-4xl mx-auto flex items-center justify-center"
+              className="relative w-full max-w-5xl mx-auto flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <motion.div
                 className="rounded-2xl bg-black p-2 border-4 border-white shadow-2xl max-w-[95vw] max-h-[90vh]"
@@ -134,6 +172,7 @@ const PersonalGallery = () => {
                 </div>
               </motion.div>
 
+              {/* Prev / Next buttons */}
               <button
                 onClick={showPrev}
                 className="absolute left-2 md:left-6 text-white text-4xl bg-black/60 rounded-full px-3 py-1 hover:bg-white hover:text-black transition"
@@ -148,9 +187,9 @@ const PersonalGallery = () => {
               </button>
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 text-white text-3xl bg-black/60 rounded-full px-4 py-1 hover:bg-red-500 hover:text-white transition"
+                className="absolute top-4 right-4 text-white text-3xl bg-black/60 rounded-full px-4 py-1 hover:bg-red-500 transition"
               >
-                ✕
+                <X />
               </button>
             </div>
           </motion.div>
@@ -158,6 +197,4 @@ const PersonalGallery = () => {
       </AnimatePresence>
     </section>
   );
-};
-
-export default PersonalGallery;
+}

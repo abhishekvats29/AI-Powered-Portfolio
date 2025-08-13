@@ -3,14 +3,11 @@ import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
-import { ChevronDown, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
 const PersonalHero = () => {
-  const navigate = useNavigate();
-
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    await loadFull(engine); // Required for tsparticles@3
   }, []);
 
   return (
@@ -40,7 +37,6 @@ const PersonalHero = () => {
           backgroundImage: "url('/images/vats1.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
         }}
         initial={{ scale: 1 }}
         animate={{ scale: 1.1 }}
@@ -57,31 +53,6 @@ const PersonalHero = () => {
 
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
-
-      {/* Back Button - Desktop Only */}
-      <div className="fixed top-20 right-6 z-50 group hidden md:block">
-        <button
-          onClick={() => navigate('/')}
-          className="w-11 h-11 flex items-center justify-center rounded-full
-          bg-pink-600 border border-white
-          shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_4px_8px_rgba(0,0,0,0.4)]
-          hover:scale-105 active:scale-95 transition-all duration-300"
-        >
-          <ArrowLeft className="text-white w-5 h-5" />
-        </button>
-
-        {/* Tooltip */}
-        <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-          <div className="bg-white/10 text-white text-xs px-3 py-1 rounded-md border border-white/30 backdrop-blur-sm text-center leading-tight max-w-[130px] shadow">
-            Go Back Home
-          </div>
-        </div>
-      </div>
-
-      {/* Signature Text */}
-      <div className="absolute bottom-5 left-6 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
-        — Abhishek Vats
-      </div>
 
       {/* Hero Content */}
       <motion.div
@@ -117,6 +88,11 @@ const PersonalHero = () => {
       {/* Scroll Down Icon */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <ChevronDown className="text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+      </div>
+
+      {/* Signature on right-bottom */}
+      <div className="absolute bottom-5 right-6 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
+        — Abhishek Vats
       </div>
     </section>
   );

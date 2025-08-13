@@ -12,3 +12,25 @@
   color: #9ca3af !important; /* Tailwind gray-400 */
   opacity: 0.9 !important;
 }
+
+.react-chatbot-kit-chat-message {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Ensure chatbot messages are never cut off */
+.react-chatbot-kit-chat-message-container {
+  max-height: none !important;
+  overflow-y: auto !important; /* scroll only if needed */
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+/* Ensure individual message bubbles expand fully */
+.react-chatbot-kit-chat-bot-message {
+  max-width: 100% !important;
+  overflow: visible !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}

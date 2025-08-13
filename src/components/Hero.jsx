@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [showGlassCard, setShowGlassCard] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowGlassCard(window.scrollY < 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="relative min-h-screen bg-[url('/images/bg7.avif')] bg-cover bg-center flex items-center justify-center px-4 pt-32 sm:pt-36">
+    <section
+      className="relative min-h-screen bg-[url('/images/bg7.avif')] bg-cover bg-center flex flex-col items-center justify-center px-4 pt-32 sm:pt-36"
+    >
+      {/* Glass Card fixed at top, full width, behind left navbar */}
+      {showGlassCard && (
+        <div
+          className="fixed top-0 left-0 right-0 h-16
+            bg-white/10 backdrop-blur-md border-b border-white/20
+            shadow-md z-10"
+          style={{ pointerEvents: 'none' }}
+        />
+      )}
 
       {/* Fixed Glassmorphic Back Button (Visible only on sm and up) */}
       <div className="hidden sm:flex fixed top-20 right-6 z-50 group">
@@ -17,6 +38,7 @@ const Hero = () => {
                      bg-white/10 backdrop-blur-lg border border-white/40
                      hover:scale-105 active:scale-95 transition-all duration-300
                      shadow-[inset_0_0_10px_rgba(255,255,255,0.3),0_4px_20px_rgba(255,255,255,0.1)]"
+          aria-label="Go Back to Home"
         >
           <FaArrowLeft className="text-white text-lg drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)]" />
         </button>
@@ -40,7 +62,7 @@ const Hero = () => {
         <motion.div
           className="absolute -top-20 sm:-top-24 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, -8, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
         >
           <img
             src="/images/profile.jpeg"

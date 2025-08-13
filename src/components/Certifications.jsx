@@ -53,55 +53,60 @@ const Certifications = () => {
   };
 
   useEffect(() => {
-    const startAutoSlide = () => {
-      intervalRef.current = setInterval(() => {
-        if (!hoverRef.current) {
-          setCurrentIndex((prev) => (prev + 1) % certifications.length);
-        }
-      }, 5000); // 5s
-    };
+    intervalRef.current = setInterval(() => {
+      if (!hoverRef.current) {
+        setCurrentIndex((prev) => (prev + 1) % certifications.length);
+      }
+    }, 5000);
 
-    startAutoSlide();
     return () => clearInterval(intervalRef.current);
   }, []);
 
   return (
-    <section id="certifications" className="py-20 px-6 bg-gradient-to-b from-[#102040] to-[#1a2c4a] text-white"
- >
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10">Certifications</h2>
+    <section
+      id="certifications"
+      className="py-20 px-6 bg-gradient-to-b from-[#102040] to-[#1a2c4a] text-white"
+    >
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-12 tracking-tight">Certifications</h2>
 
         <div className="relative flex items-center justify-center">
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 bg-white/10 hover:bg-white/20 rounded-full p-2 z-10"
+            className="absolute left-4 bg-white/10 hover:bg-white/20 rounded-full p-2 z-10 backdrop-blur-md border border-white/20 shadow-md transition-colors"
           >
-            <ChevronLeft size={32} className="text-white" />
+            <ChevronLeft size={28} className="text-white" />
           </button>
 
-          {/* Certificate Card */}
+          {/* Certificate Image */}
           <div
-            className="w-full max-w-md bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl transition-all duration-500"
+            className="w-full max-w-3xl"
             onMouseEnter={() => (hoverRef.current = true)}
             onMouseLeave={() => (hoverRef.current = false)}
           >
-            <a href={certifications[currentIndex].link} target="_blank" rel="noopener noreferrer">
+            <a
+              href={certifications[currentIndex].link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
               <img
                 src={certifications[currentIndex].image}
                 alt={certifications[currentIndex].title}
-                className="rounded-lg mx-auto object-contain max-h-96 hover:scale-105 transition-transform duration-300"
+                className="w-full h-[450px] object-contain rounded-lg border border-white/20 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
               />
             </a>
             <h3 className="text-xl font-semibold mt-4">{certifications[currentIndex].title}</h3>
+            <p className="text-sm text-white/70">Click to view credential</p>
           </div>
 
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-0 bg-white/10 hover:bg-white/20 rounded-full p-2 z-10"
+            className="absolute right-4 bg-white/10 hover:bg-white/20 rounded-full p-2 z-10 backdrop-blur-md border border-white/20 shadow-md transition-colors"
           >
-            <ChevronRight size={32} className="text-white" />
+            <ChevronRight size={28} className="text-white" />
           </button>
         </div>
 
@@ -111,9 +116,11 @@ const Certifications = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-white" : "bg-white/30"
-              } hover:bg-white/70 transition`}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentIndex
+                  ? "bg-white scale-125 shadow-sm"
+                  : "bg-white/40 hover:bg-white/70"
+              }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
