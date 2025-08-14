@@ -53,6 +53,10 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-b from-[#0d1a2d] to-[#0c1523] py-16 px-4 border-t border-white/20 overflow-hidden">
+
+      {/* Bottom Animated Glowing Line */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-line"></div>
+
       {/* Floating Tech Icons Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {techIcons.map((Icon, i) => (

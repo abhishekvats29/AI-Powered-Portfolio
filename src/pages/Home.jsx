@@ -1,8 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { FaUser, FaBriefcase, FaWhatsapp, FaHome, FaEnvelope, FaRobot } from "react-icons/fa";
-import { MessageCircle } from "lucide-react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { FaLinkedin, FaGithub, FaTwitter, } from "react-icons/fa";
+
 import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
+import {
+  FaUser,
+  FaBriefcase,
+  FaWhatsapp,
+  FaHome,
+  FaEnvelope,
+  FaRobot,
+  FaArrowRight,
+} from "react-icons/fa";
+import { MessageCircle } from "lucide-react";
 import ContactModal from "../components/ContactModal";
 import ChatbotLauncher from "../components/professionalchatbot/ChatbotLauncher";
 import PersonalAssistant from "../pages/PersonalBot/PersonalAssistant";
@@ -12,73 +24,312 @@ export default function Home() {
   const [showCineBot, setShowCineBot] = useState(false);
   const [showProBot, setShowProBot] = useState(false);
 
-  const openWhatsApp = () => {
-    window.open("https://wa.me/9508721988", "_blank");
+  const openWhatsApp = () => window.open("https://wa.me/9508721988", "_blank");
+
+  // Framer Motion variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: i * 0.08, ease: "easeOut" },
+    }),
   };
 
   return (
-    <div
-      className="min-h-screen w-full flex flex-col items-center relative text-white px-4 sm:px-6 bg-cover bg-center overflow-auto"
-      style={{ backgroundImage: "url('/images/bg7.avif')" }}
-    >
-      {/* Overlay for contrast */}
-      <div className="absolute inset-0 bg-black/50 z-0" />
+    <div className="relative min-h-screen w-full overflow-x-hidden text-white">
+      {/* ---------- Animated Depth Background ---------- */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-950" />
 
-      <div className="relative z-10 flex flex-col items-center justify-start w-full max-w-6xl space-y-8 py-12">
-        {/* Header Text */}
-        <h1 className="text-center text-5xl sm:text-6xl font-extrabold text-white relative mb-2 overflow-hidden">
-          WELCOME
-          <span className="absolute inset-0 shimmer-glow-blue" />
-        </h1>
+      {/* Glass overlay for clarity */}
+      <div className="absolute inset-0 -z-10 bg-black/60 backdrop-blur-[2px]" />
 
-        <p className="text-center text-white/90 text-sm sm:text-base mb-8">
-          Abhishek's Digital Universe — Innovating with Code & Emotions
-        </p>
-
-        {/* Cards Section */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.25} glareColor="#ffffff">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 md:p-8 hover:shadow-blue-400/40 transition duration-300 ease-in-out">
-              <div className="flex justify-center mb-3">
-                <FaBriefcase className="text-blue-300 text-4xl" />
-              </div>
-              <h2 className="text-xl font-bold text-center mb-2">Tech Portfolio</h2>
-              <p className="text-sm text-center text-white/90 mb-4">
-                Dive into my projects, tech stack, and work experience.
-              </p>
-              <div className="text-center">
-                <Link to="/professional" className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-full text-white text-sm">
-                  💼 Tech Portfolio
-                </Link>
-              </div>
-            </div>
-          </Tilt>
-
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.25} glareColor="#ffb6c1">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 md:p-8 hover:shadow-pink-400/40 transition duration-300 ease-in-out">
-              <div className="flex justify-center mb-3">
-                <FaUser className="text-pink-300 text-4xl" />
-              </div>
-              <h2 className="text-xl font-bold text-center mb-2">Life Beyond Code</h2>
-              <p className="text-sm text-center text-white/90 mb-4">
-                Explore my cinematic journey, artworks, emotions, and more.
-              </p>
-              <div className="text-center">
-                <Link to="/personal" className="px-4 py-2 bg-pink-500 hover:bg-pink-600 rounded-full text-white text-sm">
-                  🌹 Life Beyond Code
-                </Link>
-              </div>
-            </div>
-          </Tilt>
-        </div>
-
-        {/* Mobile Chatbots */}
-        <div className="block sm:hidden mt-6 w-full">
-          {showCineBot && <PersonalAssistant />}
-          {showProBot && <ChatbotLauncher />}
-        </div>
+      {/* Soft gradient mesh glow (very subtle) */}
+      <div className="pointer-events-none absolute -z-10 inset-0">
+        <div className="absolute -top-40 -left-32 w-[40rem] h-[40rem] rounded-full opacity-30 blur-3xl bg-gradient-to-br from-blue-500 via-cyan-400 to-blue-600 animate-mesh" />
+        <div className="absolute bottom-0 -right-40 w-[38rem] h-[38rem] rounded-full opacity-25 blur-3xl bg-gradient-to-br from-fuchsia-500 via-pink-500 to-rose-500 animate-mesh-delay" />
       </div>
 
+      {/* Floating particles (ultra subtle) */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        {Array.from({ length: 22 }).map((_, i) => (
+          <span
+            key={i}
+            className="absolute block w-1 h-1 rounded-full bg-white/20 animate-float"
+            style={{
+              left: `${(i * 137) % 100}%`,
+              top: `${(i * 59) % 100}%`,
+              animationDelay: `${(i % 10) * 0.6}s`,
+              animationDuration: `${6 + (i % 5)}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* ---------- Sticky Glass Navbar (simple, elegant) ---------- */}
+      <header className="sticky top-0 z-40">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md px-4 py-3 shadow-lg">
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/profile.jpeg"
+                alt="Abhishek"
+                className="h-9 w-9 rounded-full border border-white/30 object-cover"
+              />
+              <span className="text-sm font-semibold tracking-wide">
+                Abhishek’s Digital Universe
+              </span>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-3">
+              <a
+                href="#about"
+                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
+              >
+                About
+              </a>
+              <a
+                href="#projects"
+                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
+              >
+                Projects
+              </a>
+              <a
+                href="#skills"
+                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
+              >
+                Skills
+              </a>
+              <button
+                onClick={() => setShowModal(true)}
+                className="rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 text-sm font-medium shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition"
+              >
+                Hire Me
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ---------- Hero Section: split layout ---------- */}
+      <section className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 pt-10 sm:pt-14 md:grid-cols-2 md:items-center">
+        {/* Left: Headshot in glass frame */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+          className="flex justify-center md:justify-start"
+        >
+          <div className="group relative rounded-[2rem] p-[2px]">
+            {/* Gradient border */}
+            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" />
+            <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20">
+              <img
+                src="/images/profile.jpeg"
+                alt="Abhishek Vats"
+                className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80"
+              />
+              {/* bottom underglow */}
+              <div className="pointer-events-none absolute inset-x-6 -bottom-4 h-8 blur-2xl rounded-full bg-blue-500/30" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right: Headline, tagline, CTAs */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+          custom={1}
+          className="text-center md:text-left"
+        >
+          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
+            Code Meets Creativity
+          </h1>
+          <p className="mt-3 text-lg text-white/90 sm:text-xl">
+            Building digital experiences with emotion & precision.
+          </p>
+          <p className="mt-2 text-sm text-white/70">
+            Engineer • Artist • Storyteller — Driven to make tech feel human.
+          </p>
+
+          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
+            <Link
+              to="/professional"
+              className="group inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/20 bg-gradient-to-r from-blue-500/80 to-indigo-600/80 backdrop-blur-md px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition"
+            >
+              💼 Tech Portfolio
+              <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/personal"
+              className="group inline-flex min-w-[200px] items-center justify-center rounded-full border border-white/20 bg-gradient-to-r from-pink-500/80 to-rose-500/80 backdrop-blur-md px-6 py-3 text-sm font-semibold shadow-lg shadow-rose-600/30 hover:shadow-rose-500/40 transition"
+            >
+              🌹 Life Beyond Code
+              <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* Scroll-down indicator */}
+          <div className="mt-8 flex items-center justify-center md:justify-start">
+            <a href="#featured" className="group flex items-center gap-2">
+              <span className="h-8 w-8 rounded-full border border-white/30 p-[2px]">
+                <span className="block h-full w-full rounded-full bg-white/20 group-hover:bg-white/30 transition animate-pulse" />
+              </span>
+              <span className="text-xs text-white/70 group-hover:text-white/90 transition">
+                Scroll to explore
+              </span>
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ---------- Social Proof (muted grayscale) ---------- */}
+      {/* ---------- Social Links (Premium World-Class Style) ---------- */}
+<section className="mx-auto mt-12 max-w-7xl px-5">
+  <div className="rounded-2xl border border-white/20 bg-white/10 px-6 py-6 backdrop-blur-md shadow-lg shadow-blue-500/10">
+    <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+      <a
+        href="https://www.linkedin.com/in/abhishekvats29"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-blue-500 hover:border-blue-500 transition duration-300 ease-in-out"
+      >
+        <FaLinkedin />
+      </a>
+      <a
+        href="https://github.com/abhishekvats29"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-gray-300 hover:border-gray-300 transition duration-300 ease-in-out"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://twitter.com/abhishekvats29"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-sky-400 hover:border-sky-400 transition duration-300 ease-in-out"
+      >
+        <FaTwitter />
+      </a>
+      <a
+        href="mailto:abhishekvats4567@gmail.com"
+        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-red-400 hover:border-red-400 transition duration-300 ease-in-out"
+      >
+        <FaEnvelope />
+      </a>
+    </div>
+  </div>
+</section>
+
+
+      {/* ---------- Featured Cards (premium, animated) ---------- */}
+      <section id="featured" className="mx-auto mt-14 max-w-7xl px-5">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+          className="mb-8 text-center text-3xl font-bold tracking-wide sm:text-4xl"
+        >
+          Explore My World
+        </motion.h2>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Tech card */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              glareEnable
+              glareMaxOpacity={0.25}
+              glareColor="#ffffff"
+            >
+              <div className="group relative rounded-2xl p-[1.5px] transition-transform duration-300">
+                {/* Gradient border */}
+                <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 opacity-70 blur-[2px] group-hover:opacity-100 group-hover:blur-md transition" />
+                <div className="flex h-full flex-col rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl shadow-xl">
+                  <div className="mb-3 flex justify-center">
+                    <FaBriefcase className="text-4xl text-blue-300" />
+                  </div>
+                  <h3 className="text-center text-xl font-bold">Tech Portfolio</h3>
+                  <p className="mt-2 text-center text-sm text-white/90">
+                    Dive into my projects, tech stack, and work experience.
+                  </p>
+
+                  {/* image mock (optional) */}
+                  <div className="mt-4 h-40 w-full rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5" />
+
+                  <div className="mt-5 flex items-center justify-center">
+                    <Link
+                      to="/professional"
+                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition"
+                    >
+                      Open Portfolio
+                      <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Tilt>
+          </motion.div>
+
+          {/* Personal card */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            custom={1}
+          >
+            <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              glareEnable
+              glareMaxOpacity={0.25}
+              glareColor="#ffb6c1"
+            >
+              <div className="group relative rounded-2xl p-[1.5px] transition-transform duration-300">
+                {/* Gradient border */}
+                <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-pink-400 via-rose-500 to-pink-400 opacity-70 blur-[2px] group-hover:opacity-100 group-hover:blur-md transition" />
+                <div className="flex h-full flex-col rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl shadow-xl">
+                  <div className="mb-3 flex justify-center">
+                    <FaUser className="text-4xl text-pink-300" />
+                  </div>
+                  <h3 className="text-center text-xl font-bold">Life Beyond Code</h3>
+                  <p className="mt-2 text-center text-sm text-white/90">
+                    Explore my cinematic journey, artworks, emotions, and more.
+                  </p>
+
+                  {/* image mock (optional) */}
+                  <div className="mt-4 h-40 w-full rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5" />
+
+                  <div className="mt-5 flex items-center justify-center">
+                    <Link
+                      to="/personal"
+                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-rose-600/30 hover:shadow-rose-500/40 transition"
+                    >
+                      Visit Personal
+                      <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Tilt>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------- Floating action bar (kept from your design) ---------- */}
       {/* Mobile Footer */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden">
         <div className="flex justify-around items-center bg-black/60 backdrop-blur-md border-t border-white/10 px-2 py-2 text-white rounded-t-xl">
@@ -86,10 +337,14 @@ export default function Home() {
             { icon: <FaHome size={18} />, label: "Home", onClick: () => (window.location.href = "/") },
             { icon: <FaEnvelope size={18} />, label: "Contact", onClick: () => setShowModal(true) },
             { icon: <FaWhatsapp className="text-[#25D366]" size={18} />, label: "Chat", onClick: openWhatsApp },
-            { icon: <MessageCircle size={18} />, label: "AI Bot", onClick: () => setShowCineBot(p => !p) },
-            { icon: <FaRobot size={18} />, label: "Tech AI", onClick: () => setShowProBot(p => !p) },
+            { icon: <MessageCircle size={18} />, label: "AI Bot", onClick: () => setShowCineBot((p) => !p) },
+            { icon: <FaRobot size={18} />, label: "Tech AI", onClick: () => setShowProBot((p) => !p) },
           ].map((btn, i) => (
-            <button key={i} onClick={btn.onClick} className="flex flex-col items-center justify-center w-16 h-16 text-xs px-2 py-1 rounded-xl bg-white/10 border border-white/10 shadow-md hover:bg-white/20 transition text-center">
+            <button
+              key={i}
+              onClick={btn.onClick}
+              className="flex flex-col items-center justify-center w-16 h-16 text-xs px-2 py-1 rounded-xl bg-white/10 border border-white/10 shadow-md hover:bg-white/20 transition text-center"
+            >
               {btn.icon}
               <span className="mt-1">{btn.label}</span>
             </button>
@@ -97,54 +352,52 @@ export default function Home() {
         </div>
       </div>
 
-      
       {/* Desktop Right Button Bar */}
-<div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3">
-  {[
-    { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500" },
-    { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500" },
-    { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "bg-green-500" },
-    { icon: <MessageCircle size={20} />, label: "AI Bot", onClick: () => setShowCineBot(p => !p), color: "bg-pink-500" },
-    { icon: <FaRobot size={20} />, label: "Tech AI", onClick: () => setShowProBot(p => !p), color: "bg-blue-400" },
-  ].map((btn, i) => (
-    <button
-      key={i}
-      onClick={btn.onClick}
-      className={`flex items-center justify-center w-14 h-14 rounded-full text-white shadow-md hover:scale-110 transition-all duration-300 group relative overflow-hidden ${btn.color}`}
-    >
-      {btn.icon}
-      <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
-        {btn.label}
-      </span>
-    </button>
-  ))}
-</div>
+      <div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3">
+        {[
+          { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500" },
+          { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500" },
+          { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "bg-green-500" },
+          { icon: <MessageCircle size={20} />, label: "AI Bot", onClick: () => setShowCineBot((p) => !p), color: "bg-pink-500" },
+          { icon: <FaRobot size={20} />, label: "Tech AI", onClick: () => setShowProBot((p) => !p), color: "bg-blue-400" },
+        ].map((btn, i) => (
+          <button
+            key={i}
+            onClick={btn.onClick}
+            className={`flex items-center justify-center w-14 h-14 rounded-full text-white shadow-md hover:scale-110 transition-all duration-300 group relative overflow-hidden ${btn.color}`}
+          >
+            {btn.icon}
+            <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
+              {btn.label}
+            </span>
+          </button>
+        ))}
+      </div>
 
-
-      {/* Desktop Chatbots */}
+      {/* Chatbots */}
       <div className="hidden sm:block z-40">
         {showCineBot && <PersonalAssistant />}
         {showProBot && <ChatbotLauncher />}
       </div>
 
+      {/* Contact modal */}
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
 
+      {/* ---------- Inline keyframes (no Tailwind config edits needed) ---------- */}
       <style>{`
-        .shimmer-glow-blue::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          height: 100%;
-          width: 100%;
-          background: linear-gradient(120deg, transparent, rgba(0, 128, 255, 0.5), transparent);
-          animation: shimmer 2.5s infinite;
+        @keyframes mesh {
+          0% { transform: translate3d(0,0,0) scale(1); filter: hue-rotate(0deg); }
+          50% { transform: translate3d(0,-10px,0) scale(1.02); filter: hue-rotate(15deg); }
+          100% { transform: translate3d(0,0,0) scale(1); filter: hue-rotate(0deg); }
         }
-        @keyframes shimmer {
-          0% { left: -100%; }
-          50% { left: 100%; }
-          100% { left: 100%; }
+        @keyframes float {
+          0% { transform: translateY(0) translateX(0); opacity: .15; }
+          50% { transform: translateY(-10px) translateX(2px); opacity: .3; }
+          100% { transform: translateY(0) translateX(0); opacity: .15; }
         }
+        .animate-mesh { animation: mesh 16s ease-in-out infinite; }
+        .animate-mesh-delay { animation: mesh 20s ease-in-out infinite; }
+        .animate-float { animation: float 8s ease-in-out infinite; }
       `}</style>
     </div>
   );

@@ -5,6 +5,10 @@ import { motion } from 'framer-motion';
 const About = () => {
   return (
     <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#0c0c0c] to-[#1a1a1a] py-10 px-4 flex items-center overflow-hidden">
+
+      {/* Top Animated Glowing Line - White */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white via-white to-white shadow-[0_0_20px_#ffffff] blur-sm animate-glow-line"></div>
+
       {/* Animated Floating Emojis in Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(18)].map((_, i) => (

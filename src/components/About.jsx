@@ -3,8 +3,17 @@ import { FaLinkedin } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-[#0f1c2f] to-[#122c4a] py-20 px-4 sm:px-6 md:px-10 flex justify-center">
-      <div className="max-w-6xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-2xl">
+    <section className="relative w-full bg-gradient-to-b from-[#0f1c2f] to-[#122c4a] py-20 px-4 sm:px-6 md:px-10 flex justify-center overflow-hidden">
+      
+      {/* Top Segmented Glowing Line */}
+      <div className="absolute top-0 left-0 w-full h-1 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-segment z-10" 
+           style={{
+             background: 'linear-gradient(to right, #3b82f6 0%, #3b82f6 33%, #ef4444 33%, #ef4444 66%, #22c55e 66%, #22c55e 100%)',
+             backgroundSize: '300% 100%'
+           }}
+      ></div>
+
+      <div className="max-w-6xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-2xl relative z-20">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 tracking-wide">
           About Me
         </h2>
@@ -49,6 +58,24 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {/* Custom Animation CSS */}
+      <style jsx>{`
+        @keyframes glowSegmentMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .animate-glow-segment {
+          animation: glowSegmentMove 4s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

@@ -43,21 +43,10 @@ export default function NavbarProfessional() {
 
   return (
     <>
-      {/* ChatGPT-style Open Sidebar Icon */}
-      {!isOpen && (
-        <button
-          onClick={openMenu}
-          className="hidden md:flex fixed top-1/2 -translate-y-1/2 left-0 z-50 text-white hover:scale-110 transition-transform duration-200"
-          aria-label="Open Sidebar"
-        >
-          <ChevronRight size={28} />
-        </button>
-      )}
-
-      {/* Mobile Glass Navbar */}
+      {/* Profile Logo Bar (Visible when sidebar closed) */}
       {!isOpen && showMobileNavbar && (
         <div
-          className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30 shadow-lg cursor-pointer flex items-center px-4 py-3"
+          className="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30 shadow-lg cursor-pointer flex items-center px-4 py-3"
           onClick={openMenu}
         >
           <img
@@ -69,6 +58,17 @@ export default function NavbarProfessional() {
             Portfolio
           </span>
         </div>
+      )}
+
+      {/* Open Sidebar Icon (Visible on both desktop & mobile when closed) */}
+      {!isOpen && (
+        <button
+          onClick={openMenu}
+          className="fixed top-1/2 -translate-y-1/2 left-0 z-50 text-white bg-blue/70 backdrop-blur-md border border-white/20 rounded-r-xl p-2 hover:scale-110 transition"
+          aria-label="Open Sidebar"
+        >
+          <ChevronRight size={28} />
+        </button>
       )}
 
       {/* Sidebar */}
@@ -159,7 +159,7 @@ export default function NavbarProfessional() {
         </div>
       </aside>
 
-      {/* Mobile overlay */}
+      {/* Mobile/Desktop overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"

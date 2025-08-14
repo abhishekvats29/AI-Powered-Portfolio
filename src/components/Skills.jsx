@@ -63,8 +63,10 @@ const skillData = [
 
 const Skills = () => {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden">
+      
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 tracking-wider">
           Tech Stack & Tools
         </h2>
@@ -93,6 +95,10 @@ const Skills = () => {
           ))}
         </div>
       </div>
+
+      {/* Bottom Animated Glowing Line */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-line"></div>
+
     </section>
   );
 };
