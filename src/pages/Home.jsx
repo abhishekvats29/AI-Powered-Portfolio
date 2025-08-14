@@ -77,29 +77,13 @@ export default function Home() {
                 className="h-9 w-9 rounded-full border border-white/30 object-cover"
               />
               <span className="text-sm font-semibold tracking-wide">
-                Abhishek’s Digital Universe
+                Abhishek Vats Digital Universe
               </span>
             </div>
 
             <div className="hidden sm:flex items-center gap-3">
-              <a
-                href="#about"
-                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
-              >
-                About
-              </a>
-              <a
-                href="#projects"
-                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
-              >
-                Projects
-              </a>
-              <a
-                href="#skills"
-                className="rounded-full px-3 py-1.5 text-sm text-white/90 hover:bg-white/10 transition"
-              >
-                Skills
-              </a>
+              
+              
               <button
                 onClick={() => setShowModal(true)}
                 className="rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 text-sm font-medium shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition"
@@ -267,12 +251,12 @@ export default function Home() {
                   </p>
 
                   {/* image mock (optional) */}
-                  <div className="mt-4 h-40 w-full rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5" />
+                  
 
                   <div className="mt-5 flex items-center justify-center">
                     <Link
                       to="/professional"
-                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition"
+                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition border border-white"
                     >
                       Open Portfolio
                       <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
@@ -284,7 +268,7 @@ export default function Home() {
           </motion.div>
 
           {/* Personal card */}
-          <motion.div
+          <motion.div className="mb-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -311,12 +295,12 @@ export default function Home() {
                   </p>
 
                   {/* image mock (optional) */}
-                  <div className="mt-4 h-40 w-full rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5" />
+                  
 
                   <div className="mt-5 flex items-center justify-center">
                     <Link
                       to="/personal"
-                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-rose-600/30 hover:shadow-rose-500/40 transition"
+                      className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-rose-600/30 hover:shadow-rose-500/40 transition border border-white"
                     >
                       Visit Personal
                       <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
@@ -330,6 +314,11 @@ export default function Home() {
       </section>
 
       {/* ---------- Floating action bar (kept from your design) ---------- */}
+      {/* Mobile Chatbots */}
+        <div className="block sm:hidden mt-6 w-full">
+          {showCineBot && <PersonalAssistant />}
+          {showProBot && <ChatbotLauncher />}
+        </div>
       {/* Mobile Footer */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden">
         <div className="flex justify-around items-center bg-black/60 backdrop-blur-md border-t border-white/10 px-2 py-2 text-white rounded-t-xl">
