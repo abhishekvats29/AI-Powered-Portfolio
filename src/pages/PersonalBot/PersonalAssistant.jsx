@@ -136,15 +136,18 @@ const PersonalAssistant = () => {
 
           <button
             onClick={toggleChat}
-            className="p-1 rounded-full shadow-xl border border-white/30 bg-black/30 backdrop-blur hover:scale-105 transition"
+            className="fixed bottom-6 right-4 z-50 p-1 rounded-full shadow-xl border border-white/30 
+             bg-black/30 backdrop-blur hover:scale-105 transition"
             title="Open Chat"
-          >
-            <img
-              src="/images/AI.avif"
-              alt="Chat Icon"
-              className="w-12 h-12 rounded-full object-cover border border-white/30 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_8px_rgba(0,0,0,0.3)] backdrop-blur"
+            >
+             <img
+            src="/images/AI.avif"
+            alt="Chat Icon"
+            className="w-12 h-12 rounded-full object-cover border border-white/30 
+               shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_8px_rgba(0,0,0,0.3)] backdrop-blur"
             />
           </button>
+
         </div>
       )}
     </div>

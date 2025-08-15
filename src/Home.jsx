@@ -15,9 +15,11 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { MessageCircle } from "lucide-react";
-import ContactModal from "../components/ContactModal";
-import ChatbotLauncher from "../components/professionalchatbot/ChatbotLauncher";
-import PersonalAssistant from "../pages/PersonalBot/PersonalAssistant";
+import ContactModal from "./components/ContactModal";
+import ChatbotLauncher from "./components/professionalchatbot/ChatbotLauncher";
+import PersonalAssistant from "./pages/PersonalBot/PersonalAssistant";
+import HomeFooter from "./HomeFooter"; // since HomeFooter.jsx is in src folder same as Home.jsx
+
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -40,7 +42,6 @@ export default function Home() {
     <div className="relative min-h-screen w-full overflow-x-hidden text-white">
       {/* ---------- Animated Depth Background ---------- */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-950" />
-
       {/* Glass overlay for clarity */}
       <div className="absolute inset-0 -z-10 bg-black/60 backdrop-blur-[2px]" />
 
@@ -341,8 +342,13 @@ export default function Home() {
               </div>
             </Tilt>
           </motion.div>
+
         </div>
       </section>
+
+
+      
+
 
       {/* ---------- Floating action bar (kept from your design) ---------- */}
       {/* Mobile Chatbots */}
@@ -373,32 +379,36 @@ export default function Home() {
       </div>
 
       {/* Desktop Right Button Bar */}
-      <div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3">
-        {[
-          { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500" },
-          { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500" },
-          { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "bg-green-500" },
-          { icon: <MessageCircle size={20} />, label: "AI Bot", onClick: () => setShowCineBot((p) => !p), color: "bg-pink-500" },
-          { icon: <FaRobot size={20} />, label: "Tech AI", onClick: () => setShowProBot((p) => !p), color: "bg-blue-400" },
-        ].map((btn, i) => (
-          <button
-            key={i}
-            onClick={btn.onClick}
-            className={`flex items-center justify-center w-14 h-14 rounded-full text-white shadow-md hover:scale-110 transition-all duration-300 group relative overflow-hidden ${btn.color}`}
-          >
-            {btn.icon}
-            <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
-              {btn.label}
-            </span>
-          </button>
-        ))}
-      </div>
+      
 
-      {/* Chatbots */}
-      <div className="hidden sm:block z-40">
-        {showCineBot && <PersonalAssistant />}
-        {showProBot && <ChatbotLauncher />}
-      </div>
+     {/* Desktop Right Button Bar */}
+<div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3">
+  {[
+    { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500" },
+    { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500" },
+    { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "bg-green-500" },
+  ].map((btn, i) => (
+    <button
+      key={i}
+      onClick={btn.onClick}
+      className={`flex items-center justify-center w-14 h-14 rounded-full text-white shadow-md hover:scale-110 transition-all duration-300 group relative overflow-hidden ${btn.color}`}
+    >
+      {btn.icon}
+      <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
+        {btn.label}
+      </span>
+    </button>
+  ))}
+</div>
+
+{/* Chatbots - Always Visible on Desktop */}
+<div className="hidden sm:block z-40">
+  <PersonalAssistant />
+  <ChatbotLauncher />
+</div>
+
+
+
 
       {/* Contact modal */}
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
@@ -419,6 +429,12 @@ export default function Home() {
         .animate-mesh-delay { animation: mesh 20s ease-in-out infinite; }
         .animate-float { animation: float 8s ease-in-out infinite; }
       `}</style>
+
+      
+
+      {/* Footer */}
+      <HomeFooter />
+      
     </div>
   );
 }

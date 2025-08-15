@@ -2,7 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Landing page
-import Home from "./pages/Home";
+import Home from "./Home";
+
+// import Home from "./pages/Home";
+
+
 
 // Personal section
 import Personal from "./pages/Personal";

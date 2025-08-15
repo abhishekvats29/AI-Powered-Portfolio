@@ -79,16 +79,7 @@ export default function FooterPersonal() {
         </p>
       </div>
 
-      {/* Scroll to Top Button (only shows when scrolling up) */}
-      {showTopBtn && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-pink-500 text-white text-xl p-3 rounded-full hover:bg-white hover:text-pink-600 transition shadow-lg"
-          title="Scroll to Top"
-        >
-          <FaHeart />
-        </button>
-      )}
+      
     </footer>
   );
 }

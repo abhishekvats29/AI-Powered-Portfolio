@@ -67,7 +67,7 @@ export default function NavbarProfessional() {
           className="fixed top-1/2 -translate-y-1/2 left-0 z-50 text-white bg-blue/70 backdrop-blur-md border border-white/20 rounded-r-xl p-2 hover:scale-110 transition"
           aria-label="Open Sidebar"
         >
-          <ChevronRight size={28} />
+          <ChevronRight size={24} />
         </button>
       )}
 

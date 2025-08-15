@@ -147,7 +147,7 @@ export default function Footer() {
       {showTopBtn && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-blue-600 text-white text-xl p-3 rounded-full hover:bg-white hover:text-blue-600 transition shadow-lg"
+          className="fixed bottom-6 right-4 z-50 bg-blue-600 text-white text-xl p-3 rounded-full hover:bg-white hover:text-blue-600 transition shadow-lg"
         >
           ⬆️
         </button>
