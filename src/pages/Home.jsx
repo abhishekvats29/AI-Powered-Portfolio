@@ -98,6 +98,9 @@ export default function Home() {
       {/* ---------- Hero Section: split layout ---------- */}
       <section className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 pt-10 sm:pt-14 md:grid-cols-2 md:items-center">
         {/* Left: Headshot in glass frame */}
+        
+         
+        
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -107,18 +110,20 @@ export default function Home() {
         >
           <div className="group relative rounded-[2rem] p-[2px]">
             {/* Gradient border */}
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" />
+            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-900 via-blue-700 to-white/30 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" />
+
             <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20">
               <img
-                src="/images/profile.jpeg"
+                src="/images/profile2.jpeg"
                 alt="Abhishek Vats"
                 className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80"
               />
               {/* bottom underglow */}
-              <div className="pointer-events-none absolute inset-x-6 -bottom-4 h-8 blur-2xl rounded-full bg-blue-500/30" />
+              <div className="pointer-events-none absolute inset-x-6 -bottom-4 h-8 blur-2xl rounded-full bg-blue-700/30" />
             </div>
           </div>
         </motion.div>
+
 
         {/* Right: Headline, tagline, CTAs */}
         <motion.div
@@ -251,6 +256,20 @@ export default function Home() {
                   </p>
 
                   {/* image mock (optional) */}
+
+                  {/* premium image mock with glow and fade-in (blue-white theme) */}
+                  <div className="relative mt-6 h-52 w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-blue-100/40 bg-gradient-to-br from-blue-50/30 to-white/10 shadow-2xl flex items-center justify-center transform transition-transform duration-500 hover:scale-105 animate-fadeIn">
+                    
+                    {/* Glow effect behind image */}
+                    <div className="absolute inset-0 bg-blue-100/20 blur-3xl -z-10 rounded-2xl"></div>
+
+                    <img
+                      src="/images/vats6.jpeg"
+                      alt="Portfolio mock"
+                      className="max-h-full max-w-full object-contain rounded-xl"
+                    />
+                  </div>
+
                   
 
                   <div className="mt-5 flex items-center justify-center">
@@ -258,7 +277,7 @@ export default function Home() {
                       to="/professional"
                       className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition border border-white"
                     >
-                      Open Portfolio
+                      Explore My Work
                       <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -295,6 +314,22 @@ export default function Home() {
                   </p>
 
                   {/* image mock (optional) */}
+
+                  {/* premium image mock with glow and fade-in */}
+                  <div className="relative mt-6 h-52 w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-pink-100/40 bg-gradient-to-br from-pink-50/30 to-white/10 shadow-2xl flex items-center justify-center transform transition-transform duration-500 hover:scale-105 animate-fadeIn">
+                    
+                    {/* Glow effect behind image */}
+                    <div className="absolute inset-0 bg-pink-100/20 blur-3xl -z-10 rounded-2xl"></div>
+
+                    <img
+                      src="/images/vats7.jpeg"
+                      alt="Portfolio mock"
+                      className="max-h-full max-w-full object-contain rounded-xl"
+                    />
+                  </div>
+
+
+
                   
 
                   <div className="mt-5 flex items-center justify-center">
@@ -302,7 +337,7 @@ export default function Home() {
                       to="/personal"
                       className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-rose-600/30 hover:shadow-rose-500/40 transition border border-white"
                     >
-                      Visit Personal
+                      Discover My Journey
                       <FaArrowRight className="ml-2 translate-x-0 opacity-80 transition group-hover:translate-x-1" />
                     </Link>
                   </div>
