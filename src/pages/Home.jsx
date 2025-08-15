@@ -101,28 +101,24 @@ export default function Home() {
         
          
         
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="flex justify-center md:justify-start"
-        >
-          <div className="group relative rounded-[2rem] p-[2px]">
-            {/* Gradient border */}
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-900 via-blue-700 to-white/30 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" />
-
-            <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20">
-              <img
-                src="/images/profile2.jpeg"
-                alt="Abhishek Vats"
-                className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80"
-              />
-              {/* bottom underglow */}
-              <div className="pointer-events-none absolute inset-x-6 -bottom-4 h-8 blur-2xl rounded-full bg-blue-700/30" />
-            </div>
-          </div>
-        </motion.div>
+      <motion.div 
+        initial="hidden" 
+        whileInView="visible" 
+        viewport={{ once: true, amount: 0.3 }} 
+        variants={fadeUp} className="flex justify-center md:justify-start" > 
+        <div className="group relative rounded-[2rem] p-[2px]"> 
+          
+        {/* Gradient border */} 
+        <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" /> 
+        <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20"> 
+         <img src="/images/profile2.jpeg" 
+         alt="Abhishek Vats" className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80" /> 
+        
+         {/* bottom underglow */} 
+         <div className="pointer-events-none absolute inset-x-6 -bottom-4 h-8 blur-2xl rounded-full bg-blue-500/30" /> 
+         </div> 
+        </div> 
+      </motion.div>
 
 
         {/* Right: Headline, tagline, CTAs */}
