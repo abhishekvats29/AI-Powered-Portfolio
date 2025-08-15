@@ -284,7 +284,7 @@ export default function Home() {
           </motion.div>
 
           {/* Personal card */}
-          <motion.div className="mb-24"
+          <motion.div className="mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -382,7 +382,7 @@ export default function Home() {
       
 
      {/* Desktop Right Button Bar */}
-<div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3">
+<div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3 mt-28">
   {[
     { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500" },
     { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500" },
@@ -400,6 +400,7 @@ export default function Home() {
     </button>
   ))}
 </div>
+
 
 {/* Chatbots - Always Visible on Desktop */}
 <div className="hidden sm:block z-40">
@@ -430,7 +431,7 @@ export default function Home() {
         .animate-float { animation: float 8s ease-in-out infinite; }
       `}</style>
 
-      
+
 
       {/* Footer */}
       <HomeFooter />
