@@ -1,7 +1,6 @@
 import React from "react";
 
 const AppShowcase = () => {
-  // Function to render progressive stars
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => {
       const fill = rating - i >= 1 ? 100 : (rating - i) * 100;
@@ -35,37 +34,37 @@ const AppShowcase = () => {
   };
 
   return (
-    <section className="w-[90vw] max-w-[1200px] h-auto mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective">
+    <section className="w-[90vw] max-w-[1400px] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective">
       
       {/* Images Row */}
-      <div className="flex flex-wrap md:flex-nowrap justify-center items-end gap-6 h-auto relative perspective">
+      <div className="flex flex-wrap md:flex-nowrap justify-center items-end gap-6 relative perspective">
         
-        {/* Image 1 - Hidden on Mobile */}
+        {/* Image 1 */}
         <img
           src="/images/app6.png"
           alt="App Screen 1"
-          className="hidden sm:block h-[200px] sm:h-[300px] md:h-[90%] object-contain drop-shadow-2xl rounded-xl animate-z1"
+          className="hidden sm:block h-[220px] md:h-[320px] lg:h-[350px] object-contain drop-shadow-2xl rounded-xl animate-z1"
         />
 
         {/* Image 2 */}
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="h-[200px] sm:h-[300px] md:h-[90%] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="h-[200px] sm:h-[280px] md:h-[300px] lg:h-[340px] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
-        {/* Image 3 */}
+        {/* Image 3 (Center Bigger) */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="h-[200px] sm:h-[300px] md:h-[100%] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="h-[220px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
         {/* Image 4 */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="h-[200px] sm:h-[300px] md:h-[90%] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="h-[200px] sm:h-[280px] md:h-[300px] lg:h-[340px] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
@@ -87,14 +86,14 @@ const AppShowcase = () => {
           </a>
         </div>
 
-        {/* Star Rating Box */}
+        {/* Star Rating */}
         <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg mt-2 md:mt-0">
           <div className="flex">{renderStars(4.9)}</div>
           <span className="ml-3 text-white font-bold text-lg">4.9</span>
         </div>
       </div>
 
-      {/* Custom 3D Z-axis Animations */}
+      {/* 3D Z-axis Animations */}
       <style jsx>{`
         .perspective {
           perspective: 1200px;
@@ -102,17 +101,17 @@ const AppShowcase = () => {
 
         @keyframes z1 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(160px) rotateY(-10deg); z-index: 10; }
+          50% { transform: translateZ(180px) rotateY(-10deg); z-index: 10; }
         }
 
         @keyframes z2 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(130px) rotateY(-5deg); z-index: 9; }
+          50% { transform: translateZ(140px) rotateY(-5deg); z-index: 9; }
         }
 
         @keyframes z4 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(110px) rotateY(8deg); z-index: 8; }
+          50% { transform: translateZ(120px) rotateY(8deg); z-index: 8; }
         }
 
         .animate-z1 {
