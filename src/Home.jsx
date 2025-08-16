@@ -403,7 +403,7 @@ export default function Home() {
         className={`group relative flex items-center justify-center w-14 h-14 rounded-full border text-2xl bg-white/10 backdrop-blur-md shadow-lg transition duration-300 ease-in-out ${btn.color} ${btn.hover}`}
       >
       {btn.icon}
-        <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
+        <span className="absolute right-full mr-2 opacity-0 group-hover:opacity-100 group-hover:right-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
         {btn.label}
         </span>
       </button>

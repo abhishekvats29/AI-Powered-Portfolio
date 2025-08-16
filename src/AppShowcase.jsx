@@ -42,21 +42,21 @@ const AppShowcase = () => {
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="max-h-[28vh] md:max-h-[34vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="max-h-[30vh] md:max-h-[38vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
         {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="max-h-[30vh] md:max-h-[38vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="max-h-[34vh] md:max-h-[40vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
         {/* Right Hand Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="max-h-[30vh] md:max-h-[34vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="max-h-[32vh] md:max-h-[40vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
