@@ -19,6 +19,7 @@ import ContactModal from "./components/ContactModal";
 import ChatbotLauncher from "./components/professionalchatbot/ChatbotLauncher";
 import PersonalAssistant from "./pages/PersonalBot/PersonalAssistant";
 import HomeFooter from "./HomeFooter"; // since HomeFooter.jsx is in src folder same as Home.jsx
+import AppShowcase from "./AppShowcase";
 
 
 export default function Home() {
@@ -172,44 +173,24 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ---------- Social Proof (muted grayscale) ---------- */}
-      {/* ---------- Social Links (Premium World-Class Style) ---------- */}
-<section className="mx-auto mt-12 max-w-7xl px-5">
-  <div className="rounded-2xl border border-white/20 bg-white/10 px-6 py-6 backdrop-blur-md shadow-lg shadow-blue-500/10">
-    <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-      <a
-        href="https://www.linkedin.com/in/abhishekvats29"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-blue-500 hover:border-blue-500 transition duration-300 ease-in-out"
-      >
-        <FaLinkedin />
-      </a>
-      <a
-        href="https://github.com/abhishekvats29"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-gray-300 hover:border-gray-300 transition duration-300 ease-in-out"
-      >
-        <FaGithub />
-      </a>
-      <a
-        href="https://twitter.com/abhishekvats29"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-sky-400 hover:border-sky-400 transition duration-300 ease-in-out"
-      >
-        <FaTwitter />
-      </a>
-      <a
-        href="mailto:abhishekvats4567@gmail.com"
-        className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white text-2xl hover:text-red-400 hover:border-red-400 transition duration-300 ease-in-out"
-      >
-        <FaEnvelope />
-      </a>
-    </div>
+      
+
+    
+
+{/* ---------- Social Links (Premium World-Class Style) ---------- */}
+<section>
+  <div >
+    
+    {/* Import App Showcase Here */}
+    <AppShowcase />
+
+    
+    
   </div>
 </section>
+
+
+
 
 
       {/* ---------- Featured Cards (premium, animated) ---------- */}
