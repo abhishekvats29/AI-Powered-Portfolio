@@ -177,7 +177,35 @@ export default function Home() {
 
     
 
-{/* ---------- Social Links (Premium World-Class Style) ---------- */}
+{/* ---------- Social Tagline (Premium World-Class Style) ---------- */}
+
+
+<section className="w-full max-w-7xl mx-auto my-16">
+      <div className="rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-8 border border-white/20 text-center">
+        
+        {/* Tagline Row */}
+        <p className="text-lg md:text-xl font-semibold text-white drop-shadow-md flex flex-wrap justify-center gap-2">
+          <span>Innovation</span>
+          <span className="text-gray-400">·</span>
+          <span>Scalability</span>
+          <span className="text-gray-400">·</span>
+          <span>Precision</span>
+          <span className="text-gray-400">·</span>
+          <span>Elegance</span>
+          <span className="text-gray-400">·</span>
+          <span>Performance</span>
+        </p>
+
+        {/* Supporting Description */}
+        <p className="mt-4 text-gray-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          A startup-driven software engineer passionate about building 
+          world-class digital products with cutting-edge technology, 
+          user-centric design, and engineering excellence.
+        </p>
+      </div>
+    </section>
+
+
 <section>
   <div >
     
@@ -363,32 +391,32 @@ export default function Home() {
       
 
      {/* Desktop Right Button Bar */}
-<div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3 mt-28">
-  {[
-    { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "bg-blue-500", hover: "hover:text-blue-500 hover:border-blue-500" },
-    { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "bg-purple-500", hover: "hover:text-purple-500 hover:border-purple-500" },
-    { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "bg-green-500", hover: "hover:text-green-500 hover:border-green-500" },
-  ].map((btn, i) => (
-    <button
-      key={i}
-      onClick={btn.onClick}
-      className={`flex items-center justify-center w-14 h-14 rounded-full border border-white/20 text-white text-2xl bg-white/10 backdrop-blur-md shadow-lg transition duration-300 ease-in-out ${btn.hover}`}
-    >
+      <div className="hidden sm:flex fixed top-1/3 right-4 z-50 flex-col gap-3 mt-28">
+      {[
+        { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "text-blue-500 border-blue-500", hover: "hover:text-blue-600 hover:border-blue-600" },
+        { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "text-purple-500 border-purple-500", hover: "hover:text-purple-600 hover:border-purple-600" },
+        { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "text-green-500 border-green-500", hover: "hover:text-green-600 hover:border-green-600" },
+      ].map((btn, i) => (
+      <button
+        key={i}
+        onClick={btn.onClick}
+        className={`group relative flex items-center justify-center w-14 h-14 rounded-full border text-2xl bg-white/10 backdrop-blur-md shadow-lg transition duration-300 ease-in-out ${btn.color} ${btn.hover}`}
+      >
       {btn.icon}
-      <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
+        <span className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 group-hover:left-12 transition-all duration-300 bg-black/70 text-white text-xs px-2 py-1 rounded-lg whitespace-nowrap shadow-lg">
         {btn.label}
-      </span>
-    </button>
-  ))}
-</div>
+        </span>
+      </button>
+    ))}
+  </div>
 
 
 
-{/* Chatbots - Always Visible on Desktop */}
-<div className="hidden sm:block z-40">
-  <PersonalAssistant />
-  <ChatbotLauncher />
-</div>
+  {/* Chatbots - Always Visible on Desktop */}
+  <div className="hidden sm:block z-40">
+    <PersonalAssistant />
+    <ChatbotLauncher />
+  </div>
 
 
 

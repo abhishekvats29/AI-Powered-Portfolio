@@ -42,31 +42,32 @@ const AppShowcase = () => {
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="max-h-[22vh] md:max-h-[24vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="max-h-[28vh] md:max-h-[34vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
         {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="max-h-[26vh] md:max-h-[30vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="max-h-[30vh] md:max-h-[38vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
         {/* Right Hand Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="max-h-[22vh] md:max-h-[24vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="max-h-[30vh] md:max-h-[34vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
       {/* Download & Star Rating */}
-      <div className="mt-4 md:mt-6 flex flex-col items-center gap-3 md:gap-4">
+      <div className="mt-4 md:mt-4 flex flex-col items-center gap-3 md:gap-3">
         <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white drop-shadow-md text-center">
           Download My Android App
         </p>
         <a
-          href="https://drive.google.com/your-placeholder-link"
+          href="https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU"
+
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center gap-2"
