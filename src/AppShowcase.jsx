@@ -37,34 +37,27 @@ const AppShowcase = () => {
     <section className="w-[90vw] max-w-[1400px] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective">
       
       {/* Images Row */}
-      <div className="flex flex-wrap md:flex-nowrap justify-center items-end gap-6 relative perspective">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 relative perspective">
         
-        {/* Image 1 */}
-        <img
-          src="/images/app6.png"
-          alt="App Screen 1"
-          className="hidden sm:block h-[220px] md:h-[320px] lg:h-[350px] object-contain drop-shadow-2xl rounded-xl animate-z1"
-        />
-
-        {/* Image 2 */}
+        {/* Left Box Image */}
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="h-[200px] sm:h-[280px] md:h-[300px] lg:h-[340px] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="h-[220px] md:h-[280px] lg:h-[320px] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
-        {/* Image 3 (Center Bigger) */}
+        {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="h-[220px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="h-[260px] md:h-[360px] lg:h-[400px] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
-        {/* Image 4 */}
+        {/* Right Hand Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="h-[200px] sm:h-[280px] md:h-[300px] lg:h-[340px] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="h-[220px] md:h-[280px] lg:h-[320px] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
@@ -99,11 +92,6 @@ const AppShowcase = () => {
           perspective: 1200px;
         }
 
-        @keyframes z1 {
-          0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(180px) rotateY(-10deg); z-index: 10; }
-        }
-
         @keyframes z2 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
           50% { transform: translateZ(140px) rotateY(-5deg); z-index: 9; }
@@ -112,10 +100,6 @@ const AppShowcase = () => {
         @keyframes z4 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
           50% { transform: translateZ(120px) rotateY(8deg); z-index: 8; }
-        }
-
-        .animate-z1 {
-          animation: z1 6s ease-in-out infinite;
         }
 
         .animate-z2 {
