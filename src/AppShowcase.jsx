@@ -34,36 +34,35 @@ const AppShowcase = () => {
   };
 
   return (
-    <section className="w-[90vw] max-w-[1400px] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective md:h-[80vh] overflow-hidden">
+    <section className="w-full max-w-7xl h-[80vh] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl px-6 py-8 border border-white/20 perspective">
       
       {/* Images Row */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 perspective">
-        
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 perspective">
         {/* Left Box Image */}
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="max-h-[22vh] md:max-h-[26vh] lg:max-h-[28vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="max-h-[22vh] md:max-h-[24vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
         {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="max-h-[26vh] md:max-h-[34vh] lg:max-h-[36vh] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="max-h-[26vh] md:max-h-[30vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
         {/* Right Hand Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="max-h-[22vh] md:max-h-[26vh] lg:max-h-[28vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="max-h-[22vh] md:max-h-[24vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
       {/* Download & Star Rating */}
-      <div className="mt-6 flex flex-col items-center gap-4">
-        <p className="text-xl sm:text-2xl font-semibold text-white drop-shadow-md text-center">
+      <div className="mt-4 md:mt-6 flex flex-col items-center gap-3 md:gap-4">
+        <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white drop-shadow-md text-center">
           Download My Android App
         </p>
         <a
