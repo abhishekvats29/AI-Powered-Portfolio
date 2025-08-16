@@ -36,13 +36,15 @@ const AppShowcase = () => {
 
   return (
     <section className="w-[90vw] max-w-[1200px] h-auto mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective">
+      
       {/* Images Row */}
-      <div className="flex flex-wrap justify-center items-end gap-6 h-auto relative perspective">
-        {/* Image 1 */}
+      <div className="flex flex-wrap md:flex-nowrap justify-center items-end gap-6 h-auto relative perspective">
+        
+        {/* Image 1 - Hidden on Mobile */}
         <img
           src="/images/app6.png"
           alt="App Screen 1"
-          className="h-[200px] sm:h-[300px] md:h-[90%] object-contain drop-shadow-2xl rounded-xl animate-z1"
+          className="hidden sm:block h-[200px] sm:h-[300px] md:h-[90%] object-contain drop-shadow-2xl rounded-xl animate-z1"
         />
 
         {/* Image 2 */}
@@ -69,24 +71,24 @@ const AppShowcase = () => {
 
       {/* Download & Star Rating */}
       <div className="w-full flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
+        
         {/* Download Text and Button */}
-<div className="mt-4 flex flex-col items-center gap-4 w-full">
-  <p className="text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
-    Download My Android App
-  </p>
-  <a
-    href="https://drive.google.com/your-placeholder-link"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center gap-2"
-  >
-    📥 Download App
-  </a>
-</div>
-
+        <div className="mt-4 flex flex-col items-center gap-4 w-full">
+          <p className="text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
+            Download My Android App
+          </p>
+          <a
+            href="https://drive.google.com/your-placeholder-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center gap-2"
+          >
+            📲 Download App
+          </a>
+        </div>
 
         {/* Star Rating Box */}
-        <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
+        <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg mt-2 md:mt-0">
           <div className="flex">{renderStars(4.9)}</div>
           <span className="ml-3 text-white font-bold text-lg">4.9</span>
         </div>
@@ -98,25 +100,21 @@ const AppShowcase = () => {
           perspective: 1200px;
         }
 
-        /* Image 1 */
         @keyframes z1 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
           50% { transform: translateZ(160px) rotateY(-10deg); z-index: 10; }
         }
 
-        /* Image 2 */
         @keyframes z2 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
           50% { transform: translateZ(130px) rotateY(-5deg); z-index: 9; }
         }
 
-        /* Image 4 */
         @keyframes z4 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
           50% { transform: translateZ(110px) rotateY(8deg); z-index: 8; }
         }
 
-        /* Apply staggered animation delays */
         .animate-z1 {
           animation: z1 6s ease-in-out infinite;
         }
