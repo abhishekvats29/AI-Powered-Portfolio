@@ -77,29 +77,28 @@ const AppShowcase = () => {
     >
       {/* Images Row */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 perspective">
-        {/* Left Box Image */}
         <img
           src="/images/app8.png"
           alt="App Screen 2"
           className="max-h-[28vh] sm:max-h-[30vh] md:max-h-[38vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
-
-        {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
           className="max-h-[30vh] sm:max-h-[34vh] md:max-h-[40vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
-
-        {/* Right Box Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="max-h-[28vh] sm:max-h-[32vh] md:max-h-[40vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="
+          max-h-[32vh] sm:max-h-[32vh] md:max-h-[40vh] lg:max-h-[26vh] 
+          w-40 sm:w-48 md:w-56 lg:w-64 
+          object-contain drop-shadow-2xl rounded-xl animate-z4"
+  
         />
       </div>
 
-      {/* Download & Rating Section */}
+      {/* Download Section */}
       <div className="mt-4 flex flex-col items-center gap-3 w-full">
         <p className="text-base sm:text-lg md:text-2xl font-semibold text-white drop-shadow-md text-center">
           Download My Android App
@@ -113,15 +112,14 @@ const AppShowcase = () => {
         >
           📲 Download App
         </a>
+      </div>
 
-        {/* --- Permanent User Review Block --- */}
-        <div
-          className="mt-4 w-full sm:w-3/4 md:w-1/2 
-            bg-white/10 p-4 rounded-lg shadow-lg flex flex-col items-center"
-        >
-          <p className="text-white font-semibold text-sm sm:text-base">
-            ⭐ User Reviews
-          </p>
+      {/* Review & Comment Section */}
+      <div className="mt-6 w-full flex flex-col md:flex-row justify-center gap-6">
+        {/* Permanent User Review (Left) */}
+        <div className="w-full md:w-2/5 bg-white/10 p-4 rounded-lg shadow-lg flex flex-col items-center
+            border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition">
+          <p className="text-white font-semibold text-sm sm:text-base">User Reviews</p>
           <div className="flex justify-center mt-1">
             {[...Array(5)].map((_, i) => (
               <svg
@@ -138,35 +136,33 @@ const AppShowcase = () => {
             4.9 / 5.0
           </span>
           <p className="text-gray-300 text-xs sm:text-sm mt-2 text-center">
-            “This app is amazing! Super fast, clean design, and really useful.
-            Highly recommended.” – User
+            “This app is amazing! Super fast, clean design, and really useful. Highly recommended.” – User
           </p>
         </div>
 
-        {/* --- Rating & Comment Form --- */}
+        {/* Rating & Comment Form (Right) */}
         <form
           onSubmit={handleSubmit}
-          className="mt-4 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white/10 p-3 sm:p-4 rounded-lg shadow-lg"
+          className="w-full md:w-2/5 bg-white/10 p-3 sm:p-4 rounded-lg shadow-lg 
+            border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition flex flex-col items-center gap-2"
         >
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex">{renderStars(hover || rating, true)}</div>
-            <textarea
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              placeholder="Write your review..."
-              className="w-full p-2 rounded-md bg-white/20 text-white placeholder-gray-300 focus:outline-none text-sm sm:text-base"
-              rows={2}
-            />
-            <button
-              type="submit"
-              className="px-3 sm:px-5 py-1.5 sm:py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl shadow-md transition text-sm sm:text-base"
-            >
-              Submit Review
-            </button>
-            {successMessage && (
-              <p className="text-green-400 font-medium text-sm">{successMessage}</p>
-            )}
-          </div>
+          <div className="flex">{renderStars(hover || rating, true)}</div>
+          <textarea
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Write your review..."
+            className="w-full p-2 rounded-md bg-white/20 text-white placeholder-gray-300 focus:outline-none text-sm sm:text-base"
+            rows={2}
+          />
+          <button
+            type="submit"
+            className="px-3 sm:px-5 py-1.5 sm:py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl shadow-md transition text-sm sm:text-base"
+          >
+            Submit Review
+          </button>
+          {successMessage && (
+            <p className="text-green-400 font-medium text-sm">{successMessage}</p>
+          )}
         </form>
       </div>
 
