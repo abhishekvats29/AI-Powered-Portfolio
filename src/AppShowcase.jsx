@@ -34,59 +34,55 @@ const AppShowcase = () => {
   };
 
   return (
-    <section className="w-[90vw] max-w-[1400px] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective">
+    <section className="w-[90vw] max-w-[1400px] mx-auto my-10 flex flex-col justify-between items-center rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl p-6 border border-white/20 perspective md:h-[80vh] overflow-hidden">
       
       {/* Images Row */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 relative perspective">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 perspective">
         
         {/* Left Box Image */}
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="h-[220px] md:h-[280px] lg:h-[320px] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="max-h-[22vh] md:max-h-[26vh] lg:max-h-[28vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
 
         {/* Center Big Image */}
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="h-[260px] md:h-[360px] lg:h-[400px] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="max-h-[26vh] md:max-h-[34vh] lg:max-h-[36vh] object-contain drop-shadow-2xl rounded-xl scale-105"
         />
 
         {/* Right Hand Image */}
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="h-[220px] md:h-[280px] lg:h-[320px] object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="max-h-[22vh] md:max-h-[26vh] lg:max-h-[28vh] object-contain drop-shadow-2xl rounded-xl animate-z4"
         />
       </div>
 
       {/* Download & Star Rating */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
-        
-        {/* Download Text and Button */}
-        <div className="mt-4 flex flex-col items-center gap-4 w-full">
-          <p className="text-xl sm:text-2xl font-semibold text-white drop-shadow-md">
-            Download My Android App
-          </p>
-          <a
-            href="https://drive.google.com/your-placeholder-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center gap-2"
-          >
-            📲 Download App
-          </a>
-        </div>
+      <div className="mt-6 flex flex-col items-center gap-4">
+        <p className="text-xl sm:text-2xl font-semibold text-white drop-shadow-md text-center">
+          Download My Android App
+        </p>
+        <a
+          href="https://drive.google.com/your-placeholder-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center gap-2"
+        >
+          📲 Download App
+        </a>
 
         {/* Star Rating */}
-        <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg mt-2 md:mt-0">
+        <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
           <div className="flex">{renderStars(4.9)}</div>
           <span className="ml-3 text-white font-bold text-lg">4.9</span>
         </div>
       </div>
 
-      {/* 3D Z-axis Animations */}
+      {/* Animations */}
       <style jsx>{`
         .perspective {
           perspective: 1200px;
@@ -94,12 +90,12 @@ const AppShowcase = () => {
 
         @keyframes z2 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(140px) rotateY(-5deg); z-index: 9; }
+          50% { transform: translateZ(80px) rotateY(-5deg); z-index: 9; }
         }
 
         @keyframes z4 {
           0%, 100% { transform: translateZ(0px) rotateY(0deg); z-index: 1; }
-          50% { transform: translateZ(120px) rotateY(8deg); z-index: 8; }
+          50% { transform: translateZ(60px) rotateY(8deg); z-index: 8; }
         }
 
         .animate-z2 {
