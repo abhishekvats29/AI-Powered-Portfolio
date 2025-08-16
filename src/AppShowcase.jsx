@@ -73,7 +73,7 @@ const AppShowcase = () => {
       className="w-full max-w-7xl mx-auto my-10 flex flex-col justify-between items-center 
       rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl px-4 sm:px-6 py-6 sm:py-8 
       border border-white/20 perspective 
-      h-auto sm:h-[80vh] overflow-hidden"
+      h-auto sm:h-[85vh] overflow-hidden"
     >
       {/* Images Row */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 perspective">
@@ -117,7 +117,7 @@ const AppShowcase = () => {
       {/* Review & Comment Section */}
       <div className="mt-6 w-full flex flex-col md:flex-row justify-center gap-6">
         {/* Permanent User Review (Left) */}
-        <div className="w-full md:w-2/5 bg-white/10 p-4 rounded-lg shadow-lg flex flex-col items-center
+        <div className="w-full md:w-[45%] bg-white/10 p-4 rounded-lg shadow-lg flex flex-col items-center
             border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition">
           <p className="text-white font-semibold text-sm sm:text-base">User Reviews</p>
           <div className="flex justify-center mt-1">
@@ -143,7 +143,7 @@ const AppShowcase = () => {
         {/* Rating & Comment Form (Right) */}
         <form
           onSubmit={handleSubmit}
-          className="w-full md:w-2/5 bg-white/10 p-3 sm:p-4 rounded-lg shadow-lg 
+          className="w-full md:w-[45%] bg-white/10 p-3 sm:p-4 rounded-lg shadow-lg 
             border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition flex flex-col items-center gap-2"
         >
           <div className="flex">{renderStars(hover || rating, true)}</div>
