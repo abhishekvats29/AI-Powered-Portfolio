@@ -80,11 +80,14 @@ const ReviewForm = ({ renderStars, rating, setRating }) => {
           <Link to="/reviews" className="flex-1">
             <button
               type="button"
-              className="w-full px-4 py-2 bg-green-400 hover:bg-green-500 text-white font-semibold rounded-xl shadow-md transition text-sm sm:text-base"
+              className="w-full px-4 py-2 bg-[#008080] hover:bg-[#006666] text-white font-semibold rounded-xl shadow-md transition text-sm sm:text-base"
             >
               View Reviews
             </button>
           </Link>
+
+
+
         </div>
 
         {successMessage && (

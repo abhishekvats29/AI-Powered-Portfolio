@@ -66,22 +66,20 @@ const AppShowcase = () => {
         <img
           src="/images/app8.png"
           alt="App Screen 2"
-          className="max-h-[28vh] sm:max-h-[30vh] md:max-h-[38vh] lg:max-h-[26vh] object-contain drop-shadow-2xl rounded-xl animate-z2"
+          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="max-h-[30vh] sm:max-h-[34vh] md:max-h-[40vh] lg:max-h-[32vh] object-contain drop-shadow-2xl rounded-xl scale-105"
+          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
         <img
           src="/images/app5.png"
           alt="App Screen 4"
-          className="
-          max-h-[32vh] sm:max-h-[32vh] md:max-h-[40vh] lg:max-h-[26vh] 
-          w-40 sm:w-48 md:w-56 lg:w-64 
-          object-contain drop-shadow-2xl rounded-xl animate-z4"
+          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
         />
       </div>
+
 
       {/* Download Section */}
       <div className="mt-4 flex flex-col items-center gap-3 w-full">
