@@ -63,7 +63,8 @@ const skillData = [
 
 const Skills = () => {
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden">
+    <section id="skills" className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden">
+
       
 
       <div className="max-w-3xl mx-auto relative z-10">

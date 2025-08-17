@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 const ConnectSection = () => {
   return (
     <section className="relative py-20 px-4 border-t border-white/10 bg-black overflow-hidden">
+
+     
       {/* Floating hearts background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (

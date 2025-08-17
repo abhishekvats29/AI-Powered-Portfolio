@@ -72,6 +72,13 @@ export default function PersonalGallery() {
 
   return (
     <section className="relative py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
+
+      {/* Bottom Animated Glowing Line - Pink Glass Neon */}
+<div className="absolute bottom-0 left-0 w-full h-[2px] 
+  bg-gradient-to-r from-pink-400 via-pink-500 to-pink-400 
+  shadow-[0_0_10px_#f472b6,0_0_20px_#ec4899,0_0_30px_#db2777] 
+  rounded-full blur-[1px] animate-[flowing_3s_linear_infinite]">
+</div>
       {/* Thin white line above section */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40"></div>
 

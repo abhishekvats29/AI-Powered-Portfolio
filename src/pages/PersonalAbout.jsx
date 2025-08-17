@@ -6,8 +6,40 @@ const About = () => {
   return (
     <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#0c0c0c] to-[#1a1a1a] py-10 px-4 flex items-center overflow-hidden">
 
-      {/* Top Animated Glowing Line - White */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white via-white to-white shadow-[0_0_20px_#ffffff] blur-sm animate-glow-line"></div>
+
+      {/* Top Segmented Glowing Line */}
+      <div className="absolute top-0 left-0 w-full h-1 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-segment z-10" 
+           style={{
+             background: 'linear-gradient(to right, #f708b3ff 0%, #f906d4ff 33%, #ef4444 33%, #ef4444 66%, #fdf403ff 66%, #fbe305ff 100%)',
+             backgroundSize: '300% 100%'
+           }}
+      ></div>
+
+      {/* Custom Animation CSS */}
+      <style jsx>{`
+        @keyframes glowSegmentMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .animate-glow-segment {
+          animation: glowSegmentMove 4s linear infinite;
+        }
+      `}</style>
+
+      {/* Bottom Animated Glowing Line - Pink Glass Neon */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] 
+        bg-gradient-to-r from-pink-400 via-pink-500 to-pink-400 
+        shadow-[0_0_10px_#f472b6,0_0_20px_#ec4899,0_0_30px_#db2777] 
+        rounded-full blur-[1px] animate-[flowing_3s_linear_infinite]">
+      </div>
+
 
       {/* Animated Floating Emojis in Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -77,6 +109,10 @@ const About = () => {
         </div>
       </div>
     </section>
+
+
+
+
   );
 };
 

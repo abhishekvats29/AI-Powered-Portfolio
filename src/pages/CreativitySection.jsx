@@ -24,6 +24,7 @@ const CreativitySection = () => {
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-black via-[#0c0c0c] to-black text-white">
+
       <div className="max-w-7xl mx-auto rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl p-6 sm:p-10 space-y-16">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center">

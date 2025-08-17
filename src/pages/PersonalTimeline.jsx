@@ -21,6 +21,12 @@ const fadeUp = {
 export default function PersonalTimeline() {
   return (
     <section className="relative py-14 px-4 bg-gradient-to-b from-black via-[#0c0c0c] to-black text-white">
+
+    {/* Thin white line above section */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/40"></div>
+
+
+
       {/* Top Glass Line */}
       <div className="absolute top-0 left-0 w-full h-[1.5px] bg-white/30 backdrop-blur-sm shadow-[0_-2px_15px_rgba(255,255,255,0.5)]"></div>
       
@@ -64,8 +70,8 @@ export default function PersonalTimeline() {
         </div>
       </div>
 
-      {/* Bottom Glass Line */}
-      <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-white/30 backdrop-blur-sm shadow-[0_2px_15px_rgba(255,255,255,0.5)]"></div>
+      
+      
     </section>
   );
 }

@@ -12,6 +12,8 @@ const PersonalHero = () => {
 
   return (
     <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center bg-black">
+
+
       {/* Particle Background */}
       <Particles
         id="tsparticles"
@@ -94,6 +96,9 @@ const PersonalHero = () => {
       <div className="absolute bottom-5 right-6 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
         — Abhishek Vats
       </div>
+
+      
+
     </section>
   );
 };
