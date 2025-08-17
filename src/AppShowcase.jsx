@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import ReviewForm from "./ReviewForm";
 
 const AppShowcase = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-  const [comment, setComment] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
 
+  // Render stars for ReviewForm
   const renderStars = (currentRating, clickable = false) => {
     return [...Array(5)].map((_, i) => {
       const index = i + 1;
@@ -55,28 +55,14 @@ const AppShowcase = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (rating === 0 || comment.trim() === "") {
-      setSuccessMessage("⚠️ Please give a rating and write a comment.");
-      return;
-    }
-
-    setRating(0);
-    setComment("");
-    setSuccessMessage("✅ Thanks for your review!");
-    setTimeout(() => setSuccessMessage(""), 3000);
-  };
-
   return (
     <section
-      className="w-full max-w-7xl mx-auto my-10 flex flex-col justify-between items-center 
+      className="w-full max-w-7xl mx-auto my-10 flex flex-col justify-center items-center
       rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl px-4 sm:px-6 py-6 sm:py-8 
-      border border-white/20 perspective 
-      h-auto sm:h-[85vh] overflow-hidden"
+      border border-white/20"
     >
       {/* Images Row */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 perspective">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 w-full">
         <img
           src="/images/app8.png"
           alt="App Screen 2"
@@ -94,7 +80,6 @@ const AppShowcase = () => {
           max-h-[32vh] sm:max-h-[32vh] md:max-h-[40vh] lg:max-h-[26vh] 
           w-40 sm:w-48 md:w-56 lg:w-64 
           object-contain drop-shadow-2xl rounded-xl animate-z4"
-  
         />
       </div>
 
@@ -114,64 +99,13 @@ const AppShowcase = () => {
         </a>
       </div>
 
-      {/* Review & Comment Section */}
-      <div className="mt-6 w-full flex flex-col md:flex-row justify-center gap-6">
-        {/* Permanent User Review (Left) */}
-        <div className="w-full md:w-[45%] bg-white/10 p-4 rounded-lg shadow-lg flex flex-col items-center
-            border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition">
-          <p className="text-white font-semibold text-sm sm:text-base">User Reviews</p>
-          <div className="flex justify-center mt-1">
-            {[...Array(5)].map((_, i) => (
-              <svg
-                key={i}
-                className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
-              </svg>
-            ))}
-          </div>
-          <span className="text-yellow-400 font-bold text-sm sm:text-base mt-1">
-            4.9 / 5.0
-          </span>
-          <p className="text-gray-300 text-xs sm:text-sm mt-2 text-center">
-            “This app is amazing! Super fast, clean design, and really useful. Highly recommended.” – User
-          </p>
-        </div>
-
-        {/* Rating & Comment Form (Right) */}
-        <form
-          onSubmit={handleSubmit}
-          className="w-full md:w-[45%] bg-white/10 p-3 sm:p-4 rounded-lg shadow-lg 
-            border border-blue-400/50 backdrop-blur-lg relative hover:shadow-blue-500/40 transition flex flex-col items-center gap-2"
-        >
-          <div className="flex">{renderStars(hover || rating, true)}</div>
-          <textarea
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Write your review..."
-            className="w-full p-2 rounded-md bg-white/20 text-white placeholder-gray-300 focus:outline-none text-sm sm:text-base"
-            rows={2}
-          />
-          <button
-            type="submit"
-            className="px-3 sm:px-5 py-1.5 sm:py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl shadow-md transition text-sm sm:text-base"
-          >
-            Submit Review
-          </button>
-          {successMessage && (
-            <p className="text-green-400 font-medium text-sm">{successMessage}</p>
-          )}
-        </form>
+      {/* Review Form Section (Side by Side) */}
+      <div className="mt-6 w-full flex flex-col md:flex-row justify-center items-start gap-6">
+        <ReviewForm renderStars={renderStars} rating={rating} setRating={setRating} />
       </div>
 
       {/* Animations */}
       <style jsx>{`
-        .perspective {
-          perspective: 1200px;
-        }
-
         @keyframes z2 {
           0%,
           100% {

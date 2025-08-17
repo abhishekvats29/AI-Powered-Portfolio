@@ -4,10 +4,6 @@ import { Routes, Route } from "react-router-dom";
 // Landing page
 import Home from "./Home";
 
-// import Home from "./pages/Home";
-
-
-
 // Personal section
 import Personal from "./pages/Personal";
 import NavbarPersonal from "./pages/NavbarPersonal";
@@ -17,6 +13,9 @@ import FooterPersonal from "./pages/FooterPersonal";
 import Professional from "./components/Professional";
 import NavbarProfessional from "./components/NavbarProfessional";
 import FooterProfessional from "./components/FooterProfessional";
+
+// Import ViewReviews from src folder (not pages)
+import ViewReviews from "./ViewReviews";
 
 function App() {
   return (
@@ -47,6 +46,9 @@ function App() {
           </>
         }
       />
+
+      {/* Reviews Page */}
+      <Route path="/reviews" element={<ViewReviews />} />
     </Routes>
   );
 }
