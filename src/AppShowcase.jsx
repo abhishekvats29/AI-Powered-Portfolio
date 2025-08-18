@@ -63,22 +63,36 @@ const AppShowcase = () => {
     >
       {/* Images Row */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 w-full">
-        <img
-          src="/images/app8.png"
-          alt="App Screen 2"
-          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
-        />
-        <img
-          src="/images/app9.png"
-          alt="App Screen 3"
-          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
-        />
-        <img
-          src="/images/app5.png"
-          alt="App Screen 4"
-          className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain drop-shadow-2xl rounded-xl animate-z2"
-        />
-      </div>
+  {/* First image - float up/down + 3D tilt on hover */}
+  <img
+    src="/images/app8.png"
+    alt="App Screen 2"
+    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
+               object-contain drop-shadow-2xl rounded-xl
+               [animation:float1_6s_ease-in-out_infinite]
+               transition-transform duration-500 hover:[transform:rotateX(8deg)_rotateY(-8deg)_scale(1.05)]"
+  />
+
+  {/* Second image - stable + 3D tilt on hover */}
+  <img
+    src="/images/app9.png"
+    alt="App Screen 3"
+    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
+               object-contain drop-shadow-2xl rounded-xl
+               transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
+  />
+
+  {/* Third image - float opposite + 3D tilt on hover */}
+  <img
+    src="/images/app5.png"
+    alt="App Screen 4"
+    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
+               object-contain drop-shadow-2xl rounded-xl
+               [animation:float2_6s_ease-in-out_infinite]
+               transition-transform duration-500 hover:[transform:rotateX(-8deg)_rotateY(8deg)_scale(1.05)]"
+  />
+</div>
+
 
 
       {/* Download Section */}
@@ -137,6 +151,15 @@ const AppShowcase = () => {
           animation: z4 6s ease-in-out infinite;
           animation-delay: 2s;
         }
+
+        @keyframes float1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+  }
       `}</style>
     </section>
   );
