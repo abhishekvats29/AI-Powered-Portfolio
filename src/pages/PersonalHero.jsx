@@ -56,6 +56,9 @@ const PersonalHero = () => {
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
 
+      
+      
+
       {/* Hero Content */}
       <motion.div
         className="relative z-20 text-center px-4 sm:px-6 md:px-8 flex flex-col items-center justify-center"

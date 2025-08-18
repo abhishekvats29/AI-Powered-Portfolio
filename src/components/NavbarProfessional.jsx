@@ -33,6 +33,11 @@ export default function NavbarProfessional() {
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
+    { name: "github", href: "https://github.com/abhishekvats29" },
+    { name: "Linkedin", href: "https://www.linkedin.com/in/abhishekvats29" },
+    { name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU" },
+    
+    
   ];
 
   const handleNavClick = () => {
@@ -102,7 +107,7 @@ export default function NavbarProfessional() {
           </div>
 
           {/* Nav Links */}
-          <nav className="flex-1 px-6 py-6 space-y-6 text-lg font-semibold">
+          <nav className="flex-1 px-6 py-4 space-y-4 text-lg font-semibold">
             {navLinks.map((link) =>
               link.href.startsWith("/") ? (
                 <Link

@@ -46,6 +46,10 @@ export default function NavbarPersonal() {
     { name: "Creativity", href: "#creativity" },
     { name: "Timeline", href: "#timeline" },
     { name: "Connect", href: "#connect" },
+    {name: "twitter", href: "https://twitter.com/abhishekvats29"},
+    {name: "Instagram", href: "https://instagram.com/abhishekvats29"},
+    {name: "WhatsApp", href: "https://wa.me/919508721988?text=Hi%20Abhishek%2C%20I%20visited%20your%20portfolio!"},
+    {name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU"},
   ];
 
   return (

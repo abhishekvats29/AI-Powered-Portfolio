@@ -63,7 +63,7 @@ const ChatbotLauncher = () => {
           {/* Tooltip on Hover */}
           <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300 z-[9999]">
             <div className="bg-white/10 text-white text-xs px-3 py-1 rounded-lg backdrop-blur-md border border-white/20 max-w-[140px] whitespace-normal text-center leading-tight">
-              AI Assistant: Project Links
+              AI Assistant
             </div>
           </div>
 

@@ -131,7 +131,7 @@ const PersonalAssistant = () => {
       ) : (
         <div className="relative group flex items-center gap-3">
           <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-white/10 text-white text-xs px-3 py-2 rounded-md backdrop-blur border border-white/20 shadow-md max-w-[130px] whitespace-normal opacity-0 group-hover:opacity-100 transition-all duration-300 text-center">
-            Chat with Abhishek AI Assistant
+            Abhishek AI Assistant
           </div>
 
           <button

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Typewriter } from 'react-simple-typewriter';
 import { FaLinkedin, FaGithub, FaTwitter, } from "react-icons/fa";
 
 import Tilt from "react-parallax-tilt";
@@ -135,12 +135,23 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
             Code Meets Creativity
           </h1>
-          <p
-            className="mt-3 text-lg text-white/90 sm:text-xl font-medium
-                      overflow-hidden whitespace-nowrap border-r-2 border-white/90
-                      [animation:typing_6s_steps(60,end)_infinite,blink_0.75s_step-end_infinite]"
-          >
-            Building digital experiences with emotion & precision.
+          <p className="text-sm sm:text-lg md:text-xl text-gray-200 mt-4 font-medium max-w-2xl mx-auto drop-shadow-md">
+            <Typewriter
+              words={[
+                  'Living with Passion, Creating with Purpose',
+                  'Engineer. Dreamer. Coder - Driven to make tech feel human.',
+                  'Building digital experiences with emotion & precision.',
+                  'Turning Dreams into Digital Reality',
+                  'with cutting-edge technology and engineering excellence',
+                  'Innovation in Soul, Software in Mind',
+              ]}
+              loop={Infinity}
+              cursor
+              cursorStyle="|"
+              typeSpeed={50}
+              deleteSpeed={30}
+              delaySpeed={2200}
+            />
           </p>
 
 
