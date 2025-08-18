@@ -113,7 +113,7 @@ export default function Home() {
         {/* Gradient border */} 
         <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" /> 
         <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20"> 
-         <img src="/images/profile2.jpeg" 
+         <img src="/images/Profile4.jpeg" 
          alt="Abhishek Vats" className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80" /> 
         
          {/* bottom underglow */} 
@@ -135,9 +135,17 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
             Code Meets Creativity
           </h1>
-          <p className="mt-3 text-lg text-white/90 sm:text-xl">
+          <p
+            className="mt-3 text-lg text-white/90 sm:text-xl font-medium
+                      overflow-hidden whitespace-nowrap border-r-2 border-white/90
+                      [animation:typing_6s_steps(60,end)_infinite,blink_0.75s_step-end_infinite]"
+          >
             Building digital experiences with emotion & precision.
           </p>
+
+
+
+
           <p className="mt-2 text-sm text-white/70">
             Engineer • Artist • Storyteller — Driven to make tech feel human.
           </p>
@@ -270,7 +278,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-blue-100/20 blur-3xl -z-10 rounded-2xl"></div>
 
                     <img
-                      src="/images/vats6.jpeg"
+                      src="/images/profile2.jpeg"
                       alt="Portfolio mock"
                       className="max-h-full max-w-full object-contain rounded-xl"
                     />
@@ -328,7 +336,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-pink-100/20 blur-3xl -z-10 rounded-2xl"></div>
 
                     <img
-                      src="/images/vats7.jpeg"
+                      src="/images/vats9.jpeg"
                       alt="Portfolio mock"
                       className="max-h-full max-w-full object-contain rounded-xl"
                     />
@@ -439,6 +447,18 @@ export default function Home() {
         .animate-mesh { animation: mesh 16s ease-in-out infinite; }
         .animate-mesh-delay { animation: mesh 20s ease-in-out infinite; }
         .animate-float { animation: float 8s ease-in-out infinite; }
+
+       @keyframes typing {
+        0% { width: 0 }
+        50% { width: 100% }
+        100% { width: 0 }
+      }
+
+      @keyframes blink {
+        0%, 100% { border-color: transparent }
+        50% { border-color: rgba(255,255,255,0.9) }
+      }
+      }
       `}</style>
 
 

@@ -150,15 +150,6 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Scroll to Top Button */}
-      {showTopBtn && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-4 z-50 bg-blue-600 text-white text-xl p-3 rounded-full hover:bg-white hover:text-blue-600 transition shadow-lg"
-        >
-          ⬆️
-        </button>
-      )}
 
       {/* Bottom Animated Glowing Line */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-line"></div>

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html", // Vite usually uses root index.html, not public/index.html
+    "./index.html", // Vite entry file
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
 
@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         navyStart: "#0d1a2d",
         navyEnd: "#102e4a",
+      },
+      backgroundImage: {
+        "navy-gradient": "linear-gradient(to bottom, #0d1a2d, #102e4a)",
       },
       keyframes: {
         floatX: {
