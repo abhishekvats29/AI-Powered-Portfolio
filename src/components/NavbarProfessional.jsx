@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  X,
   ChevronRight,
   ChevronLeft,
   Home,
@@ -129,27 +128,24 @@ export default function NavbarProfessional() {
                   Portfolio
                 </span>
               )}
+              {/* Tooltip for logo when collapsed */}
+              {!isOpen && !isMobile && (
+                <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                  Portfolio
+                </span>
+              )}
             </div>
 
-            {/* Close / Collapse button */}
-            {isOpen &&
-              (isMobile ? (
-                <button
-                  onClick={closeMenu}
-                  aria-label="Close Sidebar"
-                  className="text-white p-1 rounded hover:bg-blue-700/50"
-                >
-                  <X size={28} />
-                </button>
-              ) : (
-                <button
-                  onClick={closeMenu}
-                  aria-label="Collapse Sidebar"
-                  className="text-white p-1 rounded hover:bg-blue-700/50"
-                >
-                  <ChevronLeft size={28} />
-                </button>
-              ))}
+            {/* Collapse button */}
+            {isOpen && (
+              <button
+                onClick={closeMenu}
+                aria-label="Collapse Sidebar"
+                className="text-white p-1 rounded hover:bg-blue-700/50"
+              >
+                <ChevronLeft size={28} />
+              </button>
+            )}
           </div>
 
           {/* Navigation */}
@@ -164,8 +160,8 @@ export default function NavbarProfessional() {
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
-                  {!isOpen && (
-                    <span className="absolute left-16 md:left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                  {!isOpen && !isMobile && (
+                    <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                       {link.name}
                     </span>
                   )}
@@ -181,8 +177,8 @@ export default function NavbarProfessional() {
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
-                  {!isOpen && (
-                    <span className="absolute left-16 md:left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                  {!isOpen && !isMobile && (
+                    <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                       {link.name}
                     </span>
                   )}
@@ -203,8 +199,8 @@ export default function NavbarProfessional() {
               >
                 {link.icon}
                 {isOpen && <span>{link.name}</span>}
-                {!isOpen && (
-                  <span className="absolute left-16 md:left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                {!isOpen && !isMobile && (
+                  <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                     {link.name}
                   </span>
                 )}
@@ -212,7 +208,7 @@ export default function NavbarProfessional() {
             ))}
           </div>
 
-          {/* Dark Mode Toggle (Desktop + Mobile) */}
+          {/* Dark Mode Toggle */}
           <div
             className="px-4 py-4 border-t border-blue-700 flex items-center gap-2 cursor-pointer select-none"
             onClick={() => setIsToggleWhite((prev) => !prev)}
