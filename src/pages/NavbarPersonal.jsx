@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { X, ChevronRight } from "lucide-react";
+import {
+  ChevronRight,
+  ChevronLeft,
+  Home,
+  Image,
+  Palette,
+  Clock,
+  Users,
+  Instagram,
+  Twitter,
+  Download,
+  MessageCircle,
+} from "lucide-react";
 
 export default function NavbarPersonal() {
   const [isOpen, setIsOpen] = useState(true);
@@ -40,16 +52,33 @@ export default function NavbarPersonal() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleLinkClick = () => {
+    if (window.innerWidth < 768) {
+      setIsOpen(false); // auto-close on mobile
+    }
+  };
+
   const navLinks = [
-    { name: "Home", to: "/" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Creativity", href: "#creativity" },
-    { name: "Timeline", href: "#timeline" },
-    { name: "Connect", href: "#connect" },
-    {name: "twitter", href: "https://twitter.com/abhishekvats29"},
-    {name: "Instagram", href: "https://instagram.com/abhishekvats29"},
-    {name: "WhatsApp", href: "https://wa.me/919508721988?text=Hi%20Abhishek%2C%20I%20visited%20your%20portfolio!"},
-    {name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU"},
+    { name: "Home", to: "/", icon: <Home size={20} /> },
+    { name: "Gallery", href: "#gallery", icon: <Image size={20} /> },
+    { name: "Creativity", href: "#creativity", icon: <Palette size={20} /> },
+    { name: "Timeline", href: "#timeline", icon: <Clock size={20} /> },
+    { name: "Connect", href: "#connect", icon: <Users size={20} /> },
+  ];
+
+  const socialLinks = [
+    { name: "Twitter", href: "https://twitter.com/abhishekvats29", icon: <Twitter size={20} /> },
+    { name: "Instagram", href: "https://instagram.com/abhishekvats29", icon: <Instagram size={20} /> },
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/919508721988?text=Hi%20Abhishek%2C%20I%20visited%20your%20portfolio!",
+      icon: <MessageCircle size={20} />,
+    },
+    {
+      name: "Download App",
+      href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU",
+      icon: <Download size={20} />,
+    },
   ];
 
   return (
@@ -62,11 +91,7 @@ export default function NavbarPersonal() {
           aria-label="Open Sidebar"
         >
           <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-            <img
-              src="/images/vats29.jpeg"
-              alt="Logo"
-              className="w-full h-full object-cover rounded-full"
-            />
+            <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
           </div>
           <span className="text-white font-semibold select-none">Portfolio</span>
         </button>
@@ -80,87 +105,118 @@ export default function NavbarPersonal() {
           aria-label="Open Sidebar"
         >
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
-            <img
-              src="/images/vats29.jpeg"
-              alt="Logo"
-              className="w-full h-full object-cover rounded-full"
-            />
+            <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
           </div>
           <span className="text-white font-semibold text-lg select-none">Portfolio</span>
         </button>
       )}
 
-      {/* Open Sidebar Icon (both mobile & desktop) */}
-      {!isOpen && (
-        <button
-          onClick={openMenu}
-          aria-label="Open Sidebar"
-          className="fixed top-1/2 -translate-y-1/2 left-0 z-50 text-white bg-black/70 backdrop-blur-md border border-white/20 rounded-r-xl p-2 hover:scale-110 transition"
-        >
-          <ChevronRight size={24} />
-        </button>
-      )}
-
-      {/* Sidebar */}
+      {/* Sidebar: mobile fully hidden when closed, desktop mini when closed */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-black/80 backdrop-blur-xl border-r border-white/20 shadow-lg transform transition-transform duration-300 z-40 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-white/20 shadow-lg transition-all duration-300 z-40
+        ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
         <div className="flex flex-col h-full text-white">
-          {/* Header: Logo + Close */}
-          <div className="flex items-center justify-between px-6 py-6 border-b border-white/20">
+          {/* Header: Logo + Collapse */}
+          <div className="flex items-center justify-between px-4 py-4 border-b border-white/20">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
-                <img
-                  src="/images/vats29.jpeg"
-                  alt="Logo"
-                  className="w-full h-full object-cover rounded-full"
-                />
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
               </div>
-              <span className="text-xl font-extrabold tracking-wide">Portfolio</span>
+              {isOpen && <span className="text-lg font-extrabold tracking-wide">Portfolio</span>}
             </div>
+
+            {/* ChevronLeft (collapse to mini on desktop, full hide on mobile) */}
             {isOpen && (
               <button
                 onClick={closeMenu}
-                aria-label="Close Sidebar"
-                className="text-white p-1 rounded hover:bg-white/20 focus:outline-none"
+                aria-label="Collapse Sidebar"
+                className="text-white p-1 rounded hover:bg-white/20"
               >
-                <X size={24} />
+                <ChevronLeft size={22} />
               </button>
             )}
           </div>
 
+          {/* When closed: show chevron inside sidebar below logo (desktop only) */}
+          {!isOpen && (
+            <div className="hidden md:flex justify-center py-3">
+              <button
+                onClick={openMenu}
+                aria-label="Expand Sidebar"
+                className="text-white p-1 rounded hover:bg-white/20"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+          )}
+
           {/* Navigation Links */}
-          <nav className="flex-1 px-6 py-6 space-y-6 text-lg font-semibold">
+          <nav className="flex-1 flex flex-col px-2 py-6 space-y-2">
             {navLinks.map((link) =>
               link.to ? (
                 <Link
                   key={link.name}
                   to={link.to}
-                  onClick={closeMenu}
-                  className="block hover:text-pink-300 transition"
-                  style={{ lineHeight: "2rem" }}
+                  onClick={handleLinkClick}
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
                 >
-                  {link.name}
+                  {link.icon}
+                  {isOpen && <span>{link.name}</span>}
+                  {/* Tooltip: desktop-only when collapsed */}
+                  {!isOpen && (
+                    <span className="hidden md:block absolute left-16 px-3 py-1 text-sm bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                      {link.name}
+                    </span>
+                  )}
                 </Link>
               ) : (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={closeMenu}
-                  className="block hover:text-pink-300 transition"
-                  style={{ lineHeight: "2rem" }}
+                  onClick={handleLinkClick}
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
                 >
-                  {link.name}
+                  {link.icon}
+                  {isOpen && <span>{link.name}</span>}
+                  {!isOpen && (
+                    <span className="hidden md:block absolute left-16 px-3 py-1 text-sm bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                      {link.name}
+                    </span>
+                  )}
                 </a>
               )
             )}
           </nav>
 
+          {/* Separator before Social Links */}
+          <div className="border-t border-white/20 my-2"></div>
+
+          {/* Social Icons */}
+          <div className="flex flex-col space-y-2 px-2 mb-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
+              >
+                {link.icon}
+                {isOpen && <span>{link.name}</span>}
+                {!isOpen && (
+                  <span className="hidden md:block absolute left-16 px-3 py-1 text-sm bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                    {link.name}
+                  </span>
+                )}
+              </a>
+            ))}
+          </div>
+
           {/* Dark Mode Toggle */}
-          <div className="px-6 py-4 border-t border-white/20 flex items-center gap-2">
-            <label className="text-sm">Dark</label>
+          <div className="px-4 py-4 border-t border-white/20 flex items-center gap-2">
+            {isOpen && <label className="text-sm">Dark</label>}
             <button
               onClick={toggleDarkMode}
               className={`w-10 h-5 rounded-full flex items-center px-1 transition ${
