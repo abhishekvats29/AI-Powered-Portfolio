@@ -54,7 +54,7 @@ const projects = [
     description:
       "🧠 Interactive quiz platform with timed questions, instant scoring, multiple question types, and a real-time leaderboard for competitive play.",
     image: "/images/quiz final.png",
-    liveApp: "https://vats-quiz-app.netlify.app/",
+    liveApp: "https://online-quiz-platform-in.netlify.app/",
     SourceCode: "https://github.com/abhishekvats29/Online-Quiz-Platform.git",
   },
   {
@@ -74,6 +74,16 @@ const projects = [
     image: "/images/hubspot final.png",
     liveApp: "https://drive.google.com/file/d/1KYgmHM9zc99jNYtxOUlEz0rEQ-BAgdwc/view?usp=drive_link",
     SourceCode: "https://github.com/abhishekvats29/Hubspot-Integration",
+  },
+
+  {
+    id: 9,
+    title: "Currency Converter App",
+    description:
+      "💱 Convert between multiple currencies instantly with real-time exchange rates, enter custom amounts, and see dynamic conversions update automatically for accurate currency calculations.",
+    image: "/images/currency.png",
+    liveApp: "https://currency-converter-app-in.netlify.app/",
+    SourceCode: "https://github.com/abhishekvats29/Currency-Converter-Application.git",
   },
 ];
 

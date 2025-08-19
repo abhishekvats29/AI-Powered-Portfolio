@@ -63,6 +63,14 @@ const projects = [
     technologies: ["React", "Node.js", "AI Chatbot", "Real-Time Sync"],
     highlights: ["Multi-Email Aggregation", "AI Smart Replies", "Real-Time Updates"],
   },
+  {
+    title: "Currency Converter App",
+    short: "💱 Convert between multiple currencies instantly with real-time exchange rates, enter custom amounts, and see dynamic conversions update automatically for accurate currency calculations.",
+    liveLink: "https://currency-converter-app-in.netlify.app/",
+    category: "App",
+    technologies: ["React", "JavaScript", "API", "Real-Time Sync"],
+    highlights: ["Currency convert", "Exchange world wide currency", "Real-Time Updates"],
+  },
 ];
 
 export default projects;

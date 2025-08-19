@@ -124,6 +124,7 @@ const MessageParser = ({ children, actions, state }) => {
       "hubspot",
       "onebox",
       "vehicle registration",
+      "currency converter",
     ];
     const matchedProject = projectKeywords.find((kw) => lower.includes(kw));
     if (matchedProject) {
