@@ -62,7 +62,6 @@ useEffect(() => {
   const socialLinks = [
     { name: "GitHub", href: "https://github.com/abhishekvats29", icon: <Github size={20} /> },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/abhishekvats29", icon: <Linkedin size={20} /> },
-    
     { name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU", icon: <Download size={20} /> },
   ];
 
@@ -72,32 +71,33 @@ useEffect(() => {
 
   return (
     <>
-      {/* Top mini bar (mobile + desktop when sidebar closed) */}
-      {(isMobile && !isOpen && showMobileNavbar) ||
-      (!isMobile && !isOpen) ? (
-        <div
-          className="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30 shadow-lg flex items-center px-4 py-3"
-          onClick={isMobile ? openMenu : undefined}
-        >
-          <img
-            src="/images/profile.jpeg"
-            alt="Profile"
-            className="w-10 h-10 rounded-full border-2 border-white object-cover"
-          />
-          <span className="text-white font-semibold ml-4 select-none text-lg">
-            Portfolio
-          </span>
-          {!isMobile && (
-            <button
-              onClick={openMenu}
-              className="ml-auto text-white bg-blue/70 backdrop-blur-md border border-white/20 rounded-md px-2 py-1 hover:scale-110 transition"
-              aria-label="Open Sidebar"
-            >
-              <ChevronRight size={22} />
-            </button>
-          )}
-        </div>
-      ) : null}
+      {/* Collapsed Sidebar (desktop only) */}
+{!isMobile && !isOpen && (
+  <div className="fixed top-0 left-0 h-screen w-16 bg-black/70 backdrop-blur-md z-50 flex flex-col items-center py-4">
+    {/* Logo */}
+    <img
+      src="/images/profile.jpeg"
+      alt="Profile"
+      className="w-10 h-10 rounded-full border-2 border-white object-cover mb-6"
+    />
+
+    {/* Open Sidebar Button (below logo) */}
+    <button
+      onClick={openMenu}
+      className="text-white bg-blue/70 backdrop-blur-md border border-white/20 rounded-md p-2 hover:scale-110 transition mb-6"
+      aria-label="Open Sidebar"
+    >
+      <ChevronRight size={22} />
+    </button>
+
+    {/* Sidebar links (icons only) */}
+    <nav className="flex flex-col gap-6 mt-2">
+      <Home className="text-white cursor-pointer" />
+      {/* other icons here */}
+    </nav>
+  </div>
+)}
+
 
       {/* Sidebar */}
       <aside
@@ -155,6 +155,8 @@ useEffect(() => {
                       <span className="absolute left-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                         {link.name}
                       </span>
+
+
                     )
                   )}
                 </Link>
