@@ -414,7 +414,7 @@ export default function Home() {
       {[
         { icon: <FaHome size={20} />, label: "Home", onClick: () => (window.location.href = "/"), color: "text-blue-500 border-blue-500", hover: "hover:text-blue-600 hover:border-blue-600" },
         { icon: <FaEnvelope size={20} />, label: "Contact", onClick: () => setShowModal(true), color: "text-purple-500 border-purple-500", hover: "hover:text-purple-600 hover:border-purple-600" },
-        { icon: <FaWhatsapp size={20} />, label: "Chat", onClick: openWhatsApp, color: "text-green-500 border-green-500", hover: "hover:text-green-600 hover:border-green-600" },
+        { icon: <FaWhatsapp size={20} />, label: "WhatsApp", onClick: openWhatsApp, color: "text-green-500 border-green-500", hover: "hover:text-green-600 hover:border-green-600" },
       ].map((btn, i) => (
       <button
         key={i}
