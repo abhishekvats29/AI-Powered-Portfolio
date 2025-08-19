@@ -4,5 +4,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // <-- This is important for proper asset loading after deployment
+  // Use relative paths so app works on Render, Vercel, Netlify etc.
+  base: './',
+  build: {
+    outDir: 'dist',
+  },
+  server: {
+    port: 3000,
+    open: true,
+  },
 });

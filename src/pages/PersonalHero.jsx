@@ -7,17 +7,23 @@ import { ChevronDown } from 'lucide-react';
 
 const PersonalHero = () => {
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine); // Required for tsparticles@3
+    // this loads the tsparticles bundle properly
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async () => {
+    // optional: to confirm particles loaded successfully
+    console.log("Particles loaded successfully ✅");
   }, []);
 
   return (
     <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center bg-black">
 
-
       {/* Particle Background */}
       <Particles
         id="tsparticles"
         init={particlesInit}
+        loaded={particlesLoaded}
         options={{
           background: { color: { value: 'transparent' } },
           fpsLimit: 60,
@@ -55,9 +61,6 @@ const PersonalHero = () => {
 
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
-
-      
-      
 
       {/* Hero Content */}
       <motion.div
@@ -99,9 +102,6 @@ const PersonalHero = () => {
       <div className="absolute bottom-5 right-6 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
         — Abhishek Vats
       </div>
-
-      
-
     </section>
   );
 };
