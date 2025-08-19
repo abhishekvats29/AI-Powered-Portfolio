@@ -12,7 +12,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  Youtube,
   Download,
 } from "lucide-react";
 
@@ -33,21 +32,20 @@ export default function NavbarProfessional() {
   }, []);
 
   // Show navbar only when scrolling down
-useEffect(() => {
-  let lastScrollY = window.pageYOffset;
-  const onScroll = () => {
-    const currentScrollY = window.pageYOffset;
-    if (currentScrollY > lastScrollY) {
-      setShowMobileNavbar(true);  // show on scroll down
-    } else {
-      setShowMobileNavbar(false); // hide on scroll up
-    }
-    lastScrollY = currentScrollY;
-  };
-  window.addEventListener("scroll", onScroll);
-  return () => window.removeEventListener("scroll", onScroll);
-}, []);
-
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+    const onScroll = () => {
+      const currentScrollY = window.pageYOffset;
+      if (currentScrollY > lastScrollY) {
+        setShowMobileNavbar(true); // show on scroll down
+      } else {
+        setShowMobileNavbar(false); // hide on scroll up
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/", icon: <Home size={20} /> },
@@ -72,35 +70,46 @@ useEffect(() => {
   return (
     <>
       {/* Collapsed Sidebar (desktop only) */}
+      {!isMobile && !isOpen && (
+        <div className="fixed top-0 left-0 h-screen w-16 bg-black/70 backdrop-blur-md z-50 flex flex-col items-center py-4">
+          {/* Logo */}
+          <img
+            src="/images/profile.jpeg"
+            alt="Profile"
+            className="w-10 h-10 rounded-full border-2 border-white object-cover mb-6"
+          />
+
+          {/* Sidebar links (icons only) */}
+          <nav className="flex flex-col gap-6 mt-2 flex-1">
+            <Home className="text-white cursor-pointer" />
+            {/* other icons here */}
+          </nav>
+        </div>
+      )}
+
+      {/* Floating Button (Desktop, when sidebar closed) */}
+      {/* Floating Button (Desktop, when sidebar closed) */}
+{/* Sidebar Toggle Button (Desktop, visible when sidebar is collapsed) */}
 {!isMobile && !isOpen && (
-  <div className="fixed top-0 left-0 h-screen w-16 bg-black/70 backdrop-blur-md z-50 flex flex-col items-center py-4">
-    {/* Logo */}
-    <img
-      src="/images/profile.jpeg"
-      alt="Profile"
-      className="w-10 h-10 rounded-full border-2 border-white object-cover mb-6"
-    />
-
-    {/* When closed: show chevron inside sidebar below logo (desktop only) */}
-              {!isOpen && (
-                <div className="hidden md:flex justify-center py-3">
-                  <button
-                    onClick={openMenu}
-                    aria-label="Expand Sidebar"
-                    className="text-white p-1 rounded hover:bg-white/20"
-                  >
-                    <ChevronRight size={22} />
-                  </button>
-                </div>
-              )}
-
-    {/* Sidebar links (icons only) */}
-    <nav className="flex flex-col gap-6 mt-2">
-      <Home className="text-white cursor-pointer" />
-      {/* other icons here */}
-    </nav>
-  </div>
+  <button
+    onClick={openMenu}
+    className="fixed top-16 left-16 z-[60] 
+               flex items-center justify-center 
+               w-11 h-11 
+               bg-white/10 backdrop-blur-xl 
+               border border-white/20 
+               rounded-xl shadow-lg 
+               hover:bg-white/20 hover:scale-105 
+               transition-all duration-300 ease-out"
+    aria-label="Open Sidebar"
+  >
+    <ChevronRight size={22} className="text-white drop-shadow" />
+  </button>
 )}
+
+
+
+
 
 
       {/* Sidebar */}
@@ -118,7 +127,7 @@ useEffect(() => {
         <div className="flex flex-col h-full text-white">
           {/* Header */}
           <div className="flex justify-between items-center px-4 py-6 border-b border-blue-700">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 cursor-pointer" onClick={openMenu}>
               <img
                 src="/images/profile.jpeg"
                 alt="Profile"
@@ -159,8 +168,6 @@ useEffect(() => {
                       <span className="absolute left-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                         {link.name}
                       </span>
-
-
                     )
                   )}
                 </Link>
@@ -245,6 +252,21 @@ useEffect(() => {
           </div>
         </div>
       </aside>
+
+      {/* Mobile Top Mini Header when sidebar closed */}
+      {isMobile && !isOpen && (
+        <div
+          className="fixed top-0 left-0 right-0 z-50 bg-[#0d1a2d] border-b border-blue-800 flex items-center px-4 py-3 cursor-pointer"
+          onClick={openMenu}
+        >
+          <img
+            src="/images/profile.jpeg"
+            alt="Profile"
+            className="w-10 h-10 rounded-full border-2 border-white object-cover mr-3"
+          />
+          <span className="text-lg font-bold text-white">Portfolio</span>
+        </div>
+      )}
 
       {/* Overlay for mobile */}
       {isMobile && isOpen && (
