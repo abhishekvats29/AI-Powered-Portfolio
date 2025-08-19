@@ -81,14 +81,18 @@ useEffect(() => {
       className="w-10 h-10 rounded-full border-2 border-white object-cover mb-6"
     />
 
-    {/* Open Sidebar Button (below logo) */}
-    <button
-      onClick={openMenu}
-      className="text-white bg-blue/70 backdrop-blur-md border border-white/20 rounded-md p-2 hover:scale-110 transition mb-6"
-      aria-label="Open Sidebar"
-    >
-      <ChevronRight size={22} />
-    </button>
+    {/* When closed: show chevron inside sidebar below logo (desktop only) */}
+              {!isOpen && (
+                <div className="hidden md:flex justify-center py-3">
+                  <button
+                    onClick={openMenu}
+                    aria-label="Expand Sidebar"
+                    className="text-white p-1 rounded hover:bg-white/20"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+                </div>
+              )}
 
     {/* Sidebar links (icons only) */}
     <nav className="flex flex-col gap-6 mt-2">
