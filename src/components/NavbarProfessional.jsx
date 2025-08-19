@@ -78,19 +78,31 @@ export default function NavbarProfessional() {
     <>
       {/* Mobile Top Bar (only visible when sidebar closed) */}
       {!isOpen && showMobileNavbar && isMobile && (
-        <div
-          className="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30 shadow-lg cursor-pointer flex items-center px-4 py-3"
-          onClick={openMenu}
-        >
-          <img
-            src="/images/profile.jpeg"
-            alt="Profile"
-            className="w-10 h-10 rounded-full border-2 border-white object-cover"
-          />
-          <span className="text-white font-semibold ml-4 select-none text-lg">
-            Portfolio
-          </span>
-        </div>
+        <div className="flex justify-between items-center px-4 py-6 border-b border-blue-700">
+  <div className="flex items-center gap-3">
+    <img
+      src="/images/profile.jpeg"
+      alt="Profile"
+      className="w-10 h-10 rounded-full border-2 border-white object-cover"
+    />
+    {/* Always show Portfolio text on desktop, even when collapsed */}
+    {(!isMobile || isOpen) && (
+      <span className="text-xl font-extrabold tracking-wide text-white">
+        Portfolio
+      </span>
+    )}
+  </div>
+  {/* Collapse button */}
+  {isOpen && (
+    <button
+      onClick={closeMenu}
+      aria-label="Collapse Sidebar"
+      className="text-white p-1 rounded hover:bg-blue-700/50"
+    >
+      <ChevronLeft size={28} />
+    </button>
+  )}
+</div>
       )}
 
       {/* Open Button (Mobile & Desktop Mini) */}
@@ -117,7 +129,7 @@ export default function NavbarProfessional() {
         <div className="flex flex-col h-full text-white">
           {/* Header */}
           <div className="flex justify-between items-center px-4 py-6 border-b border-blue-700">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 group relative">
               <img
                 src="/images/profile.jpeg"
                 alt="Profile"
@@ -128,9 +140,10 @@ export default function NavbarProfessional() {
                   Portfolio
                 </span>
               )}
-              {/* Tooltip for logo when collapsed */}
+
+              {/* ✅ Tooltip for collapsed desktop */}
               {!isOpen && !isMobile && (
-                <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                <span className="absolute left-14 top-1/2 -translate-y-1/2 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-lg">
                   Portfolio
                 </span>
               )}
@@ -160,8 +173,9 @@ export default function NavbarProfessional() {
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
+                  {/* ✅ Tooltip */}
                   {!isOpen && !isMobile && (
-                    <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                    <span className="absolute left-14 top-1/2 -translate-y-1/2 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-lg">
                       {link.name}
                     </span>
                   )}
@@ -177,8 +191,9 @@ export default function NavbarProfessional() {
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
+                  {/* ✅ Tooltip */}
                   {!isOpen && !isMobile && (
-                    <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                    <span className="absolute left-14 top-1/2 -translate-y-1/2 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-lg">
                       {link.name}
                     </span>
                   )}
@@ -199,8 +214,9 @@ export default function NavbarProfessional() {
               >
                 {link.icon}
                 {isOpen && <span>{link.name}</span>}
+                {/* ✅ Tooltip */}
                 {!isOpen && !isMobile && (
-                  <span className="absolute left-16 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                  <span className="absolute left-14 top-1/2 -translate-y-1/2 px-3 py-1 bg-white/20 backdrop-blur-md text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-lg">
                     {link.name}
                   </span>
                 )}

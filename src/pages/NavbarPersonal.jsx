@@ -214,22 +214,24 @@ export default function NavbarPersonal() {
             ))}
           </div>
 
-          {/* Dark Mode Toggle */}
-          <div className="px-4 py-4 border-t border-white/20 flex items-center gap-2">
-            {isOpen && <label className="text-sm">Dark</label>}
-            <button
-              onClick={toggleDarkMode}
-              className={`w-10 h-5 rounded-full flex items-center px-1 transition ${
-                darkMode ? "bg-gray-800" : "bg-white"
-              }`}
-            >
-              <div
-                className={`w-3 h-3 rounded-full bg-pink-400 shadow-md transform transition-transform duration-300 ${
-                  darkMode ? "translate-x-5" : "translate-x-0"
+          {/* ✅ Dark Mode Toggle - hidden when sidebar closed on mobile */}
+          {(isOpen || (!isOpen && window.innerWidth >= 768)) && (
+            <div className="px-4 py-4 border-t border-white/20 flex items-center gap-2">
+              {isOpen && <label className="text-sm">Dark</label>}
+              <button
+                onClick={toggleDarkMode}
+                className={`w-10 h-5 rounded-full flex items-center px-1 transition ${
+                  darkMode ? "bg-gray-800" : "bg-white"
                 }`}
-              ></div>
-            </button>
-          </div>
+              >
+                <div
+                  className={`w-3 h-3 rounded-full bg-pink-400 shadow-md transform transition-transform duration-300 ${
+                    darkMode ? "translate-x-5" : "translate-x-0"
+                  }`}
+                ></div>
+              </button>
+            </div>
+          )}
         </div>
       </aside>
     </>
