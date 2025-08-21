@@ -26,9 +26,9 @@ const LifeBeyondCode = () => {
   ];
 
   const paintings = [
-    { img: "/images/painting.jpeg" },
-    { img: "/images/painting2.jpeg" },
-    { img: "/images/painting3.jpeg" },
+    { img: "/images/painting.jpeg", text: "Sardar Vallabhbhai Patel" },
+    { img: "/images/painting2.jpeg", text: "Swachh Bharat Abhiyan" },
+    { img: "/images/painting3.jpeg", text: "Swami Vivekananda" },
   ];
 
   // Handle Escape & Arrow keys
@@ -51,7 +51,7 @@ const LifeBeyondCode = () => {
   return (
     <section className="bg-black py-12 px-6">
       <h2 className="text-white text-4xl font-bold text-center mb-10">
-        Life Beyond Code
+        Social Works
       </h2>
 
       {/* Social Work Image Grid */}
@@ -59,7 +59,7 @@ const LifeBeyondCode = () => {
         {socialWork.map((item, index) => (
           <div
             key={index}
-            className="relative group rounded-2xl overflow-hidden border-4 border-white shadow-xl cursor-pointer"
+            className="relative group rounded-2xl overflow-hidden border border-white shadow-lg cursor-pointer"
             onClick={() => setSelectedIndex(index)}
           >
             {/* Image */}
@@ -70,9 +70,9 @@ const LifeBeyondCode = () => {
             />
 
             {/* Glassmorphic Overlay Text */}
-            <div className="absolute bottom-0 left-0 w-full bg-black/50 backdrop-blur-md text-white py-6 px-4">
-              <h3 className="text-xl font-semibold">{item.text}</h3>
-              <p className="text-sm mt-2 leading-relaxed">{item.detail}</p>
+            <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-6 px-4">
+              <h3 className="text-lg font-semibold">{item.text}</h3>
+              <p className="text-sm mt-1 leading-relaxed">{item.detail}</p>
             </div>
           </div>
         ))}
@@ -106,7 +106,7 @@ const LifeBeyondCode = () => {
             <img
               src={socialWork[selectedIndex].img}
               alt={socialWork[selectedIndex].text}
-              className="max-h-[80vh] object-contain border-4 border-white rounded-xl shadow-2xl"
+              className="max-h-[80vh] object-contain border border-white rounded-xl shadow-2xl"
             />
             <div className="mt-4 bg-black/60 backdrop-blur-md text-white px-6 py-4 rounded-xl text-center max-w-2xl">
               <h3 className="text-2xl font-semibold">
@@ -127,24 +127,29 @@ const LifeBeyondCode = () => {
       )}
 
       {/* Paintings Section */}
-            {/* Paintings Section */}
       <div className="mt-16 max-w-6xl mx-auto">
         <h2 className="text-white text-3xl font-bold text-center mb-8">
           My Paintings
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {paintings.map((item, index) => (
-            <div key={index} className="flex justify-center items-center">
+            <div
+              key={index}
+              className="relative flex justify-center items-center border border-white rounded-lg overflow-hidden"
+            >
               <img
                 src={item.img}
                 alt={`Painting ${index + 1}`}
-                className="w-full h-[60vh] object-contain border border-gray-300 rounded-lg shadow-sm"
+                className="w-full h-[60vh] object-contain bg-black"
               />
+              {/* Overlay heading */}
+              <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-4 px-2 text-center">
+                <h3 className="text-lg font-medium">{item.text}</h3>
+              </div>
             </div>
           ))}
         </div>
       </div>
-
     </section>
   );
 };
