@@ -8,6 +8,7 @@ import {
   Palette,
   Clock,
   Users,
+  HeartHandshake,
   Instagram,
   Twitter,
   Download,
@@ -60,6 +61,7 @@ export default function NavbarPersonal() {
 
   const navLinks = [
     { name: "Home", to: "/", icon: <Home size={20} /> },
+    { name: "Social Work", href: "#social", icon: <HeartHandshake size={20} /> },
     { name: "Gallery", href: "#gallery", icon: <Image size={20} /> },
     { name: "Creativity", href: "#creativity", icon: <Palette size={20} /> },
     { name: "Timeline", href: "#timeline", icon: <Clock size={20} /> },
