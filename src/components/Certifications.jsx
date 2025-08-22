@@ -4,6 +4,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const certifications = [
   {
+    title: "AWS Training & Certification",
+    image: "/certificate/AWS Certificate.png",
+    pdf: "https://drive.google.com/file/d/1ycZ_DxQuNMCFO86KYfxttKIkx2PjIMKc/view?usp=drive_link",
+  },
+  {
     title: "Microsoft AI Badge",
     image: "/certificate/mic.jpeg",
     link: "https://learn.microsoft.com/en-us/users/abhishekvats-4050/achievements",
@@ -62,6 +67,9 @@ const Certifications = () => {
     return () => clearInterval(intervalRef.current);
   }, []);
 
+  const currentCert = certifications[currentIndex];
+  const link = currentCert.pdf || currentCert.link; // ✅ handle both pdf & link
+
   return (
     <section
       id="certifications"
@@ -85,19 +93,27 @@ const Certifications = () => {
             onMouseEnter={() => (hoverRef.current = true)}
             onMouseLeave={() => (hoverRef.current = false)}
           >
-            <a
-              href={certifications[currentIndex].link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
+            {link ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <img
+                  src={currentCert.image}
+                  alt={currentCert.title}
+                  className="w-full h-[450px] object-contain rounded-lg border border-white/20 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+                />
+              </a>
+            ) : (
               <img
-                src={certifications[currentIndex].image}
-                alt={certifications[currentIndex].title}
-                className="w-full h-[450px] object-contain rounded-lg border border-white/20 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+                src={currentCert.image}
+                alt={currentCert.title}
+                className="w-full h-[450px] object-contain rounded-lg border border-white/20 shadow-xl"
               />
-            </a>
-            <h3 className="text-xl font-semibold mt-4">{certifications[currentIndex].title}</h3>
+            )}
+            <h3 className="text-xl font-semibold mt-4">{currentCert.title}</h3>
             <p className="text-sm text-white/70">Click to view credential</p>
           </div>
 
