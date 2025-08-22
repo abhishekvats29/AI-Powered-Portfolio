@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PersonalHero from './PersonalHero';
 import PersonalAbout from './PersonalAbout';
+import PersonalGallery from './PersonalGallery';
 import SocialWork from './socialwork';
 import CreativitySection from './CreativitySection';
-import PersonalGallery from './PersonalGallery';
 import PersonalTimeline from './PersonalTimeline';
 import ConnectSection from './ConnectSection';
 import PersonalAssistant from './PersonalBot/PersonalAssistant';
@@ -24,9 +24,9 @@ const Personal = () => {
       <main className="pt-16">
         <section id="hero"><PersonalHero /></section>
         <section id="About"><PersonalAbout /></section>
+        <section id="gallery"><PersonalGallery /></section>
         <section id="social"><SocialWork /></section>
         <section id="creativity"><CreativitySection /></section>
-        <section id="gallery"><PersonalGallery /></section>
         <section id="timeline"><PersonalTimeline /></section>
         <section id="connect"><ConnectSection /></section>
       </main>

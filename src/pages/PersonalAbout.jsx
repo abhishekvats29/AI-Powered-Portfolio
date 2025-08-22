@@ -7,13 +7,7 @@ const About = () => {
     <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-[#0c0c0c] to-[#1a1a1a] py-10 px-4 flex items-center overflow-hidden">
 
 
-      {/* Top Segmented Glowing Line */}
-      <div className="absolute top-0 left-0 w-full h-1 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-segment z-10" 
-           style={{
-             background: 'linear-gradient(to right, #f708b3ff 0%, #f906d4ff 33%, #ef4444 33%, #ef4444 66%, #fdf403ff 66%, #fbe305ff 100%)',
-             backgroundSize: '300% 100%'
-           }}
-      ></div>
+      
 
       {/* Custom Animation CSS */}
       <style jsx>{`
@@ -35,7 +29,7 @@ const About = () => {
 
       {/* Bottom Animated Glowing Line - Pink Glass Neon */}
       {/* Bottom Separator Line */}
-<div className="absolute bottom-0 left-0 w-full h-[1px] bg-white"></div>
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white"></div>
 
 
 
@@ -63,7 +57,7 @@ const About = () => {
       </div>
 
       {/* Glass Card Content */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
+      <div className="relative z-10 w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 tracking-wide">
           About Me
         </h2>

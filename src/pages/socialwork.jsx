@@ -51,7 +51,7 @@ const LifeBeyondCode = () => {
   return (
     <section className="bg-black py-12 px-6">
       <h2 className="text-white text-4xl font-bold text-center mb-10">
-        Social Works
+        Community Engagement & Social Impact
       </h2>
 
       {/* Social Work Image Grid */}
@@ -66,7 +66,7 @@ const LifeBeyondCode = () => {
             <img
               src={item.img}
               alt={item.text}
-              className="w-full h-[70vh] object-contain bg-black"
+              className="w-full h-[65vh] object-contain bg-black"
             />
 
             {/* Glassmorphic Overlay Text */}
@@ -129,7 +129,8 @@ const LifeBeyondCode = () => {
       {/* Paintings Section */}
       <div className="mt-16 max-w-6xl mx-auto">
         <h2 className="text-white text-3xl font-bold text-center mb-8">
-          My Paintings
+          Artworks & Expressions
+
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {paintings.map((item, index) => (

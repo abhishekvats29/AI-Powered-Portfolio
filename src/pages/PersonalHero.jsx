@@ -13,7 +13,7 @@ const PersonalHero = () => {
 
   const particlesLoaded = useCallback(async () => {
     // optional: to confirm particles loaded successfully
-    console.log("Particles loaded successfully ✅");
+    console.log("Particles loaded successfully");
   }, []);
 
   return (

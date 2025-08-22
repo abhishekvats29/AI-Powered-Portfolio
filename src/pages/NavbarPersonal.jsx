@@ -61,8 +61,8 @@ export default function NavbarPersonal() {
 
   const navLinks = [
     { name: "Home", to: "/", icon: <Home size={20} /> },
-    { name: "Social Work", href: "#social", icon: <HeartHandshake size={20} /> },
     { name: "Gallery", href: "#gallery", icon: <Image size={20} /> },
+    { name: "Social Work", href: "#social", icon: <HeartHandshake size={20} /> },
     { name: "Creativity", href: "#creativity", icon: <Palette size={20} /> },
     { name: "Timeline", href: "#timeline", icon: <Clock size={20} /> },
     { name: "Connect", href: "#connect", icon: <Users size={20} /> },
@@ -89,7 +89,7 @@ export default function NavbarPersonal() {
       {!isOpen && showMobileLogo && (
         <button
           onClick={openMenu}
-          className="fixed top-0 left-0 z-50 flex items-center space-x-2 p-3 w-full bg-black/80 backdrop-blur-md border-b border-white/20 md:hidden"
+          className="fixed top-0 left-0 z-50 flex items-center space-x-2 p-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/20 md:hidden"
           aria-label="Open Sidebar"
         >
           <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
@@ -103,7 +103,7 @@ export default function NavbarPersonal() {
       {!isOpen && (
         <button
           onClick={openMenu}
-          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full bg-black/80 backdrop-blur-md border-b border-white/20 hover:bg-black transition"
+          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/20 hover:bg-black transition"
           aria-label="Open Sidebar"
         >
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
@@ -115,7 +115,7 @@ export default function NavbarPersonal() {
 
       {/* Sidebar: mobile fully hidden when closed, desktop mini when closed */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-white/20 shadow-lg transition-all duration-300 z-40
+        className={`fixed top-0 left-0 h-full bg-light-black/80 backdrop-blur-xl border-r border-white/20 shadow-lg transition-all duration-300 z-40
         ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
         <div className="flex flex-col h-full text-white">

@@ -1,122 +1,82 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { X } from "lucide-react";
 
 const images = [
   { src: "vats11.jpeg", caption: "Worship Days" },
-  { src: "vats2.jpeg", caption: "With Family" },
-  { src: "vats3.jpeg", caption: "Travel Diaries" },
+  { src: "vats2.jpeg", caption: "Selfie time" },
+  { src: "vats3.jpeg", caption: "Mirror moment" },
   { src: "vats4.jpeg", caption: "Friends Forever" },
   { src: "vats5.jpeg", caption: "Stage Performance" },
-  { src: "vats6.jpeg", caption: "Childhood Memories" },
+  { src: "vats6.jpeg", caption: "Reflecting my vibes" },
   { src: "vats7.jpeg", caption: "Graduation Day" },
   { src: "vats8.jpeg", caption: "Random Click" },
-  { src: "vats9.jpeg", caption: "Fun Moments" },
+  { src: "vats9.jpeg", caption: "Self love isn't selfish" },
   { src: "vats10.jpeg", caption: "College Trip" },
 ];
 
+// 🔥 Infinite looping by duplicating images
+const infiniteImages = [...images, ...images, ...images];
+
 export default function PersonalGallery() {
-  const scrollRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [current, setCurrent] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const trackRef = useRef(null);
 
-  // Continuous auto-scroll like conveyor belt
+  // --- Auto-moving effect like movie reel ---
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-    let animationFrame;
-    let speed = 0.4; // lower is slower
+    let scrollX = 0;
+    const speed = 0.5; // adjust speed (higher = faster)
 
-    const scrollStep = () => {
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        scrollContainer.scrollLeft = 0; // loop to start
-      } else {
-        scrollContainer.scrollLeft += speed;
+    const animate = () => {
+      scrollX -= speed;
+      // Reset when fully scrolled
+      if (Math.abs(scrollX) >= track.scrollWidth / 3) {
+        scrollX = 0;
       }
-      animationFrame = requestAnimationFrame(scrollStep);
+      track.style.transform = `translateX(${scrollX}px)`;
+      requestAnimationFrame(animate);
     };
 
-    animationFrame = requestAnimationFrame(scrollStep);
-
-    return () => cancelAnimationFrame(animationFrame);
+    requestAnimationFrame(animate);
   }, []);
 
   const openModal = (index) => {
-    setCurrent(index);
+    setCurrent(index % images.length);
     setIsModalOpen(true);
   };
   const closeModal = () => setIsModalOpen(false);
-
   const showPrev = () =>
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   const showNext = () => setCurrent((prev) => (prev + 1) % images.length);
 
-  // Swipe detection for mobile modal
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      showNext();
-    }
-    if (touchEndX.current - touchStartX.current > 50) {
-      showPrev();
-    }
-  };
-
   return (
-    <section className="relative py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
-
-      {/* Bottom Animated Glowing Line - Pink Glass Neon */}
-<div className="absolute bottom-0 left-0 w-full h-[2px] 
-  bg-gradient-to-r from-pink-400 via-pink-500 to-pink-400 
-  shadow-[0_0_10px_#f472b6,0_0_20px_#ec4899,0_0_30px_#db2777] 
-  rounded-full blur-[1px] animate-[flowing_3s_linear_infinite]">
-</div>
-      {/* Thin white line above section */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40"></div>
-
+    <section className="relative py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 tracking-widest">
-        My Personal Gallery
+        My Timeless Moments
       </h2>
 
-      <div className="relative">
-        {/* Left arrow */}
-        <button
-          onClick={() =>
-            scrollRef.current.scrollBy({
-              left: -(window.innerWidth < 768 ? 220 : 300),
-              behavior: "smooth",
-            })
-          }
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full z-10"
-        >
-          <ChevronLeft size={28} />
-        </button>
-
-        {/* Scroll container */}
+      {/* Movie reel container */}
+      <div className="relative w-full overflow-hidden">
         <div
-          ref={scrollRef}
-          className="flex overflow-x-auto space-x-4 scrollbar-hide"
+          ref={trackRef}
+          className="flex space-x-6 will-change-transform"
+          style={{ transform: "translateX(0px)" }}
         >
-          {images.concat(images).map((img, index) => ( // duplicate for infinite loop feel
+          {infiniteImages.map((img, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
               className="flex-shrink-0 w-56 md:w-72"
             >
               <div
                 className="bg-black border border-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
-                onClick={() => openModal(index % images.length)}
+                onClick={() => openModal(index)}
               >
                 <img
                   src={`/images/${img.src}`}
@@ -130,19 +90,6 @@ export default function PersonalGallery() {
             </motion.div>
           ))}
         </div>
-
-        {/* Right arrow */}
-        <button
-          onClick={() =>
-            scrollRef.current.scrollBy({
-              left: window.innerWidth < 768 ? 220 : 300,
-              behavior: "smooth",
-            })
-          }
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full z-10"
-        >
-          <ChevronRight size={28} />
-        </button>
       </div>
 
       {/* Fullscreen modal */}
@@ -158,9 +105,6 @@ export default function PersonalGallery() {
             <div
               className="relative w-full max-w-5xl mx-auto flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
             >
               <motion.div
                 className="rounded-2xl bg-black p-2 border-4 border-white shadow-2xl max-w-[95vw] max-h-[90vh]"
@@ -179,7 +123,6 @@ export default function PersonalGallery() {
                 </div>
               </motion.div>
 
-              {/* Prev / Next buttons */}
               <button
                 onClick={showPrev}
                 className="absolute left-2 md:left-6 text-white text-4xl bg-black/60 rounded-full px-3 py-1 hover:bg-white hover:text-black transition"
