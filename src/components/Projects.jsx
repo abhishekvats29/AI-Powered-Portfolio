@@ -35,7 +35,7 @@ const projects = [
       "🚗 An interactive dashboard visualizing Year-over-Year (YoY) and Quarter-over-Quarter (QoQ) growth in vehicle registrations, designed for investor insights.",
     image: "/images/vehicle final.png",
     liveApp:
-      "https://drive.google.com/file/d/1hqlM74h5rJIXmrN8lOjsWRSZHUXy2JId/view",
+      "https://vehicle-registrations-investor-dashboard-in.streamlit.app/",
     SourceCode:
       "https://github.com/abhishekvats29/Vehicle-Registrations---Investor-Dashboard",
   },

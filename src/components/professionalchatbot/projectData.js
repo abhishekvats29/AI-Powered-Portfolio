@@ -50,7 +50,7 @@ const projects = [
   {
     title: "Vehicle Registration Investor Dashboard",
     short: "Interactive dashboard visualizing Year-over-Year (YoY) and Quarter-over-Quarter (QoQ) growth in vehicle registrations for investor insights.",
-    liveLink: "https://github.com/abhishekvats29/Vehicle-Registrations---Investor-Dashboard",
+    liveLink: "https://vehicle-registrations-investor-dashboard-in.streamlit.app/",
     category: "Dashboard",
     technologies: ["React", "Chart.js", "JavaScript", "Data Visualization"],
     highlights: ["YoY & QoQ Analysis", "Interactive Charts", "Investor Insights"],
