@@ -38,6 +38,11 @@ const certifications = [
     image: "/certificate/sql certificate.png",
     link: "https://www.hackerrank.com/certificates/34ada9a8ac54",
   },
+  {
+    title: "Naukri Campus Young Turks Certificate",
+    image: "/certificate/naukri.jpeg",
+    
+  },
 ];
 
 const Certifications = () => {
