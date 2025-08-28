@@ -127,30 +127,39 @@ const LifeBeyondCode = () => {
       )}
 
       {/* Paintings Section */}
-      <div className="mt-16 max-w-6xl mx-auto">
-        <h2 className="text-white text-3xl font-bold text-center mb-8">
-          Artworks & Expressions
+<div className="mt-16 max-w-6xl mx-auto">
+  <h2 className="text-white text-3xl font-bold text-center mb-8">
+    Artworks & Expressions
+  </h2>
 
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {paintings.map((item, index) => (
-            <div
-              key={index}
-              className="relative flex justify-center items-center border border-white rounded-lg overflow-hidden"
-            >
-              <img
-                src={item.img}
-                alt={`Painting ${index + 1}`}
-                className="w-full h-[60vh] object-contain bg-black"
-              />
-              {/* Overlay heading */}
-              <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-4 px-2 text-center">
-                <h3 className="text-lg font-medium">{item.text}</h3>
-              </div>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {paintings.map((item, index) => (
+      <div
+        key={index}
+        className="relative flex justify-center items-center rounded-lg overflow-hidden bg-black"
+      >
+        {/* Wrapper to make border fit image only */}
+       <img
+  src={item.img}
+  alt={`Painting ${index + 1}`}
+  className="w-full h-[60vh] object-contain bg-black 
+    border-[6px] border-[#e50914] rounded-lg
+    shadow-[0_0_15px_#e50914,0_0_30px_#b20710]"
+/>
+
+
+
+
+
+        {/* Overlay heading */}
+        <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-4 px-2 text-center">
+          <h3 className="text-lg font-medium">{item.text}</h3>
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 };

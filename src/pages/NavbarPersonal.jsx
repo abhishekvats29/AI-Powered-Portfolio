@@ -16,9 +16,8 @@ import {
 } from "lucide-react";
 
 export default function NavbarPersonal() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [showMobileLogo, setShowMobileLogo] = useState(true);
 
   const closeMenu = () => setIsOpen(false);
   const openMenu = () => setIsOpen(true);
@@ -40,18 +39,6 @@ export default function NavbarPersonal() {
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
-
-  useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const curr = window.scrollY;
-      if (curr === 0 || curr > last) setShowMobileLogo(true);
-      else setShowMobileLogo(false);
-      last = curr;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const handleLinkClick = () => {
     if (window.innerWidth < 768) {
@@ -85,21 +72,30 @@ export default function NavbarPersonal() {
 
   return (
     <>
-      {/* Mobile Logo Bar (full width, tap to open) */}
-      {!isOpen && showMobileLogo && (
-        <button
-          onClick={openMenu}
-          className="fixed top-0 left-0 z-50 flex items-center space-x-2 p-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/20 md:hidden"
-          aria-label="Open Sidebar"
-        >
-          <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-            <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+      {/* Mobile Top Bar (Profile + Portfolio + Hamburger) */}
+      {!isOpen && (
+        <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 bg-light-black/80 backdrop-blur-md border-b border-white/20 md:hidden">
+          {/* Profile + Portfolio (clickable) */}
+          <div className="flex items-center cursor-pointer" onClick={openMenu}>
+            <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+              <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+            </div>
+            <span className="ml-2 text-white font-semibold">Portfolio</span>
           </div>
-          <span className="text-white font-semibold select-none">Portfolio</span>
-        </button>
+
+          {/* Hamburger menu */}
+          <button
+            onClick={openMenu}
+            className="flex flex-col space-y-1.5 cursor-pointer"
+          >
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+          </button>
+        </div>
       )}
 
-      {/* Desktop Logo Bar (full width, click to open) */}
+      {/* Desktop Top Bar (unchanged) */}
       {!isOpen && (
         <button
           onClick={openMenu}
@@ -113,40 +109,44 @@ export default function NavbarPersonal() {
         </button>
       )}
 
-      {/* Sidebar: mobile fully hidden when closed, desktop mini when closed */}
+      {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-light-black/80 backdrop-blur-xl border-r border-white/20 shadow-lg transition-all duration-300 z-40
+        className={`fixed top-0 left-0 h-full bg-light-black/80 backdrop-blur-xl border-r border-[#e50914]/40 → border-r border-[#e50914]
+         shadow-lg transition-all duration-300 z-40
         ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
-        <div className="flex flex-col h-full text-white">
+        <div className="flex flex-col h-full text-red">
           {/* Header: Logo + Collapse */}
-          <div className="flex items-center justify-between px-4 py-4 border-b border-white/20">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-[#e50914]/40 → border-b border-[#e50914]">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+              <div className="w-10 h-10 rounded-full border-2 border-red overflow-hidden">
                 <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
               </div>
-              {isOpen && <span className="text-lg font-extrabold tracking-wide">Portfolio</span>}
+              {isOpen && <span className="text-lg font-extrabold tracking-wide text-[#e50914]">Portfolio</span>}
+
             </div>
 
-            {/* ChevronLeft (collapse to mini on desktop, full hide on mobile) */}
             {isOpen && (
               <button
                 onClick={closeMenu}
                 aria-label="Collapse Sidebar"
-                className="text-white p-1 rounded hover:bg-white/20"
+                className="text-white p-1 rounded hover:bg-[#e50914]/20"
+
               >
                 <ChevronLeft size={22} />
               </button>
             )}
           </div>
 
-          {/* When closed: show chevron inside sidebar below logo (desktop only) */}
+          {/* Expand button (desktop only) */}
           {!isOpen && (
             <div className="hidden md:flex justify-center py-3">
               <button
                 onClick={openMenu}
                 aria-label="Expand Sidebar"
-                className="text-white p-1 rounded hover:bg-white/20"
+                className="text-white p-1 rounded hover:bg-[#e50914]/20 transition"
+
+
               >
                 <ChevronRight size={22} />
               </button>
@@ -161,11 +161,11 @@ export default function NavbarPersonal() {
                   key={link.name}
                   to={link.to}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
-                  {/* Tooltip: desktop-only when collapsed */}
                   {!isOpen && (
                     <span className="hidden md:block absolute left-16 px-3 py-1 text-sm bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                       {link.name}
@@ -177,7 +177,8 @@ export default function NavbarPersonal() {
                   key={link.name}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
@@ -191,8 +192,7 @@ export default function NavbarPersonal() {
             )}
           </nav>
 
-          {/* Separator before Social Links */}
-          <div className="border-t border-white/20 my-2"></div>
+          <div className="border-t border-[#e50914]/40 → border-t border-[#e50914]"></div>
 
           {/* Social Icons */}
           <div className="flex flex-col space-y-2 px-2 mb-4">
@@ -203,7 +203,8 @@ export default function NavbarPersonal() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10 transition"
+                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+
               >
                 {link.icon}
                 {isOpen && <span>{link.name}</span>}
@@ -216,9 +217,9 @@ export default function NavbarPersonal() {
             ))}
           </div>
 
-          {/* ✅ Dark Mode Toggle - hidden when sidebar closed on mobile */}
+          {/* Dark Mode Toggle */}
           {(isOpen || (!isOpen && window.innerWidth >= 768)) && (
-            <div className="px-4 py-4 border-t border-white/20 flex items-center gap-2">
+            <div className="px-4 py-4 border-t border-[#e50914]/40 flex items-center gap-2">
               {isOpen && <label className="text-sm">Dark</label>}
               <button
                 onClick={toggleDarkMode}
@@ -227,15 +228,24 @@ export default function NavbarPersonal() {
                 }`}
               >
                 <div
-                  className={`w-3 h-3 rounded-full bg-pink-400 shadow-md transform transition-transform duration-300 ${
-                    darkMode ? "translate-x-5" : "translate-x-0"
+                  className={`w-3 h-3 rounded-full bg-[#e50914] shadow-md transform transition-transform duration-300 ${
+                  darkMode ? "translate-x-5" : "translate-x-0"
                   }`}
+
                 ></div>
               </button>
             </div>
           )}
         </div>
       </aside>
+
+      {/*  Overlay for mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          onClick={closeMenu}
+        ></div>
+      )}
     </>
   );
 }

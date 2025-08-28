@@ -21,19 +21,26 @@ const fadeUp = {
 export default function PersonalTimeline() {
   return (
     <section className="relative py-14 px-4 bg-gradient-to-b from-black via-[#0c0c0c] to-black text-white">
+      <style>
+        {`
+          @keyframes heartbeat {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px #e50914, 0 0 20px #b20710; }
+            50% { transform: scale(1.3); box-shadow: 0 0 20px #e50914, 0 0 40px #b20710; }
+          }
+          .heartbeat {
+            animation: heartbeat 1.5s infinite;
+          }
+        `}
+      </style>
 
-    
-
-
-      
       <div className="max-w-4xl mx-auto">
         {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wider">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wider text-[#e50914] drop-shadow-[0_0_10px_#b20710]">
           Life Highlights
         </h2>
 
         {/* Timeline Container */}
-        <div className="relative border-l-4 border-pink-500 pl-6 space-y-10">
+        <div className="relative border-l-4 border-[#e50914] pl-6 space-y-10">
           {timelineItems.map((item, index) => (
             <motion.div
               key={index}
@@ -42,18 +49,20 @@ export default function PersonalTimeline() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUp}
-              className="relative bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:bg-white/[0.08] transition-colors"
+              className="relative bg-white/5 border border-white/10 rounded-xl p-5 shadow-md 
+                         hover:bg-[#e50914]/10 transition-colors"
             >
-              {/* Dot */}
-              <div className="absolute -left-[23px] top-6 w-4 h-4 bg-pink-500 border-4 border-black rounded-full shadow-md z-10" />
+              {/* Dot with heartbeat */}
+              <div className="absolute -left-[23px] top-6 w-4 h-4 bg-[#e50914] border-4 border-black 
+                              rounded-full heartbeat z-10" />
 
               {/* Content */}
               <div className="flex items-start gap-4">
-                <div className="bg-pink-500/30 p-3 rounded-full shadow-md border border-pink-400 text-xl">
+                <div className="bg-[#e50914]/30 p-3 rounded-full shadow-md border border-[#e50914] text-xl">
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">
+                  <h3 className="text-lg font-semibold text-white mb-1 drop-shadow-[0_0_5px_#b20710]">
                     {item.title}
                   </h3>
                   <p className="text-white/80 text-sm leading-relaxed">
@@ -65,9 +74,6 @@ export default function PersonalTimeline() {
           ))}
         </div>
       </div>
-
-      
-      
     </section>
   );
 }

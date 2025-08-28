@@ -33,7 +33,6 @@ export default function PersonalGallery() {
 
     const animate = () => {
       scrollX -= speed;
-      // Reset when fully scrolled
       if (Math.abs(scrollX) >= track.scrollWidth / 3) {
         scrollX = 0;
       }
@@ -52,6 +51,24 @@ export default function PersonalGallery() {
   const showPrev = () =>
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   const showNext = () => setCurrent((prev) => (prev + 1) % images.length);
+
+  // ✅ Intersection Observer for fade-in effect
+  useEffect(() => {
+    const faders = document.querySelectorAll(".fade-in-section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    faders.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="relative py-16 px-4 bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden">
@@ -145,6 +162,75 @@ export default function PersonalGallery() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Heartfelt Section */}
+      <div className="relative max-w-5xl mx-auto px-6 py-16 mt-20 flex flex-col md:flex-row items-center justify-center gap-10">
+        {/* Left Image */}
+        <img
+          src="/images/heart2.png"
+          alt="Heart Left"
+          className="w-28 sm:w-32 md:w-40 lg:w-48 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
+        />
+
+        {/* Motivational Heartfelt Text */}
+        <p className="text-base sm:text-lg md:text-xl font-medium text-white leading-relaxed text-center max-w-2xl fade-in-section fade-in-delay-2">
+          “Every line of code is more than logic – it’s a heartbeat,
+          a whisper of passion, and a promise to build something that lasts.
+          In this journey, I don’t just create projects…
+          I craft dreams, fueled by love for innovation and care for people.
+          What I build isn’t just technology – it’s a reflection of hope,
+          creativity, and the belief that even the smallest idea
+          can change the world.”
+        </p>
+
+        {/* Right Image */}
+        <img
+          src="/images/heart.png"
+          alt="Heart Right"
+          className="w-28 sm:w-32 md:w-40 lg:w-48 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
+        />
+      </div>
+
+      {/* ✅ Styles moved into global Tailwind-friendly CSS */}
+      <style jsx global>{`
+        @keyframes heartbeatGlow {
+          0%, 100% {
+            filter: drop-shadow(0 0 12px #e50914) drop-shadow(0 0 24px #b20710);
+            transform: scale(1);
+          }
+          50% {
+            filter: drop-shadow(0 0 20px #ff0a16) drop-shadow(0 0 40px #e50914);
+            transform: scale(1.05);
+          }
+        }
+        .heartbeat {
+          animation: heartbeatGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .fade-in-section {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        .fade-in-section.visible {
+          animation: fadeInUp 1.2s ease-out forwards;
+        }
+        .fade-in-delay-1 {
+          animation-delay: 0.3s;
+        }
+        .fade-in-delay-2 {
+          animation-delay: 0.6s;
+        }
+      `}</style>
     </section>
   );
 }

@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export default function NavbarProfessional() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [showMobileNavbar, setShowMobileNavbar] = useState(true);
   const [isToggleWhite, setIsToggleWhite] = useState(false);
 
@@ -254,27 +254,45 @@ export default function NavbarProfessional() {
       </aside>
 
       {/* Mobile Top Mini Header when sidebar closed */}
-      {isMobile && !isOpen && (
-        <div
-          className="fixed top-0 left-0 right-0 z-50 bg-[#0d1a2d] border-b border-blue-800 flex items-center px-4 py-3 cursor-pointer"
-          onClick={openMenu}
-        >
-          <img
-            src="/images/profile.jpeg"
-            alt="Profile"
-            className="w-10 h-10 rounded-full border-2 border-white object-cover mr-3"
-          />
-          <span className="text-lg font-bold text-white">Portfolio</span>
-        </div>
-      )}
+      {/* Mobile Top Mini Header (only when sidebar is closed) */}
+{isMobile && !isOpen && (
+  <div
+    className="fixed top-0 left-0 right-0 z-50 bg-[#0d1a2d] border-b border-blue-800 flex items-center justify-between px-4 py-3"
+  >
+    {/* Left Side: Profile + Portfolio (clickable to open sidebar) */}
+    <div
+      className="flex items-center cursor-pointer"
+      onClick={openMenu}
+    >
+      <img
+        src="/images/profile.jpeg"
+        alt="Profile"
+        className="w-10 h-10 rounded-full border-2 border-white object-cover mr-3"
+      />
+      <span className="text-lg font-bold text-white">Portfolio</span>
+    </div>
 
-      {/* Overlay for mobile */}
-      {isMobile && isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40"
-          onClick={closeMenu}
-        ></div>
-      )}
+    {/* Right Side: Hamburger Menu */}
+    <button
+      className="flex flex-col space-y-1.5 cursor-pointer"
+      onClick={openMenu}
+    >
+      <span className="block w-6 h-0.5 bg-white"></span>
+      <span className="block w-6 h-0.5 bg-white"></span>
+      <span className="block w-6 h-0.5 bg-white"></span>
+    </button>
+  </div>
+)}
+
+{/* Overlay for mobile */}
+{isMobile && isOpen && (
+  <div
+    className="fixed inset-0 bg-black/50 z-40"
+    onClick={closeMenu}
+  ></div>
+)}
+
+
     </>
   );
 }

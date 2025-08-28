@@ -31,12 +31,6 @@ export default function FooterPersonal() {
   return (
     <footer className="relative bg-[#0a0a0a] py-16 px-4 border-t border-white/20 overflow-hidden">
 
-      {/* Bottom Animated Dark Pink Glowing Line */}
-<div className="absolute bottom-0 left-0 w-full h-[2px] 
-  bg-gradient-to-r from-pink-700 via-pink-600 to-pink-700 
-  shadow-[0_0_15px_#db2777,0_0_30px_#be185d,0_0_45px_#9d174d] 
-  blur-[1px] animate-glow-line">
-</div>
 
 
       {/* Floating Hearts and Roses */}
