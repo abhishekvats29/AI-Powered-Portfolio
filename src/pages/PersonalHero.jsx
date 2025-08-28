@@ -7,17 +7,15 @@ import { ChevronDown } from 'lucide-react';
 
 const PersonalHero = () => {
   const particlesInit = useCallback(async (engine) => {
-    // this loads the tsparticles bundle properly
     await loadFull(engine);
   }, []);
 
   const particlesLoaded = useCallback(async () => {
-    // optional: to confirm particles loaded successfully
     console.log("Particles loaded successfully");
   }, []);
 
   return (
-    <section className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center bg-black">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
 
       {/* Particle Background */}
       <Particles
@@ -99,9 +97,12 @@ const PersonalHero = () => {
       </div>
 
       {/* Signature on right-bottom */}
-      <div className="absolute bottom-5 right-6 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
+      <div className="absolute bottom-8 right-24 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
         — Abhishek Vats
       </div>
+
+      
+
     </section>
   );
 };

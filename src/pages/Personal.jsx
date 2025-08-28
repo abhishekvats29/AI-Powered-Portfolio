@@ -21,8 +21,13 @@ const Personal = () => {
 
   return (
     <div className="bg-black text-white scroll-smooth relative">
-      <main className="pt-16">
-        <section id="hero"><PersonalHero /></section>
+      <main className="m-0 p-0"> {/* Removed top padding */}
+        {/* Hero Section - Full Screen */}
+        <section id="hero">
+          <PersonalHero />
+        </section>
+
+        {/* Other Sections */}
         <section id="About"><PersonalAbout /></section>
         <section id="gallery"><PersonalGallery /></section>
         <section id="social"><SocialWork /></section>
@@ -31,6 +36,7 @@ const Personal = () => {
         <section id="connect"><ConnectSection /></section>
       </main>
 
+      {/* Chatbot */}
       {showBot && chatbotMemo}
     </div>
   );

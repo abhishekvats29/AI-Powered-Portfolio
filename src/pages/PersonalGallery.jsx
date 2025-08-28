@@ -169,8 +169,9 @@ export default function PersonalGallery() {
         <img
           src="/images/heart2.png"
           alt="Heart Left"
-          className="w-28 sm:w-32 md:w-40 lg:w-48 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
+          className="w-36 sm:w-40 md:w-48 lg:w-56 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
         />
+
 
         {/* Motivational Heartfelt Text */}
         <p className="text-base sm:text-lg md:text-xl font-medium text-white leading-relaxed text-center max-w-2xl fade-in-section fade-in-delay-2">
@@ -187,11 +188,12 @@ export default function PersonalGallery() {
         <img
           src="/images/heart.png"
           alt="Heart Right"
-          className="w-28 sm:w-32 md:w-40 lg:w-48 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
+          className="w-36 sm:w-40 md:w-48 lg:w-56 object-contain opacity-90 heartbeat fade-in-section fade-in-delay-1"
         />
+
       </div>
 
-      {/* ✅ Styles moved into global Tailwind-friendly CSS */}
+      {/* Styles moved into global Tailwind-friendly CSS */}
       <style jsx global>{`
         @keyframes heartbeatGlow {
           0%, 100% {

@@ -84,6 +84,8 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-medium px-5 py-2.5 rounded-full transition mt-2"
+
+
             >
               <FaInstagram size={18} />
               Connect Me
