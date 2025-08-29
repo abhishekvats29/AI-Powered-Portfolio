@@ -127,38 +127,39 @@ const LifeBeyondCode = () => {
       )}
 
       {/* Paintings Section */}
-<div className="mt-16 max-w-6xl mx-auto">
-  <h2 className="text-white text-3xl font-bold text-center mb-8">
+{/* Paintings Section */}
+<div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6">
+  <h2 className="text-white text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
     Artworks & Expressions
   </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 sm:gap-3 md:gap-4">
     {paintings.map((item, index) => (
-      <div
-        key={index}
-        className="relative flex justify-center items-center rounded-lg overflow-hidden bg-black"
-      >
-        {/* Wrapper to make border fit image only */}
-       <img
-  src={item.img}
-  alt={`Painting ${index + 1}`}
-  className="w-full h-[60vh] object-contain bg-black 
-     rounded-2g
-    "
-/>
-
-
-
-
+      <div key={index} className="relative">
+        {/* Image */}
+        <img
+          src={item.img}
+          alt={`Painting ${index + 1}`}
+          className="w-full h-[50vh] sm:h-[55vh] md:h-[60vh] object-contain mx-auto"
+        />
 
         {/* Overlay heading */}
-        <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-4 px-2 text-center">
-          <h3 className="text-lg font-medium">{item.text}</h3>
+        <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-1 px-2 text-center">
+          <h3 className="text-sm sm:text-base md:text-lg font-medium">{item.text}</h3>
         </div>
       </div>
     ))}
   </div>
+
+  {/* Motivational Section */}
+  <div className="mt-6 sm:mt-10 text-center max-w-[90vw] sm:max-w-[60vw] mx-auto">
+    <p className="text-xs sm:text-sm text-gray-300 mb-2">
+      Every stroke of a brush and every sketch on paper tells a story of imagination, patience, and passion. Art is not just a visual experience—it’s a reflection of the artist’s soul. Keep exploring, keep creating, and let your unique vision inspire the world.  
+    </p>
+    <p className="text-xs sm:text-sm text-gray-100 font-semibold">— Abhishek Vats</p>
+  </div>
 </div>
+
 
     </section>
   );

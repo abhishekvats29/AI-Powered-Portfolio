@@ -113,13 +113,13 @@ export default function NavbarPersonal() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-[#e50914]/40 → border-r border-[#e50914]
+        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-[#e50914]/80 → border-r border-[#e50914]
          shadow-lg transition-all duration-300 z-40
         ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
         <div className="flex flex-col h-full text-red">
           {/* Header: Logo + Collapse */}
-          <div className="flex items-center justify-between px-4 py-4 border-b border-[#e50914]/40 → border-b border-[#e50914]">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-[#e50914]/80 → border-b border-[#e50914]">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full border-2 border-red overflow-hidden">
                 <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
@@ -132,7 +132,7 @@ export default function NavbarPersonal() {
               <button
                 onClick={closeMenu}
                 aria-label="Collapse Sidebar"
-                className="text-white p-1 rounded hover:bg-[#e50914]/60"
+                className="text-white p-1 rounded hover:bg-[#e50914]/100"
 
               >
                 <ChevronLeft size={22} />
@@ -163,7 +163,7 @@ export default function NavbarPersonal() {
                   key={link.name}
                   to={link.to}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
 
                 >
                   {link.icon}
@@ -179,7 +179,7 @@ export default function NavbarPersonal() {
                   key={link.name}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
 
                 >
                   {link.icon}
@@ -194,7 +194,7 @@ export default function NavbarPersonal() {
             )}
           </nav>
 
-          <div className="border-t border-[#e50914]/40 → border-t border-[#e50914]"></div>
+          <div className="border-t border-[#e50914]/100 → border-t border-[#e50914]"></div>
 
           {/* Social Icons */}
           <div className="flex flex-col space-y-2 px-2 mb-4">
@@ -205,7 +205,7 @@ export default function NavbarPersonal() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
+                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
 
               >
                 {link.icon}

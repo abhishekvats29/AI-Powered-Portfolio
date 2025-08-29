@@ -174,7 +174,7 @@ export default function PersonalGallery() {
 
 
         {/* Motivational Heartfelt Text */}
-        <p className="text-base sm:text-lg md:text-xl font-medium text-white leading-relaxed text-center max-w-2xl fade-in-section fade-in-delay-2">
+        <p className="text-sm sm:text-base md:text-lg font-small text-white leading-relaxed text-center max-w-4xl fade-in-section fade-in-delay-2">
           “Every line of code is more than logic – it’s a heartbeat,
           a whisper of passion, and a promise to build something that lasts.
           In this journey, I don’t just create projects…
