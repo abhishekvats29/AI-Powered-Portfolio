@@ -64,9 +64,6 @@ const skillData = [
 const Skills = () => {
   return (
     <section id="skills" className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden">
-
-      
-
       <div className="max-w-3xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 tracking-wider">
           Tech Stack & Tools
@@ -76,7 +73,7 @@ const Skills = () => {
           {skillData.map((category, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl transition hover:shadow-white/30"
+              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl transition hover:shadow-blue-500/40 hover:bg-blue-900/20"
             >
               <h3 className="text-xl font-semibold mb-4 text-pink-300 tracking-wide">
                 {category.title}
@@ -85,7 +82,7 @@ const Skills = () => {
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-lg shadow-md hover:bg-white/20 transition"
+                    className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-lg shadow-md hover:bg-blue-800/20 transition"
                   >
                     <span className="text-2xl">{skill.icon}</span>
                     <span className="text-sm text-white">{skill.name}</span>
@@ -99,7 +96,6 @@ const Skills = () => {
 
       {/* Bottom Animated Glowing Line */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 shadow-[0_0_20px_#3b82f6] blur-sm animate-glow-line"></div>
-
     </section>
   );
 };

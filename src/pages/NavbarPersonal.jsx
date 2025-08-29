@@ -59,7 +59,7 @@ export default function NavbarPersonal() {
 
   const socialLinks = [
     { name: "Twitter", href: "https://twitter.com/abhishekvats29", icon: <Twitter size={20} /> },
-    { name: "Instagram", href: "https://instagram.com/abhishekvats29", icon: <Instagram size={20} /> },
+    
     {
       name: "WhatsApp",
       href: "https://wa.me/919508721988?text=Hi%20Abhishek%2C%20I%20visited%20your%20portfolio!",
@@ -76,7 +76,7 @@ export default function NavbarPersonal() {
     <>
       {/* Mobile Top Bar (Profile + Portfolio + Hamburger) */}
       {!isOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 bg-light-black/80 backdrop-blur-md border-b border-white/20 md:hidden">
+        <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 bg-light-black/90 backdrop-blur-md border-b border-white/20 md:hidden">
           {/* Profile + Portfolio (clickable) */}
           <div className="flex items-center cursor-pointer" onClick={openMenu}>
             <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
@@ -101,7 +101,7 @@ export default function NavbarPersonal() {
       {!isOpen && (
         <button
           onClick={openMenu}
-          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/20 hover:bg-black transition"
+          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/40 hover:bg-black transition"
           aria-label="Open Sidebar"
         >
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
@@ -113,7 +113,7 @@ export default function NavbarPersonal() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-light-black/80 backdrop-blur-xl border-r border-[#e50914]/40 → border-r border-[#e50914]
+        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-[#e50914]/40 → border-r border-[#e50914]
          shadow-lg transition-all duration-300 z-40
         ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
@@ -132,7 +132,7 @@ export default function NavbarPersonal() {
               <button
                 onClick={closeMenu}
                 aria-label="Collapse Sidebar"
-                className="text-white p-1 rounded hover:bg-[#e50914]/20"
+                className="text-white p-1 rounded hover:bg-[#e50914]/60"
 
               >
                 <ChevronLeft size={22} />
@@ -146,7 +146,7 @@ export default function NavbarPersonal() {
               <button
                 onClick={openMenu}
                 aria-label="Expand Sidebar"
-                className="text-white p-1 rounded hover:bg-[#e50914]/20 transition"
+                className="text-white p-1 rounded hover:bg-[#e50914]/60 transition"
 
 
               >
@@ -163,7 +163,7 @@ export default function NavbarPersonal() {
                   key={link.name}
                   to={link.to}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
 
                 >
                   {link.icon}
@@ -179,7 +179,7 @@ export default function NavbarPersonal() {
                   key={link.name}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
 
                 >
                   {link.icon}
@@ -205,7 +205,7 @@ export default function NavbarPersonal() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/20 transition"
+                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/60 transition"
 
               >
                 {link.icon}

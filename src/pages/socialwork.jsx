@@ -143,8 +143,8 @@ const LifeBeyondCode = () => {
   src={item.img}
   alt={`Painting ${index + 1}`}
   className="w-full h-[60vh] object-contain bg-black 
-    border-[3px] border-[#e50914] rounded-2g
-    shadow-[0_0_15px_#e50914,0_0_30px_#b20710]"
+     rounded-2g
+    "
 />
 
 
