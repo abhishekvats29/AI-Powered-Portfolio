@@ -55,7 +55,7 @@ const Hero = () => {
         transition={{ duration: 1 }}
       >
         {/* Profile Image (Static) */}
-        <div className="absolute -top-24 sm:-top-28 lg:-top-32 left-1/2 transform -translate-x-1/2">
+        <div className="absolute -top-20 sm:-top-24 lg:-top-28 left-1/2 transform -translate-x-1/2">
           <img
             src="/images/av2.png"
             alt="Profile"
