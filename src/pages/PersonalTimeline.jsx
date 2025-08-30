@@ -35,9 +35,21 @@ export default function PersonalTimeline() {
 
       <div className="max-w-4xl mx-auto">
         {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wider text-[#e50914] drop-shadow-[0_0_10px_#b20710]">
-          Life Highlights
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wider text-white">
+
+          <h2
+          className="text-white text-2xl sm:text-3xl font-bold text-center mb-8 px-10 py-3
+             relative inline-block rounded-lg shadow-lg"
+            style={{
+            background: "linear-gradient(to right, #000000, #f50b17ff 30%, #f90a0aff 70%, #000000)",
+            }}
+          >
+            Life Highlights
+          </h2>
+  
         </h2>
+
+
 
         {/* Timeline Container */}
         <div className="relative border-l-4 border-[#e50914] pl-6 space-y-10">

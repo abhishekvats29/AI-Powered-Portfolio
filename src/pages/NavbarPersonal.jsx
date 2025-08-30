@@ -98,18 +98,28 @@ export default function NavbarPersonal() {
       )}
 
       {/* Desktop Top Bar (unchanged) */}
+      {/* Desktop Top Bar (glassmorphic 3D red bottom line) */}
       {!isOpen && (
         <button
           onClick={openMenu}
-          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full bg-light-black/80 backdrop-blur-md border-b border-white/40 hover:bg-black transition"
+          className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full 
+                    bg-black/60 backdrop-blur-md 
+                    border-b-4 border-red-600 shadow-[0_2px_15px_rgba(229,9,20,0.7)] 
+                    hover:bg-black transition"
           aria-label="Open Sidebar"
         >
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
-            <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+            <img
+              src="/images/vats29.jpeg"
+              alt="Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
           <span className="text-white font-semibold text-lg select-none">Portfolio</span>
         </button>
       )}
+
+
 
       {/* Sidebar */}
       <aside
@@ -146,7 +156,11 @@ export default function NavbarPersonal() {
               <button
                 onClick={openMenu}
                 aria-label="Expand Sidebar"
-                className="text-white p-1 rounded hover:bg-[#e50914]/60 transition"
+                className="group flex items-center gap-3 px-4 py-2 rounded-lg text-white 
+                  transition-all duration-300 ease-in-out 
+                  hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
+                  hover:backdrop-blur-md"
+
 
 
               >
@@ -163,7 +177,11 @@ export default function NavbarPersonal() {
                   key={link.name}
                   to={link.to}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
+                  className="group flex items-center gap-3 px-4 py-2 rounded-lg text-white 
+                    transition-all duration-300 ease-in-out 
+                    hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
+                    hover:backdrop-blur-md"
+
 
                 >
                   {link.icon}
@@ -179,7 +197,11 @@ export default function NavbarPersonal() {
                   key={link.name}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
+                  className="group flex items-center gap-3 px-4 py-2 rounded-lg text-white 
+                    transition-all duration-300 ease-in-out 
+                    hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
+                    hover:backdrop-blur-md"
+
 
                 >
                   {link.icon}
@@ -205,7 +227,11 @@ export default function NavbarPersonal() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="group relative flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#e50914]/100 transition"
+                className="group flex items-center gap-3 px-4 py-2 rounded-lg text-white 
+                  transition-all duration-300 ease-in-out 
+                  hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
+                  hover:backdrop-blur-md"
+
 
               >
                 {link.icon}

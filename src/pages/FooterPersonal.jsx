@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+
 export default function FooterPersonal() {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -61,9 +62,11 @@ export default function FooterPersonal() {
 
       {/* Glass Card Content */}
       <div className="relative z-10 max-w-4xl mx-auto bg-white/5 backdrop-blur-lg border border-white/20 rounded-xl p-8 shadow-xl text-center">
-        <h3 className="text-2xl md:text-3xl italic font-semibold text-red-400 drop-shadow-md mb-4">
-          Made with all my ❤️ — Abhishek Vats
+        <h3 className="text-2xl md:text-3xl italic font-semibold text-[#e50914] drop-shadow-md mb-4">
+          Made with all my{" "}
+          <FaHeart className="inline text-[#e50914] drop-shadow-[0_0_8px_#e50914]" /> — Abhishek Vats
         </h3>
+
 
         <div className="flex justify-center items-center space-x-6 text-2xl mt-6 mb-4">
           <motion.div whileHover={{ scale: 1.3 }} transition={{ duration: 0.3 }}>

@@ -13,7 +13,7 @@ const About = () => {
            }}
       ></div>
 
-      <div className="max-w-6xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-2xl relative z-20">
+      <div className="max-w-5xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-4 sm:p-6 md:p-8 text-white shadow-2xl relative z-20">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 tracking-wide">
           About Me
         </h2>

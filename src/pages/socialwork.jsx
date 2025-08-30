@@ -51,8 +51,18 @@ const LifeBeyondCode = () => {
   return (
     <section className="bg-black py-12 px-6">
       <h2 className="text-white text-4xl font-bold text-center mb-10">
-        Community Engagement & Social Impact
-      </h2>
+      
+        <h2
+          className="text-white text-2xl sm:text-3xl font-bold text-center mb-8 px-10 py-3
+             relative inline-block rounded-lg shadow-lg"
+            style={{
+            background: "linear-gradient(to right, #000000, #f50b17ff 30%, #f90a0aff 70%, #000000)",
+            }}
+          >
+            Community Engagement & Social Impact
+          </h2>
+        </h2>
+      
 
       {/* Social Work Image Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -66,7 +76,7 @@ const LifeBeyondCode = () => {
             <img
               src={item.img}
               alt={item.text}
-              className="w-full h-[65vh] object-contain bg-black"
+              className="w-full h-[75vh] object-contain bg-black"
             />
 
             {/* Glassmorphic Overlay Text */}
@@ -127,30 +137,50 @@ const LifeBeyondCode = () => {
       )}
 
       {/* Paintings Section */}
-    {/* Paintings Section */}
-<div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6">
-  <h2 className="text-white text-2xl sm:text-3xl font-bold text-center mb-8">
-    Artworks & Expressions
-  </h2>
+    
+      <div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Heading with brush-stroke red bg */}
+        <div className="relative w-fit mx-auto mb-8">
+        <h2
+  className="text-white text-2xl sm:text-3xl font-bold text-center mb-8 px-10 py-3
+             relative inline-block rounded-lg shadow-lg"
+  style={{
+    background: "linear-gradient(to right, #000000, #f50b17ff 30%, #f90a0aff 70%, #000000)",
+  }}
+>
+  Artworks & Expressions
+</h2>
 
+
+
+
+
+
+
+  </div>
+
+
+  {/* Paintings list */}
   <div className="space-y-10">
     {[
       {
         img: "/images/painting.jpeg",
         text: "Sardar Vallabhbhai Patel – The Iron Man of India",
-        description: "This artwork pays homage to Sardar Vallabhbhai Patel, a visionary leader who unified more than 560 princely states into one nation. Known as the 'Iron Man of India,'. It reminds us that true leadership is not about power, but about service, sacrifice, and the courage to stand for what is right."
-
+        description:
+          "This artwork pays homage to Sardar Vallabhbhai Patel, a visionary leader who unified more than 560 princely states into one nation. Known as the 'Iron Man of India.' It reminds us that true leadership is not about power, but about service, sacrifice, and the courage to stand for what is right."
       },
       {
         img: "/images/painting2.jpeg",
         text: "Swachh Bharat Abhiyan – Towards a Cleaner Tomorrow",
-        description: "This painting reflects the spirit of the Clean India Movement, a nationwide campaign that calls upon every citizen to take responsibility for keeping their surroundings clean and healthy. Inspired by Mahatma Gandhi’s vision of sanitation and dignity for all, the artwork symbolizes collective action, discipline, and pride in our environment."
+        description:
+          "This painting reflects the spirit of the Clean India Movement, a nationwide campaign that calls upon every citizen to take responsibility for keeping their surroundings clean and healthy. Inspired by Mahatma Gandhi’s vision of sanitation and dignity for all, the artwork symbolizes collective action, discipline, and pride in our environment."
       },
       {
         img: "/images/painting3.jpeg",
         text: "Swami Vivekananda – Awakening the Youth",
-        description: "This painting captures the towering presence of Swami Vivekananda, a spiritual leader and philosopher who awakened India’s youth with his message of strength, self-confidence, and service to humanity. His historic address at the Parliament of Religions in Chicago, where he introduced the world to India’s wisdom and tolerance, remains a beacon of inspiration."
-      },
+        description:
+          "This painting captures the towering presence of Swami Vivekananda, a spiritual leader and philosopher who awakened India’s youth with his message of strength, self-confidence, and service to humanity. His historic address at the Parliament of Religions in Chicago, where he introduced the world to India’s wisdom and tolerance, remains a beacon of inspiration."
+      }
     ].map((item, index) => (
       <div
         key={index}
@@ -180,6 +210,7 @@ const LifeBeyondCode = () => {
     ))}
   </div>
 </div>
+
 
 
 
