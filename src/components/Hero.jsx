@@ -54,7 +54,7 @@ const ProfileImage = () => (
 const HeroContent = () => (
   <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-14 sm:mt-10 mx-auto">
     <ProfileImage />
-    <div className="mt-28 sm:mt-40 space-y-2 px-2">
+    <div className="mt-40 sm:mt-40 space-y-2 px-2">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white">
         Abhishek Vats
       </h1>
