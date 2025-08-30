@@ -85,18 +85,22 @@ const About = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 
                         bg-red-600/20 border border-red-500/40 
-                        backdrop-blur-md shadow-[0_4px_20px_rgba(229,9,20,0.6)] 
-                        text-white font-medium px-6 py-3 rounded-full 
-                        transition-all duration-500 transform hover:scale-105 active:scale-95"
+                        backdrop-blur-md text-white font-medium px-6 py-3 rounded-full 
+                        transition-all duration-500 transform hover:scale-105 active:scale-95 relative overflow-hidden"
               style={{
-                background: "linear-gradient(to right, #f58529, #dd2a7b, #515bd4)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
+                background: "rgba(229,9,20,0.1)", // default light glass red
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "linear-gradient(to right, #f58529, #dd2a7b, #515bd4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(229,9,20,0.1)";
               }}
             >
               <FaInstagram size={20} className="text-white transition-colors duration-500" />
               Connect Me
             </a>
+
 
 
           </div>
