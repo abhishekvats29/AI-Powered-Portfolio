@@ -38,13 +38,15 @@ const ProfileImage = () => (
   src="/images/av2.png"
   alt="Profile"
   className="
-    w-42 h-42        /* Mobile default size */
-    sm:w-42 sm:h-42  /* Small screens */
-    md:w-60 md:h-60  /* Medium screens / Desktop */
-    lg:w-80 lg:h-80  /* Large desktops */
-    rounded-full border-4 border-white shadow-xl object-cover
+    w-56 h-60         /* Mobile: taller rectangle */
+    rounded-md          /* Mobile: subtle rounded corners */
+    sm:w-60 sm:h-60    /* Desktop: square */
+    sm:rounded-full     /* Desktop: fully circular */
+    lg:w-80 lg:h-80    /* Large desktops */
+    border-4 border-white shadow-xl object-cover mx-auto
   "
 />
+
 
   </div>
 );
@@ -52,7 +54,7 @@ const ProfileImage = () => (
 const HeroContent = () => (
   <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-14 sm:mt-10 mx-auto">
     <ProfileImage />
-    <div className="mt-32 sm:mt-44 space-y-2 px-2">
+    <div className="mt-28 sm:mt-40 space-y-2 px-2">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white">
         Abhishek Vats
       </h1>
