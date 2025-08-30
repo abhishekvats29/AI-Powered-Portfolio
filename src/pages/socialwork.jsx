@@ -127,38 +127,60 @@ const LifeBeyondCode = () => {
       )}
 
       {/* Paintings Section */}
-{/* Paintings Section */}
+    {/* Paintings Section */}
 <div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6">
-  <h2 className="text-white text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
+  <h2 className="text-white text-2xl sm:text-3xl font-bold text-center mb-8">
     Artworks & Expressions
   </h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 sm:gap-3 md:gap-4">
-    {paintings.map((item, index) => (
-      <div key={index} className="relative">
-        {/* Image */}
-        <img
-          src={item.img}
-          alt={`Painting ${index + 1}`}
-          className="w-full h-[50vh] sm:h-[55vh] md:h-[60vh] object-contain mx-auto"
-        />
+  <div className="space-y-10">
+    {[
+      {
+        img: "/images/painting.jpeg",
+        text: "Sardar Vallabhbhai Patel – The Iron Man of India",
+        description: "This artwork pays homage to Sardar Vallabhbhai Patel, a visionary leader who unified more than 560 princely states into one nation. Known as the 'Iron Man of India,'. It reminds us that true leadership is not about power, but about service, sacrifice, and the courage to stand for what is right."
 
-        {/* Overlay heading */}
-        <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white py-1 px-2 text-center">
-          <h3 className="text-sm sm:text-base md:text-lg font-medium">{item.text}</h3>
+      },
+      {
+        img: "/images/painting2.jpeg",
+        text: "Swachh Bharat Abhiyan – Towards a Cleaner Tomorrow",
+        description: "This painting reflects the spirit of the Clean India Movement, a nationwide campaign that calls upon every citizen to take responsibility for keeping their surroundings clean and healthy. Inspired by Mahatma Gandhi’s vision of sanitation and dignity for all, the artwork symbolizes collective action, discipline, and pride in our environment."
+      },
+      {
+        img: "/images/painting3.jpeg",
+        text: "Swami Vivekananda – Awakening the Youth",
+        description: "This painting captures the towering presence of Swami Vivekananda, a spiritual leader and philosopher who awakened India’s youth with his message of strength, self-confidence, and service to humanity. His historic address at the Parliament of Religions in Chicago, where he introduced the world to India’s wisdom and tolerance, remains a beacon of inspiration."
+      },
+    ].map((item, index) => (
+      <div
+        key={index}
+        className={`flex flex-col md:flex-row items-center md:items-stretch gap-6 ${
+          index % 2 !== 0 ? "md:flex-row-reverse" : ""
+        }`}
+      >
+        {/* Image */}
+        <div className="md:w-1/2 w-full flex justify-center items-center">
+          <img
+            src={item.img}
+            alt={item.text}
+            className="w-full h-[55vh] md:h-[65vh] object-contain rounded-2xl shadow-lg bg-black"
+          />
+        </div>
+
+        {/* Text / Detail */}
+        <div className="md:w-1/2 w-full flex flex-col justify-center bg-gradient-to-br from-gray-900/70 to-gray-800/60 backdrop-blur-md p-6 rounded-2xl shadow-lg">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3">
+            {item.text}
+          </h3>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+            {item.description}
+          </p>
         </div>
       </div>
     ))}
   </div>
-
-  {/* Motivational Section */}
-  <div className="mt-6 sm:mt-10 text-center max-w-[90vw] sm:max-w-[60vw] mx-auto">
-    <p className="text-xs sm:text-sm text-gray-300 mb-2">
-      Every stroke of a brush and every sketch on paper tells a story of imagination, patience, and passion. Art is not just a visual experience—it’s a reflection of the artist’s soul. Keep exploring, keep creating, and let your unique vision inspire the world.  
-    </p>
-    <p className="text-xs sm:text-sm text-gray-100 font-semibold">— Abhishek Vats</p>
-  </div>
 </div>
+
 
 
     </section>
