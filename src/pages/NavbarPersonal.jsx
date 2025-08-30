@@ -98,16 +98,18 @@ export default function NavbarPersonal() {
       )}
 
       {/* Desktop Top Bar (unchanged) */}
-      {/* Desktop Top Bar (glassmorphic 3D red bottom line) */}
+      {/* Desktop Top Bar (glassmorphic 3D with glowing red bottom line) */}
       {!isOpen && (
         <button
           onClick={openMenu}
           className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 px-6 py-3 w-full 
-                    bg-black/60 backdrop-blur-md 
-                    border-b-4 border-red-600 shadow-[0_2px_15px_rgba(229,9,20,0.7)] 
-                    hover:bg-black transition"
+                    bg-black/40 backdrop-blur-lg relative transition-all duration-300 hover:backdrop-brightness-105"
           aria-label="Open Sidebar"
         >
+          {/* Bottom red line */}
+          <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-600/60 rounded-sm 
+                          transition-all duration-300 hover:shadow-[0_0_8px_rgba(229,9,20,0.8)]"></span>
+
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
             <img
               src="/images/vats29.jpeg"
@@ -118,6 +120,7 @@ export default function NavbarPersonal() {
           <span className="text-white font-semibold text-lg select-none">Portfolio</span>
         </button>
       )}
+
 
 
 
