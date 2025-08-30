@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 
@@ -24,7 +23,6 @@ const BackButton = () => {
       >
         <FaArrowLeft className="text-white text-lg drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)]" />
       </button>
-      {/* Tooltip */}
       <div className="absolute right-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300 w-max max-w-[150px]">
         <div className="bg-white/10 text-white text-sm font-medium px-3 py-1 rounded-lg border border-white/20 backdrop-blur-md">
           Go Back to Home
@@ -35,42 +33,32 @@ const BackButton = () => {
 };
 
 const ProfileImage = () => (
-  <motion.div
-    className="absolute -top-20 sm:-top-24 left-1/2 transform -translate-x-1/2"
-    animate={{ y: [0, -8, 0] }}
-    transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-  >
-    <img src="/images/av2.png" 
-    alt="Profile" 
-    className="w-32 h-32 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover" />
-  </motion.div>
+  <div className="absolute -top-32 sm:-top-32 left-1/2 transform -translate-x-1/2">
+    <img
+  src="/images/av2.png"
+  alt="Profile"
+  className="
+    w-42 h-42        /* Mobile default size */
+    sm:w-42 sm:h-42  /* Small screens */
+    md:w-60 md:h-60  /* Medium screens / Desktop */
+    lg:w-80 lg:h-80  /* Large desktops */
+    rounded-full border-4 border-white shadow-xl object-cover
+  "
+/>
+
+  </div>
 );
 
 const HeroContent = () => (
-  <motion.div
-    className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-14 sm:mt-10 mx-auto"
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
+  <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-14 sm:mt-10 mx-auto">
     <ProfileImage />
-    <div className="mt-24 sm:mt-28 space-y-4 px-2">
-      <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
+    <div className="mt-32 sm:mt-44 space-y-2 px-2">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white">
         Abhishek Vats
-      </motion.h1>
-      <motion.p
-        className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
-      >
+      </h1>
+      <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
         Full Stack Developer | Passionate about building efficient, scalable, and elegant digital solutions that make a real impact.
-      </motion.p>
+      </p>
       <a
         href="https://drive.google.com/file/d/1zwFRaAQrKiFUgj9S9_eiNyV1lxWJzQH0/view?usp=drive_link"
         target="_blank"
@@ -80,7 +68,7 @@ const HeroContent = () => (
         📄 View CV
       </a>
     </div>
-  </motion.div>
+  </div>
 );
 
 const Hero = () => {
@@ -93,9 +81,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section
-      className="relative min-h-screen bg-[url('/images/bg7.avif')] bg-cover bg-center flex flex-col items-center justify-center px-4 pt-32 sm:pt-36"
-    >
+    <section className="relative min-h-screen bg-[url('/images/bg7.avif')] bg-cover bg-center flex flex-col items-center justify-center px-4 pt-32 sm:pt-36">
       <GlassCard visible={showGlassCard} />
       <BackButton />
       <HeroContent />
