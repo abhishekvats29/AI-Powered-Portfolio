@@ -113,7 +113,7 @@ export default function Home() {
         {/* Gradient border */} 
         <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500 opacity-70 blur-sm transition duration-500 group-hover:opacity-100 group-hover:blur-md" /> 
         <div className="relative rounded-[2rem] bg-white/10 p-3 backdrop-blur-xl ring-1 ring-white/20"> 
-         <img src="/images/Profile4.jpeg" 
+         <img src="/images/a5.jpeg" 
          alt="Abhishek Vats" className="h-64 w-64 rounded-2xl object-cover sm:h-72 sm:w-72 md:h-80 md:w-80" /> 
         
          {/* bottom underglow */} 
