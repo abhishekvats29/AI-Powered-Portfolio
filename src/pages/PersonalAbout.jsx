@@ -79,24 +79,24 @@ const About = () => {
             </p>
 
             {/* Instagram Button */}
-{/* Instagram Button */}
-<a
-  href="https://instagram.com/abhishekvats29"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 
-             bg-red-600/20 border border-red-500/40 
-             backdrop-blur-md shadow-[0_4px_20px_rgba(229,9,20,0.6)] 
-             text-white font-medium px-6 py-3 rounded-full 
-             transition-all duration-500 transform hover:scale-105 active:scale-95
-             hover:bg-gradient-to-r hover:from-[#f58529] hover:via-[#dd2a7b] hover:to-[#515bd4]"
->
-  <FaInstagram size={20} className="text-white transition-colors duration-500" />
-  Connect Me
-</a>
-
-
-
+            <a
+              href="https://instagram.com/abhishekvats29"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 
+                        bg-red-600/20 border border-red-500/40 
+                        backdrop-blur-md shadow-[0_4px_20px_rgba(229,9,20,0.6)] 
+                        text-white font-medium px-6 py-3 rounded-full 
+                        transition-all duration-500 transform hover:scale-105 active:scale-95"
+              style={{
+                background: "linear-gradient(to right, #f58529, #dd2a7b, #515bd4)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+              }}
+            >
+              <FaInstagram size={20} className="text-white transition-colors duration-500" />
+              Connect Me
+            </a>
 
 
           </div>

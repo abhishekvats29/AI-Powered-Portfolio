@@ -104,7 +104,7 @@ export default function NavbarPersonal() {
           onClick={openMenu}
           className="hidden md:flex fixed top-0 left-0 z-50 items-center space-x-3 
                     px-6 py-3 w-full bg-light-black/80 backdrop-blur-md 
-                    border-b border-red/40 hover:bg-black transition"
+                    border-b border-white/20 hover:bg-black transition"
           aria-label="Open Sidebar"
         >
           {/* Logo */}
