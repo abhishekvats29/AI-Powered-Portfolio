@@ -33,28 +33,28 @@ const BackButton = () => {
 };
 
 const ProfileImage = () => (
-  <div className="absolute -top-32 sm:-top-32 left-1/2 transform -translate-x-1/2">
+  <div className="flex justify-center w-full -mt-20 sm:absolute sm:left-1/2 sm:-top-32 sm:transform sm:-translate-x-1/2">
     <img
-  src="/images/av2.png"
-  alt="Profile"
-  className="
-    w-56 h-60         /* Mobile: taller rectangle */
-    rounded-md          /* Mobile: subtle rounded corners */
-    sm:w-60 sm:h-60    /* Desktop: square */
-    sm:rounded-full     /* Desktop: fully circular */
-    lg:w-80 lg:h-80    /* Large desktops */
-    border-4 border-white shadow-xl object-cover mx-auto
-  "
-/>
-
-
+      src="/images/av2.png"
+      alt="Profile"
+      className="
+        w-48 h-64     /* Mobile: taller rectangle */
+        rounded-md                      /* Mobile: subtle rounded corners */
+        sm:w-60 sm:h-60                 /* Desktop: fixed size square */
+        sm:rounded-full                 /* Desktop: fully circular */
+        lg:w-80 lg:h-80                 /* Large desktops */
+        border-4 border-white shadow-xl object-cover
+      "
+    />
   </div>
 );
 
+
 const HeroContent = () => (
-  <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-14 sm:mt-10 mx-auto">
+  <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-20 sm:mt-14 mx-auto">
     <ProfileImage />
-    <div className="mt-40 sm:mt-40 space-y-2 px-2">
+    <div className="mt-72 sm:mt-20 space-y-4 px-4">
+
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white">
         Abhishek Vats
       </h1>
