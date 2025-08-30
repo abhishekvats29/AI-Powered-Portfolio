@@ -86,21 +86,38 @@ const About = () => {
               className="inline-flex items-center gap-2 
                         bg-red-600/20 border border-red-500/40 
                         backdrop-blur-md text-white font-medium px-6 py-3 rounded-full 
-                        transition-all duration-500 transform hover:scale-105 active:scale-95 relative overflow-hidden"
+                        transition-all duration-500 transform relative overflow-hidden 
+                        shadow-[0_4px_6px_rgba(229,9,20,0.6)]"
               style={{
-                background: "rgba(229,9,20,0.1)", // default light glass red
+                background: "rgba(229,9,20,0.2)", // default glassy red
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "linear-gradient(to right, #f58529, #dd2a7b, #515bd4)";
+                e.currentTarget.style.animation = "pulseShadow 1.5s infinite alternate";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(229,9,20,0.1)";
+                e.currentTarget.style.background = "rgba(229,9,20,0.2)"; // revert to glassy red
+                e.currentTarget.style.animation = "none"; // stop pulsing
               }}
             >
               <FaInstagram size={20} className="text-white transition-colors duration-500" />
               Connect Me
-            </a>
 
+              {/* Pulse animation */}
+              <style jsx>{`
+                @keyframes pulseShadow {
+                  0% {
+                    box-shadow: 0 4px 6px rgba(229,9,20,0.6);
+                  }
+                  50% {
+                    box-shadow: 0 8px 20px rgba(229,9,20,0.8);
+                  }
+                  100% {
+                    box-shadow: 0 4px 6px rgba(229,9,20,0.6);
+                  }
+                }
+              `}</style>
+            </a>
 
 
           </div>
