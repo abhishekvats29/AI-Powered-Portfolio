@@ -138,27 +138,21 @@ const LifeBeyondCode = () => {
 
       {/* Paintings Section */}
     
-      <div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="mt-32 max-w-6xl mx-auto px-4 sm:px-6"> 
+
         {/* Heading with brush-stroke red bg */}
         <div className="relative w-fit mx-auto mb-8">
         <h2
-  className="text-white text-2xl sm:text-3xl font-bold text-center mb-8 px-10 py-3
-             relative inline-block rounded-lg shadow-lg"
-  style={{
-    background: "linear-gradient(to right, #000000, #f50b17ff 30%, #f90a0aff 70%, #000000)",
-  }}
->
-  Artworks & Expressions
-</h2>
+        className="text-white text-2xl sm:text-3xl font-bold text-center mb-6 px-10 py-3
+                  relative inline-block rounded-lg shadow-lg"
+        style={{
+          background: "linear-gradient(to right, #000000, #f50b17ff 30%, #f90a0aff 70%, #000000)",
+        }}
+      >
+        Artworks & Expressions
+      </h2>
 
-
-
-
-
-
-
-  </div>
-
+        </div>
 
   {/* Paintings list */}
   <div className="space-y-10">
