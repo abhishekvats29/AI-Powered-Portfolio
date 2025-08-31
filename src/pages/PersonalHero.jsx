@@ -97,7 +97,7 @@ const PersonalHero = () => {
       </div>
 
       {/* Signature on right-bottom */}
-      <div className="absolute bottom-8 right-24 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
+      <div className="absolute bottom-8 right-8 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
         — Abhishek Vats
       </div>
 

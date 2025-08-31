@@ -69,16 +69,16 @@ const ChatbotLauncher = () => {
 
           {/* Chat Icon - Circular and Glassmorphic */}
           <button
-  onClick={toggle}
-  className="fixed bottom-[92px] right-4 p-1 rounded-full border border-white/40 bg-white/10 
-             backdrop-blur hover:scale-105 transition z-[9999]"
->
-  <img
-    src="/images/AI2.jpg"
-    alt="Chat Icon"
-    className="w-12 h-12 rounded-full object-cover"
-  />
-</button>
+            onClick={toggle}
+            className="fixed bottom-6 right-4 p-1 rounded-full border border-white/40 bg-white/10 
+                      backdrop-blur hover:scale-105 transition z-[9999]"
+          >
+            <img
+              src="/images/AI2.jpg"
+              alt="Chat Icon"
+              className="w-12 h-12 rounded-full object-cover"
+            />
+          </button>
 
         </div>
       )}
