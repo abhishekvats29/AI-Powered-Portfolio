@@ -48,7 +48,7 @@ Experience it yourself:
 
 ## Screenshots
 
-![Portfolio Screenshot 1](https://github.com/user-attachments/assets/1f2c3c3e-d923-4dd2-9833-a1fef63d61ba)  
+![Portfolio Screenshot 1](https://github.com/user-attachments/assets/683aa960-d4ea-4e5b-b356-4ff95233798e)
 ![Portfolio Screenshot 2](https://github.com/user-attachments/assets/269964eb-8bed-4c82-be59-61e99f3f6ac7)  
 
 ---
