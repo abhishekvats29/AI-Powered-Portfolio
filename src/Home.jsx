@@ -132,31 +132,32 @@ export default function Home() {
           custom={1}
           className="text-center md:text-left"
         >
-          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-            Code Meets Creativity
-          </h1>
-          <p
-            className="text-xs sm:text-lg md:text-xl text-gray-200 mt-4 font-medium 
-                      max-w-2xl mx-auto drop-shadow-md min-h-[60px] sm:min-h-[70px] 
-                      text-center leading-relaxed"
-          >
-            <Typewriter
-              words={[
-                'Living with Passion, Creating with Purpose',
-                'Engineer. Dreamer. Coder - Driven to make tech feel human.',
-                'Building digital experiences with emotion & precision.',
-                'Turning Dreams into Digital Reality',
-                'with cutting-edge technology and engineering excellence',
-                'Innovation in Soul, Software in Mind',
-              ]}
-              loop={Infinity}
-              cursor
-              cursorStyle="|"
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={2200}
-            />
-          </p>
+          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl text-center sm:text-left">
+  Code Meets Creativity
+</h1>
+
+<p
+  className="text-xs sm:text-lg md:text-xl text-gray-200 mt-4 font-medium 
+            max-w-2xl mx-auto drop-shadow-md min-h-[60px] sm:min-h-[70px] 
+            text-center sm:text-left leading-relaxed"
+>
+  <Typewriter
+    words={[
+      'Living with Passion, Creating with Purpose',
+      'Engineer. Dreamer. Coder - Driven to make tech feel human.',
+      'Building digital experiences with emotion & precision.',
+      'Turning Dreams into Digital Reality',
+      'with cutting-edge technology and engineering excellence',
+      'Innovation in Soul, Software in Mind',
+    ]}
+    loop={Infinity}
+    cursor
+    cursorStyle="|"
+    typeSpeed={50}
+    deleteSpeed={30}
+    delaySpeed={2200}
+  />
+</p>
 
 
 
