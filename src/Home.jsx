@@ -138,8 +138,9 @@ export default function Home() {
 
 <p
   className="text-xs sm:text-lg md:text-xl text-gray-200 mt-4 font-medium 
-            max-w-2xl mx-auto drop-shadow-md min-h-[60px] sm:min-h-[70px] 
-            text-center sm:text-left leading-relaxed"
+             max-w-2xl mx-auto drop-shadow-md 
+             min-h-[60px] sm:min-h-[65px] 
+             text-center sm:text-left leading-snug sm:leading-normal"
 >
   <Typewriter
     words={[
