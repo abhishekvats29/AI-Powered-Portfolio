@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  ChevronRight,
-  ChevronLeft,
-  Home,
-  User,
-  Clock,
-  Award,
-  FolderKanban,
-  Wrench,
-  Mail,
-  Github,
-  Linkedin,
-  Download,
-} from "lucide-react";
+  FaHome,
+  FaUser,
+  FaClock,
+  FaAward,
+  FaFolder,
+  FaWrench,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaDownload,
+} from "react-icons/fa";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export default function NavbarProfessional() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +36,9 @@ export default function NavbarProfessional() {
     const onScroll = () => {
       const currentScrollY = window.pageYOffset;
       if (currentScrollY > lastScrollY) {
-        setShowMobileNavbar(true); // show on scroll down
+        setShowMobileNavbar(true);
       } else {
-        setShowMobileNavbar(false); // hide on scroll up
+        setShowMobileNavbar(false);
       }
       lastScrollY = currentScrollY;
     };
@@ -47,21 +46,36 @@ export default function NavbarProfessional() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Brand colors
+  const brandColors = {
+    home: "#ff5733",
+    about: "#2980b9",
+    timeline: "#8e44ad",
+    certifications: "#f1c40f",
+    projects: "#27ae60",
+    skills: "#e67e22",
+    contact: "#c0392b",
+    github: "#171515",
+    linkedin: "#0077b5",
+    download: "#27ae60",
+  };
+
   const navLinks = [
-    { name: "Home", href: "/", icon: <Home size={20} /> },
-    { name: "About", href: "#about", icon: <User size={20} /> },
-    { name: "Timeline", href: "#Timeline", icon: <Clock size={20} /> },
-    { name: "Certifications", href: "#Certifications", icon: <Award size={20} /> },
-    { name: "Projects", href: "#projects", icon: <FolderKanban size={20} /> },
-    { name: "Skills", href: "#skills", icon: <Wrench size={20} /> },
-    { name: "Contact", href: "#contact", icon: <Mail size={20} /> },
+    { name: "Home", href: "/", icon: <FaHome size={20} color={brandColors.home} /> },
+    { name: "About", href: "#about", icon: <FaUser size={20} color={brandColors.about} /> },
+    { name: "Timeline", href: "#Timeline", icon: <FaClock size={20} color={brandColors.timeline} /> },
+    { name: "Certifications", href: "#Certifications", icon: <FaAward size={20} color={brandColors.certifications} /> },
+    { name: "Projects", href: "#projects", icon: <FaFolder size={20} color={brandColors.projects} /> },
+    { name: "Skills", href: "#skills", icon: <FaWrench size={20} color={brandColors.skills} /> },
+    { name: "Contact", href: "#contact", icon: <FaEnvelope size={20} color={brandColors.contact} /> },
   ];
 
   const socialLinks = [
-    { name: "GitHub", href: "https://github.com/abhishekvats29", icon: <Github size={20} /> },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/abhishekvats29", icon: <Linkedin size={20} /> },
-    { name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU", icon: <Download size={20} /> },
-  ];
+  { name: "GitHub", href: "https://github.com/abhishekvats29", icon: <FaGithub size={20} color="white" /> },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/abhishekvats29", icon: <FaLinkedin size={20} color="#0077b5" /> },
+  { name: "Download App", href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU", icon: <FaDownload size={20} color="#27ae60" /> },
+];
+
 
   const handleNavClick = () => {
     if (isMobile) closeMenu();
@@ -72,28 +86,32 @@ export default function NavbarProfessional() {
       {/* Collapsed Sidebar (desktop only) */}
       {!isMobile && !isOpen && (
         <div className="fixed top-0 left-0 h-screen w-16 bg-black/70 backdrop-blur-md z-50 flex flex-col items-center py-4">
-          {/* Logo */}
           <img
             src="/images/profile.jpeg"
             alt="Profile"
             className="w-10 h-10 rounded-full border-2 border-white object-cover mb-6"
           />
 
-          {/* Sidebar links (icons only) */}
           <nav className="flex flex-col gap-6 mt-2 flex-1">
-            <Home className="text-white cursor-pointer" />
-            {/* other icons here */}
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={handleNavClick}
+                className="text-white cursor-pointer hover:scale-110 transition"
+              >
+                {link.icon}
+              </a>
+            ))}
           </nav>
         </div>
       )}
 
-      {/* Floating Button (Desktop, when sidebar closed) */}
-      {/* Floating Button (Desktop, when sidebar closed) */}
-{/* Sidebar Toggle Button (Desktop, visible when sidebar is collapsed) */}
-{!isMobile && !isOpen && (
-  <button
-    onClick={openMenu}
-    className="fixed top-16 left-16 z-[60] 
+      {/* Sidebar Toggle Button (Desktop, when sidebar is collapsed) */}
+      {!isMobile && !isOpen && (
+        <button
+          onClick={openMenu}
+          className="fixed top-16 left-16 z-[60] 
                flex items-center justify-center 
                w-11 h-11 
                bg-white/10 backdrop-blur-xl 
@@ -101,25 +119,21 @@ export default function NavbarProfessional() {
                rounded-xl shadow-lg 
                hover:bg-white/20 hover:scale-105 
                transition-all duration-300 ease-out"
-    aria-label="Open Sidebar"
-  >
-    <ChevronRight size={22} className="text-white drop-shadow" />
-  </button>
-)}
-
-
-
-
-
+          aria-label="Open Sidebar"
+        >
+          <ChevronRight size={22} className="text-white drop-shadow" />
+        </button>
+      )}
 
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-full bg-[#0d1a2d] dark:bg-[#0a1524] backdrop-blur-lg border-r border-blue-800 shadow-lg transform transition-all duration-300 z-50 
-          ${isMobile
-            ? isOpen
-              ? "translate-x-0 w-4/5 max-w-sm"
-              : "-translate-x-full w-4/5 max-w-sm"
-            : isOpen
+          ${
+            isMobile
+              ? isOpen
+                ? "translate-x-0 w-4/5 max-w-sm"
+                : "-translate-x-full w-4/5 max-w-sm"
+              : isOpen
               ? "w-64"
               : "w-16"
           }`}
@@ -193,7 +207,6 @@ export default function NavbarProfessional() {
             )}
           </nav>
 
-          {/* Divider */}
           <hr className="border-blue-700 my-2 mx-3" />
 
           {/* Social Links */}
@@ -253,46 +266,33 @@ export default function NavbarProfessional() {
         </div>
       </aside>
 
-      {/* Mobile Top Mini Header when sidebar closed */}
-      {/* Mobile Top Mini Header (only when sidebar is closed) */}
-{isMobile && !isOpen && (
-  <div
-    className="fixed top-0 left-0 right-0 z-50 bg-[#0d1a2d] border-b border-blue-800 flex items-center justify-between px-4 py-3"
-  >
-    {/* Left Side: Profile + Portfolio (clickable to open sidebar) */}
-    <div
-      className="flex items-center cursor-pointer"
-      onClick={openMenu}
-    >
-      <img
-        src="/images/profile.jpeg"
-        alt="Profile"
-        className="w-10 h-10 rounded-full border-2 border-white object-cover mr-3"
-      />
-      <span className="text-lg font-bold text-white">Portfolio</span>
-    </div>
+      {/* Mobile Top Mini Header */}
+      {isMobile && !isOpen && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-[#0d1a2d] border-b border-blue-800 flex items-center justify-between px-4 py-3">
+          <div className="flex items-center cursor-pointer" onClick={openMenu}>
+            <img
+              src="/images/profile.jpeg"
+              alt="Profile"
+              className="w-10 h-10 rounded-full border-2 border-white object-cover mr-3"
+            />
+            <span className="text-lg font-bold text-white">Portfolio</span>
+          </div>
 
-    {/* Right Side: Hamburger Menu */}
-    <button
-      className="flex flex-col space-y-1.5 cursor-pointer"
-      onClick={openMenu}
-    >
-      <span className="block w-6 h-0.5 bg-white"></span>
-      <span className="block w-6 h-0.5 bg-white"></span>
-      <span className="block w-6 h-0.5 bg-white"></span>
-    </button>
-  </div>
-)}
+          <button
+            className="flex flex-col space-y-1.5 cursor-pointer"
+            onClick={openMenu}
+          >
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+          </button>
+        </div>
+      )}
 
-{/* Overlay for mobile */}
-{isMobile && isOpen && (
-  <div
-    className="fixed inset-0 bg-black/50 z-40"
-    onClick={closeMenu}
-  ></div>
-)}
-
-
+      {/* Overlay for mobile */}
+      {isMobile && isOpen && (
+        <div className="fixed inset-0 bg-black/50 z-40" onClick={closeMenu}></div>
+      )}
     </>
   );
 }

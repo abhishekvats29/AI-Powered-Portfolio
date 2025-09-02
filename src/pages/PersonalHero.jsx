@@ -2,21 +2,21 @@ import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import { loadFull } from 'tsparticles'; // ✅ make sure version matches react-tsparticles
 import { ChevronDown } from 'lucide-react';
 
 const PersonalHero = () => {
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    console.log("tsParticles engine:", engine);
+    await loadFull(engine); // ✅ proper init
   }, []);
 
-  const particlesLoaded = useCallback(async () => {
-    console.log("Particles loaded successfully");
+  const particlesLoaded = useCallback(async (container) => {
+    console.log("Particles loaded successfully", container);
   }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-
       {/* Particle Background */}
       <Particles
         id="tsparticles"
@@ -100,9 +100,6 @@ const PersonalHero = () => {
       <div className="absolute bottom-8 right-8 z-20 text-white text-sm sm:text-base md:text-xl font-[cursive] italic tracking-widest opacity-80">
         — Abhishek Vats
       </div>
-
-      
-
     </section>
   );
 };

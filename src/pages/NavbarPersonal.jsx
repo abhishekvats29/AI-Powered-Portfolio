@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  ChevronRight,
-  ChevronLeft,
-  Home,
-  Image,
-  Palette,
-  Clock,
-  Users,
-  Info,
-  HeartHandshake,
-  Instagram,
-  Twitter,
-  Download,
-  MessageCircle,
-} from "lucide-react";
+  FaHome,
+  FaInfoCircle,
+  FaHandsHelping,
+  FaPalette,
+  FaImages,
+  FaRegClock,
+  FaUsers,
+  FaTwitter,
+  FaWhatsapp,
+  FaDownload,
+} from "react-icons/fa";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function NavbarPersonal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,27 +46,30 @@ export default function NavbarPersonal() {
   };
 
   const navLinks = [
-    { name: "Home", to: "/", icon: <Home size={20} /> },
-    { name: "About", href: "#About", icon: <Info size={20} /> },
-    { name: "Social Work", href: "#social", icon: <HeartHandshake size={20} /> },
-    { name: "Creativity", href: "#creativity", icon: <Palette size={20} /> },
-    { name: "Gallery", href: "#gallery", icon: <Image size={20} /> },
-    { name: "Timeline", href: "#timeline", icon: <Clock size={20} /> },
-    { name: "Connect", href: "#connect", icon: <Users size={20} /> },
+    { name: "Home", to: "/", icon: <FaHome size={20} color="#4cafef" /> },
+    { name: "About", href: "#About", icon: <FaInfoCircle size={20} color="#f39c12" /> },
+    { name: "Social Work", href: "#social", icon: <FaHandsHelping size={20} color="#27ae60" /> },
+    { name: "Creativity", href: "#creativity", icon: <FaPalette size={20} color="#9b59b6" /> },
+    { name: "Gallery", href: "#gallery", icon: <FaImages size={20} color="#e67e22" /> },
+    { name: "Timeline", href: "#timeline", icon: <FaRegClock size={20} color="#16a085" /> },
+    { name: "Connect", href: "#connect", icon: <FaUsers size={20} color="#2980b9" /> },
   ];
 
   const socialLinks = [
-    { name: "Twitter", href: "https://twitter.com/abhishekvats29", icon: <Twitter size={20} /> },
-    
+    {
+      name: "Twitter",
+      href: "https://twitter.com/abhishekvats29",
+      icon: <FaTwitter size={20} color="#1DA1F2" />,
+    },
     {
       name: "WhatsApp",
       href: "https://wa.me/919508721988?text=Hi%20Abhishek%2C%20I%20visited%20your%20portfolio!",
-      icon: <MessageCircle size={20} />,
+      icon: <FaWhatsapp size={20} color="#25D366" />,
     },
     {
       name: "Download App",
       href: "https://drive.google.com/uc?export=download&id=1pnkhvRSO06klV5vFaJYgspghXUBlmDlU",
-      icon: <Download size={20} />,
+      icon: <FaDownload size={20} color="#e74c3c" />,
     },
   ];
 
@@ -80,16 +81,17 @@ export default function NavbarPersonal() {
           {/* Profile + Portfolio (clickable) */}
           <div className="flex items-center cursor-pointer" onClick={openMenu}>
             <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-              <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+              <img
+                src="/images/vats29.jpeg"
+                alt="Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
             <span className="ml-2 text-white font-semibold">Portfolio</span>
           </div>
 
           {/* Hamburger menu */}
-          <button
-            onClick={openMenu}
-            className="flex flex-col space-y-1.5 cursor-pointer"
-          >
+          <button onClick={openMenu} className="flex flex-col space-y-1.5 cursor-pointer">
             <span className="block w-6 h-0.5 bg-white"></span>
             <span className="block w-6 h-0.5 bg-white"></span>
             <span className="block w-6 h-0.5 bg-white"></span>
@@ -97,8 +99,7 @@ export default function NavbarPersonal() {
         </div>
       )}
 
-      {/* Desktop Top Bar (unchanged) */}
-      {/* Desktop Top Bar (unchanged) */}
+      {/* Desktop Top Bar */}
       {!isOpen && (
         <button
           onClick={openMenu}
@@ -107,7 +108,6 @@ export default function NavbarPersonal() {
                     border-b border-white/20 hover:bg-black transition"
           aria-label="Open Sidebar"
         >
-          {/* Logo */}
           <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
             <img
               src="/images/vats29.jpeg"
@@ -115,30 +115,32 @@ export default function NavbarPersonal() {
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-
-          {/* Text */}
           <span className="text-white font-semibold text-lg select-none">Portfolio</span>
         </button>
       )}
 
-
-
-
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-[#e50914]/80 → border-r border-[#e50914]
+        className={`fixed top-0 left-0 h-full bg-black/80 backdrop-blur-xl border-r border-[#e50914]
          shadow-lg transition-all duration-300 z-40
         ${isOpen ? "w-64" : "w-0 md:w-16"}`}
       >
         <div className="flex flex-col h-full text-red">
           {/* Header: Logo + Collapse */}
-          <div className="flex items-center justify-between px-4 py-4 border-b border-[#e50914]/80 → border-b border-[#e50914]">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-[#e50914]">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full border-2 border-red overflow-hidden">
-                <img src="/images/vats29.jpeg" alt="Logo" className="w-full h-full object-cover rounded-full" />
+                <img
+                  src="/images/vats29.jpeg"
+                  alt="Logo"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-              {isOpen && <span className="text-lg font-extrabold tracking-wide text-[#e50914]">Portfolio</span>}
-
+              {isOpen && (
+                <span className="text-lg font-extrabold tracking-wide text-[#e50914]">
+                  Portfolio
+                </span>
+              )}
             </div>
 
             {isOpen && (
@@ -146,7 +148,6 @@ export default function NavbarPersonal() {
                 onClick={closeMenu}
                 aria-label="Collapse Sidebar"
                 className="text-white p-1 rounded hover:bg-[#e50914]/100"
-
               >
                 <ChevronLeft size={22} />
               </button>
@@ -163,9 +164,6 @@ export default function NavbarPersonal() {
                   transition-all duration-300 ease-in-out 
                   hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
                   hover:backdrop-blur-md"
-
-
-
               >
                 <ChevronRight size={22} />
               </button>
@@ -184,8 +182,6 @@ export default function NavbarPersonal() {
                     transition-all duration-300 ease-in-out 
                     hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
                     hover:backdrop-blur-md"
-
-
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
@@ -204,8 +200,6 @@ export default function NavbarPersonal() {
                     transition-all duration-300 ease-in-out 
                     hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
                     hover:backdrop-blur-md"
-
-
                 >
                   {link.icon}
                   {isOpen && <span>{link.name}</span>}
@@ -219,7 +213,7 @@ export default function NavbarPersonal() {
             )}
           </nav>
 
-          <div className="border-t border-[#e50914]/100 → border-t border-[#e50914]"></div>
+          <div className="border-t border-[#e50914]"></div>
 
           {/* Social Icons */}
           <div className="flex flex-col space-y-2 px-2 mb-4">
@@ -234,8 +228,6 @@ export default function NavbarPersonal() {
                   transition-all duration-300 ease-in-out 
                   hover:text-white hover:bg-red-600/20 hover:border hover:border-red-500/40 
                   hover:backdrop-blur-md"
-
-
               >
                 {link.icon}
                 {isOpen && <span>{link.name}</span>}
@@ -260,9 +252,8 @@ export default function NavbarPersonal() {
               >
                 <div
                   className={`w-3 h-3 rounded-full bg-[#e50914] shadow-md transform transition-transform duration-300 ${
-                  darkMode ? "translate-x-5" : "translate-x-0"
+                    darkMode ? "translate-x-5" : "translate-x-0"
                   }`}
-
                 ></div>
               </button>
             </div>
@@ -270,12 +261,9 @@ export default function NavbarPersonal() {
         </div>
       </aside>
 
-      {/*  Overlay for mobile */}
+      {/* Overlay for mobile */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={closeMenu}
-        ></div>
+        <div className="fixed inset-0 bg-black/50 z-30 md:hidden" onClick={closeMenu}></div>
       )}
     </>
   );
