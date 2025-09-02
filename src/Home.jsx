@@ -160,12 +160,10 @@ export default function Home() {
   />
 </p>
 
+<p className="mt-0 md:-mt-3 text-sm text-white/70">
+  Engineer • Artist • Storyteller — Driven to make tech feel human.
+</p>
 
-
-
-          <p className="mt-0 text-sm text-white/70">
-            Engineer • Artist • Storyteller — Driven to make tech feel human.
-          </p>
 
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
             <Link
