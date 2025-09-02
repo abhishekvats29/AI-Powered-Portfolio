@@ -162,7 +162,7 @@ export default function Home() {
 
 
 
-          <p className="mt-2 text-sm text-white/70">
+          <p className="mt-0 text-sm text-white/70">
             Engineer • Artist • Storyteller — Driven to make tech feel human.
           </p>
 
