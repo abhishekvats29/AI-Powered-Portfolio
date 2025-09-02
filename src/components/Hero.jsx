@@ -93,7 +93,7 @@ const ProfileImage = () => (
 
 
 const HeroContent = () => (
-  <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-10 sm:mt-28 mx-auto"
+  <div className="relative bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-6 sm:p-10 w-full max-w-3xl shadow-xl text-center mt-2 sm:mt-28 mx-auto"
 >
 
     <ProfileImage />
