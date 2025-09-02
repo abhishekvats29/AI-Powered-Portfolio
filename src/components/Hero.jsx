@@ -33,22 +33,63 @@ const BackButton = () => {
 };
 
 const ProfileImage = () => (
-  <div className="flex justify-center w-full -mt-20 sm:absolute sm:left-1/2 sm:-top-32 sm:transform sm:-translate-x-1/2">
-    <img
-      src="/images/av2.png"
-      alt="Profile"
-      className="
-        w-48 h-64     /* Mobile: taller rectangle */
-        rounded-md                      /* Mobile: subtle rounded corners */
-        sm:w-60 sm:h-60                 /* Desktop: fixed size square */
-        sm:rounded-full                 /* Desktop: fully circular */
-        lg:w-80 lg:h-80                 /* Large desktops */
-        
-        border-4 border-white shadow-xl object-cover
-      "
-    />
-  </div>
+  <>
+    <style>
+      {`
+        /* Gradient shimmer animation */
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* Breathing glow effect */
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 25px rgba(59,130,246,0.6), 0 0 60px rgba(59,130,246,0.3), inset 0 0 10px rgba(255,255,255,0.3); }
+          50% { box-shadow: 0 0 40px rgba(59,130,246,0.9), 0 0 80px rgba(59,130,246,0.4), inset 0 0 15px rgba(255,255,255,0.5); }
+        }
+
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 10s ease infinite;
+        }
+
+        .animate-pulse-glow {
+          animation: pulse-glow 6s ease-in-out infinite;
+        }
+      `}
+    </style>
+
+    <div className="flex justify-center w-full -mt-20 sm:absolute sm:left-1/2 sm:-top-32 sm:transform sm:-translate-x-1/2">
+      {/* Soft glowing + inner glass aura */}
+      <div
+        className="relative rounded-3xl sm:rounded-full
+                   animate-gradient animate-pulse-glow
+                   bg-gradient-to-tr from-sky-400/40 via-blue-500/30 to-indigo-600/40
+                   backdrop-blur-2xl
+                   p-[2px] sm:p-[3px]
+        "
+      >
+        <img
+          src="/images/av2.png"
+          alt="Profile"
+          className="
+            w-56 h-64                /* Mobile */
+            rounded-2xl              
+            sm:w-60 sm:h-60          /* Desktop */
+            sm:rounded-full          
+            lg:w-80 lg:h-80          /* Large */
+            border border-white/20 shadow-xl object-cover
+          "
+        />
+      </div>
+    </div>
+  </>
 );
+
+
+
+
 
 
 const HeroContent = () => (
@@ -56,7 +97,7 @@ const HeroContent = () => (
 >
 
     <ProfileImage />
-    <div className="mt-72 sm:mt-20 space-y-4 px-2">
+    <div className="mt-10 sm:mt-20 space-y-4 px-2">
 
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white">
         Abhishek Vats

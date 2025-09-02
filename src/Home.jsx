@@ -135,15 +135,19 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
             Code Meets Creativity
           </h1>
-          <p className="text-sm sm:text-lg md:text-xl text-gray-200 mt-4 font-medium max-w-2xl mx-auto drop-shadow-md">
+          <p
+            className="text-xs sm:text-lg md:text-xl text-gray-200 mt-4 font-medium 
+                      max-w-2xl mx-auto drop-shadow-md min-h-[60px] sm:min-h-[70px] 
+                      text-center leading-relaxed"
+          >
             <Typewriter
               words={[
-                  'Living with Passion, Creating with Purpose',
-                  'Engineer. Dreamer. Coder - Driven to make tech feel human.',
-                  'Building digital experiences with emotion & precision.',
-                  'Turning Dreams into Digital Reality',
-                  'with cutting-edge technology and engineering excellence',
-                  'Innovation in Soul, Software in Mind',
+                'Living with Passion, Creating with Purpose',
+                'Engineer. Dreamer. Coder - Driven to make tech feel human.',
+                'Building digital experiences with emotion & precision.',
+                'Turning Dreams into Digital Reality',
+                'with cutting-edge technology and engineering excellence',
+                'Innovation in Soul, Software in Mind',
               ]}
               loop={Infinity}
               cursor

@@ -61,37 +61,43 @@ const AppShowcase = () => {
       rounded-2xl bg-[rgba(10,25,47,0.65)] backdrop-blur-lg shadow-2xl px-4 sm:px-6 py-6 sm:py-8 
       border border-white/20"
     >
-      {/* Images Row */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 w-full">
-  {/* First image - float up/down + 3D tilt on hover */}
-  <img
-    src="/images/app8.png"
-    alt="App Screen 2"
-    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
-               object-contain drop-shadow-2xl rounded-xl
-               [animation:float1_6s_ease-in-out_infinite]
-               transition-transform duration-500 hover:[transform:rotateX(8deg)_rotateY(-8deg)_scale(1.05)]"
-  />
+     {/* Images Row */}
+<div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 w-full">
+  {/* Wrapper for first two images (side by side on mobile) */}
+  <div className="flex flex-row md:flex-row justify-center items-center gap-4 md:gap-6">
+    {/* First image - float up/down + 3D tilt on hover */}
+    <img
+      src="/images/app8.png"
+      alt="App Screen 2"
+      className="h-36 w-36 sm:h-44 sm:w-44 md:h-64 md:w-64 lg:h-72 lg:w-72
+                 object-contain drop-shadow-2xl rounded-xl
+                 [animation:float1_6s_ease-in-out_infinite]
+                 transition-transform duration-500 hover:[transform:rotateX(8deg)_rotateY(-8deg)_scale(1.05)]"
+    />
 
-  {/* Second image - stable + 3D tilt on hover */}
-  <img
-    src="/images/app9.png"
-    alt="App Screen 3"
-    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
-               object-contain drop-shadow-2xl rounded-xl
-               transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
-  />
+    {/* Second image - stable + 3D tilt on hover */}
+    <img
+      src="/images/app9.png"
+      alt="App Screen 3"
+      className="h-36 w-36 sm:h-44 sm:w-44 md:h-64 md:w-64 lg:h-72 lg:w-72
+                 object-contain drop-shadow-2xl rounded-xl
+                 transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
+    />
+  </div>
 
-  {/* Third image - float opposite + 3D tilt on hover */}
-  <img
-    src="/images/app5.png"
-    alt="App Screen 4"
-    className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72
-               object-contain drop-shadow-2xl rounded-xl
-               [animation:float2_6s_ease-in-out_infinite]
-               transition-transform duration-500 hover:[transform:rotateX(-8deg)_rotateY(8deg)_scale(1.05)]"
-  />
+  {/* Third image - larger + float opposite + 3D tilt on hover */}
+  <div className="flex justify-center w-full md:w-auto mt-4 md:mt-0">
+    <img
+      src="/images/app5.png"
+      alt="App Screen 4"
+      className="h-44 w-44 sm:h-52 sm:w-52 md:h-64 md:w-64 lg:h-72 lg:w-72
+                 object-contain drop-shadow-2xl rounded-xl
+                 [animation:float2_6s_ease-in-out_infinite]
+                 transition-transform duration-500 hover:[transform:rotateX(-8deg)_rotateY(8deg)_scale(1.05)]"
+    />
+  </div>
 </div>
+
 
 
 
@@ -153,13 +159,13 @@ const AppShowcase = () => {
         }
 
         @keyframes float1 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-  @keyframes float2 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(15px); }
-  }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-15px); }
+        }
+        @keyframes float2 {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(15px); }
+        }
       `}</style>
     </section>
   );
