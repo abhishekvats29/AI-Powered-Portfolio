@@ -64,7 +64,7 @@ const AppShowcase = () => {
   {/* Images Row */}
   <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 w-full">
     
-    {/* ✅ Mobile layout */}
+    {/* Mobile layout */}
     <div className="flex flex-col md:hidden justify-center items-center gap-4 w-full">
       <div className="flex flex-row justify-center items-center gap-4">
         {/* First image */}
@@ -100,7 +100,7 @@ const AppShowcase = () => {
       </div>
     </div>
 
-    {/* ✅ Desktop layout */}
+    {/* Desktop layout */}
     <div className="hidden md:flex flex-row justify-center items-center gap-6">
       {/* First image */}
       <img
