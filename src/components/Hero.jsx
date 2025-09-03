@@ -55,7 +55,7 @@ const ProfileImage = () => (
             rounded-2xl              
             sm:w-60 sm:h-60          /* Desktop */
             sm:rounded-full          
-            lg:w-80 lg:h-80          /* Large */
+            lg:w-72 lg:h-72          /* Large */
             object-cover
           "
         />
