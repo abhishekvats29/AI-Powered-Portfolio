@@ -64,7 +64,7 @@ const AppShowcase = () => {
   {/* Images Row */}
   <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 w-full">
     
-    {/* ✅ Mobile layout (as is) */}
+    {/* ✅ Mobile layout */}
     <div className="flex flex-col md:hidden justify-center items-center gap-4 w-full">
       <div className="flex flex-row justify-center items-center gap-4">
         {/* First image */}
@@ -88,19 +88,19 @@ const AppShowcase = () => {
         />
       </div>
 
-      {/* Second image centered below */}
+      {/* Second image below (slightly larger on mobile) */}
       <div className="flex justify-center w-full mt-4">
         <img
           src="/images/app9.png"
           alt="App Screen 3"
-          className="h-44 w-44 sm:h-52 sm:w-52
+          className="h-52 w-52 sm:h-60 sm:w-60
                      object-contain drop-shadow-2xl rounded-xl
                      transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
         />
       </div>
     </div>
 
-    {/* ✅ Desktop layout (just swap 2nd and 3rd) */}
+    {/* ✅ Desktop layout */}
     <div className="hidden md:flex flex-row justify-center items-center gap-6">
       {/* First image */}
       <img
@@ -112,7 +112,16 @@ const AppShowcase = () => {
                    transition-transform duration-500 hover:[transform:rotateX(8deg)_rotateY(-8deg)_scale(1.05)]"
       />
 
-      {/* Third image comes in second place */}
+      {/* Second image (middle, slightly larger on desktop) */}
+      <img
+        src="/images/app9.png"
+        alt="App Screen 3"
+        className="h-72 w-72 lg:h-80 lg:w-80
+                   object-contain drop-shadow-2xl rounded-xl
+                   transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
+      />
+
+      {/* Third image */}
       <img
         src="/images/app5.png"
         alt="App Screen 4"
@@ -121,18 +130,8 @@ const AppShowcase = () => {
                    [animation:float2_6s_ease-in-out_infinite]
                    transition-transform duration-500 hover:[transform:rotateX(-8deg)_rotateY(8deg)_scale(1.05)]"
       />
-
-      {/*  Second image moves to third place */}
-      <img
-        src="/images/app9.png"
-        alt="App Screen 3"
-        className="h-64 w-64 lg:h-72 lg:w-72
-                   object-contain drop-shadow-2xl rounded-xl
-                   transition-transform duration-500 hover:[transform:rotateX(6deg)_rotateY(6deg)_scale(1.05)]"
-      />
     </div>
   </div>
-
 
 
 
