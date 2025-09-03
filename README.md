@@ -50,7 +50,7 @@ Experience it yourself:
 
 ## Screenshots
 
-![Portfolio Screenshot 2](https://github.com/user-attachments/assets/269964eb-8bed-4c82-be59-61e99f3f6ac7)  
+![Portfolio Screenshot 2](https://github.com/user-attachments/assets/b5d83411-33e3-4c7d-ae08-3f69b8928a8d)
 
 ---
 
