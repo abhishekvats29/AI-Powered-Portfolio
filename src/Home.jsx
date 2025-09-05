@@ -339,7 +339,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-center text-xl font-bold">Life Beyond Code</h3>
                   <p className="mt-2 text-center text-sm text-white/90">
-                    Explore my cinematic journey, artworks, emotions, and more.
+                    Explore my cinematic journey, artworks, socialworks, and more.
                   </p>
 
                   {/* image mock (optional) */}

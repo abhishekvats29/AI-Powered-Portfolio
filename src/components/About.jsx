@@ -22,19 +22,19 @@ const About = () => {
           {/* Left - Text */}
           <div className="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
             <p>
-              I'm <span className="font-semibold text-white">Abhishek Vats</span>, a passionate Full Stack Developer who thrives on
-              transforming ideas into scalable, impactful solutions.
+            I'm <span className="font-semibold text-white">Abhishek Vats</span>, a dedicated Software Developer and AI & Chatbot Enthusiast, passionate about turning ideas into scalable and impactful solutions.  
             </p>
             <p>
-              With a strong foundation in both frontend and backend development, I specialize in building seamless,
-              high-performance applications.
+              With a solid foundation in both frontend and backend development, I focus on crafting seamless, high-performance applications that deliver real value.  
+            </p>
+
+            <p>
+              I’m deeply inspired by technology and the transformative impact it creates in the world.  
             </p>
             <p>
-              Technology excites me and I’m always in awe of the change it drives in the world.
+              With a balance of technical expertise and creativity, I strive to deliver clean, user-friendly designs that drive meaningful innovation.  
             </p>
-            <p>
-              I blend technical expertise with creativity, focusing on clean design, usability, and purposeful innovation.
-            </p>
+
 
             {/* LinkedIn Button */}
             <a

@@ -80,7 +80,7 @@ const HeroContent = () => (
         Abhishek Vats
       </h1>
       <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-        Full Stack Developer | Passionate about building efficient, scalable, and elegant digital solutions that make a real impact.
+        Software Developer | Passionate about building efficient, scalable, and elegant digital solutions that make a real impact.
       </p>
       <a
         href="https://drive.google.com/file/d/1zwFRaAQrKiFUgj9S9_eiNyV1lxWJzQH0/view?usp=drive_link"
