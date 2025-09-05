@@ -7,6 +7,9 @@ import {
   FaGitAlt,
   FaGithub,
   FaPython,
+  FaRobot,
+  FaComments,
+  FaDatabase,
 } from 'react-icons/fa';
 import {
   SiJavascript,
@@ -42,12 +45,17 @@ const skillData = [
     ],
   },
   {
-    title: 'Database',
-    skills: [
-      { icon: <SiMysql className="text-blue-600" />, name: 'MySQL' },
-      { icon: <SiSqlite className="text-gray-400" />, name: 'SQLite' },
-    ],
-  },
+  title: 'Database',
+  skills: [
+    { icon: <SiMysql className="text-blue-600" />, name: 'MySQL' },
+    { icon: <SiSqlite className="text-gray-400" />, name: 'SQLite' },
+
+    // 🔹 Vector Database Section (separate line, side by side)
+    { icon: <span className="text-purple-400 text-xl">🧩</span>, name: 'Pinecone (Vector DB)' },
+  ],
+},
+  
+  
   {
     title: 'Tools & Deployment',
     skills: [
@@ -59,11 +67,24 @@ const skillData = [
       { icon: <SiNetlify className="text-green-400" />, name: 'Netlify' },
     ],
   },
+  {
+    title: 'AI & Chatbots',
+    skills: [
+      { icon: <FaComments className="text-white-500" />, name: 'ChatGPT' },
+      { icon: <FaComments className="text-orange-500" />, name: 'Claude' },
+      { icon: <FaRobot className="text-indigo-500" />, name: 'Cursor' },
+      { icon: <FaRobot className="text-green-500" />, name: 'OpenAI GPT APIs' },
+      { icon: <FaGithub className="text-blue-500" />, name: 'GitHub Copilot' },
+    ],
+  },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden">
+    <section
+      id="skills"
+      className="relative py-20 px-6 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white overflow-hidden"
+    >
       <div className="max-w-3xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 tracking-wider">
           Tech Stack & Tools
