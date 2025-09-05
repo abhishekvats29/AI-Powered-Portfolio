@@ -23,7 +23,7 @@ const About = () => {
           <div className="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
             <p>
             I'm <span className="font-semibold text-white">Abhishek Vats</span>, a dedicated Software Developer and AI & Chatbot Enthusiast, passionate about turning ideas into scalable and impactful solutions.  
-            </p>
+            </p> 
             <p>
               With a solid foundation in both frontend and backend development, I focus on crafting seamless, high-performance applications that deliver real value.  
             </p>

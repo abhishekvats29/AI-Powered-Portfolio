@@ -81,7 +81,7 @@ const HeroContent = () => (
       </h1>
       <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto">
         Software Developer | Passionate about building efficient, scalable, and elegant digital solutions that make a real impact.
-      </p>
+      </p> 
       <a
         href="https://drive.google.com/file/d/1zwFRaAQrKiFUgj9S9_eiNyV1lxWJzQH0/view?usp=drive_link"
         target="_blank"
