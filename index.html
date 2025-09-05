@@ -1,49 +1,77 @@
 <!doctype html>
 <html lang="en">
   <head>
-
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
-
     <meta charset="UTF-8" />
+
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Abhishek Vats | Code Meets Creativity</title>
     <link rel="icon" type="image/jpeg" href="/images/profile3.png" />
 
-    <!--meta seo-->
-    <title>Abhishek Vats | Code Meets Creativity</title>
-    <meta name="description" content="I'm Abhishek Vat, a Full Stack Developer where code meets creativity. I build fast, scalable, and visually engaging web applications using React, Node.js, MongoDB, and more." />
-
-
-
-
-    <!-- Basic SEO -->
-    <meta name="description" content="Explore the personal and professional journey of Abhishek Vats — a passionate Full Stack Developer blending creativity and technology." />
-    <meta name="keywords" content="Abhishek Vats, Full Stack Developer, Portfolio, React, Tailwind CSS, Flask, FastAPI, Web Developer" />
+    <!-- SEO Meta -->
+    <meta name="description" content="Portfolio of Abhishek Vats – Full Stack Developer & AI Enthusiast. Explore projects in Web Development, AI, Data Science, and creative coding." />
+    <meta name="keywords" content="Abhishek Vats, Portfolio, Full Stack Developer, AI, Web Developer, React, Tailwind CSS, Node.js, MongoDB, Data Science" />
     <meta name="author" content="Abhishek Vats" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Abhishek Vats | Full Stack Developer" />
-    <meta property="og:description" content="Check out my projects, skills, and creative work in a modern portfolio." />
-    <meta property="og:image" content="/image/profile.jpeg" />
-    <meta property="og:url" content="https://fanciful-lamington-24e1cd.netlify.app/" />
+    <meta property="og:title" content="Abhishek Vats | Code Meets Creativity" />
+    <meta property="og:description" content="Portfolio of Abhishek Vats – Software Engineer & AI Enthusiast. Explore projects, blogs, and achievements." />
+    <meta property="og:url" content="https://www.abhishekvats.dev" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/preview.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Abhishek Vats | Full Stack Developer" />
     <meta name="twitter:description" content="Explore my portfolio — a fusion of code and creativity." />
-    <meta name="twitter:image" content="/image/profile.jpeg" />
+    <meta name="twitter:image" content="/images/preview.png" />
 
-
-    <!-- Google Font (Optional but clean) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
-    <!-- Tailwind CSS CDN (for fallback if needed) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Prevent desktop zoom or scaling issues */
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%; /* iOS text scaling fix */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
   </head>
+
   <body class="bg-[#0d1a2d] text-white font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abhishek Vats",
+      "url": "https://www.abhishekvats.dev",
+      "image": "https://www.abhishekvats.dev/images/profile.jpg",
+      "jobTitle": "Software Engineer | AI & Data Science Enthusiast",
+      "description": "Portfolio of Abhishek Vats – Software Engineer passionate about AI, fullstack development, Data Science, and Web Development.",
+      "sameAs": [
+        "https://www.linkedin.com/in/abhishekvats29",
+        "https://github.com/abhishekvats29",
+        "https://twitter.com/abhishekvats29"
+      ]
+    }
+    </script>
   </body>
 </html>
