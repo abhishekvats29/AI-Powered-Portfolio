@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 const images = [
+  { src: "vats21.jpeg", caption: "Selfie Days" },
+  { src: "vats15.jpeg", caption: "Selfie Days" },
   { src: "vats11.jpeg", caption: "Worship Days" },
   { src: "vats2.jpeg", caption: "Selfie time" },
   { src: "vats3.jpeg", caption: "Mirror moment" },

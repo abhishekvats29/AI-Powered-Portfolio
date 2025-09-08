@@ -101,9 +101,9 @@ const About = () => {
           {/* Right - Image */}
           <div className="flex justify-center">
             <img
-              src="/images/vats4.jpeg"
+              src="/images/vats21.jpeg"
               alt="Abhishek Vats"
-              className="w-40 sm:w-48 md:w-52 rounded-xl border-4 border-white/20 shadow-lg object-cover"
+              className="w-40 sm:w-48 md:w-64 rounded-xl border-4 border-white/20 shadow-lg object-cover"
             />
           </div>
         </div>
