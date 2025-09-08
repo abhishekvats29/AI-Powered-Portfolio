@@ -110,46 +110,39 @@ export default function Home() {
   variants={fadeUp}
   className="flex justify-center md:justify-start"
 >
-  <div
-    className="group relative rounded-[2rem] p-[12px] w-fit
-               bg-gradient-to-tr from-white/40 via-pink-200/30 to-blue-200/30
-               backdrop-blur-2xl
-               border border-white/30
-               bg-[length:200%_200%] animate-[gradient_12s_ease_infinite]
-               shadow-[0_10px_40px_rgba(0,0,0,0.25)]
-               transition-all duration-500 ease-out
-               group-hover:shadow-[0_0_25px_rgba(255,255,255,0.4),0_12px_45px_rgba(0,0,0,0.3)]"
-  >
-    {/* Glass container */}
+  {/* Outer container with gradient border */}
+  <div className="group relative rounded-[2rem] p-[2px]">
+    
+    {/* Gradient border layer */}
     <div
-      className="relative rounded-[2rem] 
-                 bg-white/20 backdrop-blur-3xl
-                 shadow-inner
-                 w-full h-full overflow-hidden"
+      className="absolute inset-0 -z-10 rounded-[2rem]
+                 bg-gradient-to-br from-blue-400 via-pink-400 to-fuchsia-500
+                 opacity-70 blur-sm transition duration-500
+                 group-hover:opacity-100 group-hover:blur-md"
+    />
+    
+    {/* Inner content box */}
+    <div
+      className="relative rounded-[2rem] bg-white/10 p-3
+                 backdrop-blur-xl ring-1 ring-white/20"
     >
-      {/* Gloss highlight */}
-      <div className="absolute inset-0 rounded-[2rem]
-                      bg-gradient-to-t from-white/25 to-transparent
-                      opacity-70 pointer-events-none" />
-
-      {/* Image */}
+      {/* Profile Image */}
       <img
         src="/images/a5.jpeg"
         alt="Abhishek Vats"
-        className="h-64 w-64 sm:h-72 sm:w-72 md:h-80 md:w-80 
-                   rounded-[1.5rem] object-cover relative z-10"
+        className="h-64 w-64 rounded-2xl object-cover
+                   sm:h-72 sm:w-72 md:h-80 md:w-80"
+      />
+
+      {/* Bottom underglow effect */}
+      <div
+        className="pointer-events-none absolute inset-x-6 -bottom-4
+                   h-8 blur-2xl rounded-full bg-blue-500/30"
       />
     </div>
   </div>
 </motion.div>
 
-<style jsx>{`
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-`}</style>
 
 
 
