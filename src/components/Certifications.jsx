@@ -4,6 +4,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const certifications = [
   {
+    title: "Software Engineer Intern Certification",
+    image: "/certificate/software engineer intern.png",
+    pdf: "https://drive.google.com/file/d/1r4MhzsNkhV-NzzFvMXZlaYYN09Whj344/view?usp=drive_link",
+  },
+  {
     title: "AWS Training & Certification",
     image: "/certificate/AWS Certificate.png",
     pdf: "https://drive.google.com/file/d/1ycZ_DxQuNMCFO86KYfxttKIkx2PjIMKc/view?usp=drive_link",
