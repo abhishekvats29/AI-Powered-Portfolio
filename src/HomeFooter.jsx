@@ -84,9 +84,10 @@ export default function HomeFooter() {
         </div>
 
         {/* Footer Text */}
-        <p className="text-white/70 text-base sm:text-lg mt-2">
+        <p className="text-white/70 text-base sm:text-lg mt-2 mb-20 sm:mb-0">
           © {new Date().getFullYear()} — Designed & Developed by Abhishek Vats. All rights reserved.
         </p>
+
       </div>
     </footer>
   );
